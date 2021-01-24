@@ -2,11 +2,12 @@
   <!-- THIS IS TODO LIST-->
   <div>
     <InputText
-      v-model="newFriend"
+      v-model="newFriendName"
       placeholder="add a friend here!"
       @keydown.enter="addFriend"
     />
 
+    <h2>Split between</h2>
     <!--friends is arr that contains all friend data-->
     <ul v-if="friends.length">
       <!-- friend is variable declared locally

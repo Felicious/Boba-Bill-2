@@ -1,9 +1,9 @@
 <template>
-  <!-- THIS IS TODO LIST ITEM-->
-  <li>
-    <input type="checkbox" id="checkbox" v-model="checked" />
+  <!-- THIS DISPLAYS THE LIST OF FRIENDS-->
+  <p>
+    <input type="checkbox" id="checkbox" v-model="splitPpl" />
     <label for="checkbox">{{ name.text }}</label>
-  </li>
+  </p>
 </template>
 
 <script>
