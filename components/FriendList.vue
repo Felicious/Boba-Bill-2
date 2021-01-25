@@ -7,9 +7,9 @@
       @keydown.enter="addFriend"
     />
 
-    <h2>Split between</h2>
     <!--friends is arr that contains all friend data-->
     <ul v-if="friends.length">
+      <h2>Split between</h2>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
       <Friend v-for="friend in friends" :key="friend.id" :name="friend" />

@@ -1,9 +1,10 @@
 <template>
   <!-- THIS DISPLAYS THE LIST OF FRIENDS-->
-  <p>
+  <div>
     <input type="checkbox" id="checkbox" v-model="splitPpl" />
     <label for="checkbox">{{ name.text }}</label>
-  </p>
+  </div>
+  <!--Q: div or p looks better? -->
 </template>
 
 <script>
@@ -14,6 +15,11 @@ export default {
       // TODO: why is this required?
       required: true
     }
+  },
+  data() {
+    return {
+      splitPpl: []
+    };
   }
 };
 </script>
