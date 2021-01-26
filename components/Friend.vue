@@ -1,7 +1,8 @@
 <template>
-  <!-- THIS DISPLAYS THE LIST OF FRIENDS-->
+  <!-- this is the child of FriendList
+     displays each friend in the list-->
   <div>
-    <input type="checkbox" id="checkbox" v-model="splitPpl" />
+    <input type="checkbox" id="checkbox" v-on:click="$emit('select-friend')" />
     <label for="checkbox">{{ name.text }}</label>
   </div>
   <!--Q: div or p looks better? -->
@@ -15,11 +16,6 @@ export default {
       // TODO: why is this required?
       required: true
     }
-  },
-  data() {
-    return {
-      splitPpl: []
-    };
   }
 };
 </script>

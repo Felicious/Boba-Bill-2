@@ -1,5 +1,6 @@
 <template>
-  <!-- THIS IS TODO LIST-->
+  <!-- THIS IS TODO LIST,
+        the parent of Friend.vue-->
   <div>
     <InputText
       v-model="newFriendName"
@@ -12,7 +13,13 @@
       <h2>Split between</h2>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-      <Friend v-for="friend in friends" :key="friend.id" :name="friend" />
+      <Friend
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend"
+        v-on:select-friend="selectedFriends.push(friend.text)"
+      />
+      <p>{{ selectedFriends }}</p>
     </ul>
   </div>
 </template>
@@ -39,7 +46,8 @@ export default {
           id: nextFriendId++,
           text: "Bunbun"
         }
-      ]
+      ],
+      selectedFriends: []
     };
   },
   methods: {
