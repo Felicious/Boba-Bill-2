@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     addFriend() {
-      // TODO: what is this trimmed text for LOL just copying rn
+      // trim removes the "" at both ends of the string
       const trimmedText = this.newFriendName.trim();
       if (trimmedText) {
         this.friends.push({
