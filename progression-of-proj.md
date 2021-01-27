@@ -70,5 +70,6 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 1/26/21 Tues
 
 - writing hella docs for emitting
-- write first issue: realized unchecking the box adds name to friend list
-- begin this journal (:
+- write first issue: realized unchecking the box adds an additional name to friend list when it should remove
+- began this journal (:
+- fixed the issue!! (:

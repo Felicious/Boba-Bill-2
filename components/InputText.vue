@@ -2,6 +2,18 @@
   <input type="text" class="input" :value="value" v-on="listeners" />
 </template>
 
+<!-- TODO: style this input field; just kinda ripped something off the web-->
+<style>
+input {
+  border: 5px solid white;
+  padding: 15px;
+  background: pink;
+  margin: 0 0 10px 0;
+  font: inherit;
+  font-size: smaller;
+}
+</style>
+
 <script>
 // each Friend obj
 export default {
