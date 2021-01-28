@@ -10,15 +10,19 @@
 
     <!--friends is arr that contains all friend data-->
     <ul v-if="friends.length">
-      <h2>Split between</h2>
+      <h2>Friend List</h2>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-      <Friend
-        v-for="friend in friends"
-        :key="friend.id"
-        :name="friend"
-        v-on:select-friend="checkboxHandler(friend)"
+      <Friend v-for="friend in friends" :key="friend.id" :name="friend" />
+
+      <h2>Split Between</h2>
+      <SplitBetw
+        v-for="person in friends"
+        :key="person.id"
+        :name="person"
+        v-on:select-friend="checkboxHandler(person)"
       />
+
       <p>{{ selectedFriends }}</p>
     </ul>
   </div>
@@ -27,12 +31,14 @@
 <script>
 import InputText from "./InputText.vue";
 import Friend from "./Friend.vue";
+import SplitBetw from "./SplitBetw.vue";
 
 let nextFriendId = 1;
 export default {
   components: {
     InputText,
-    Friend
+    Friend,
+    SplitBetw
   },
   data() {
     return {
