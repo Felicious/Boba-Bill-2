@@ -25,6 +25,9 @@
 
       <p>{{ selectedFriends }}</p>
     </ul>
+    <p v-else>
+      Add some friends to the list!
+    </p>
   </div>
 </template>
 

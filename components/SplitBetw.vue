@@ -2,8 +2,12 @@
   <!-- this is the child of FriendList
      displays each friend in the list-->
   <div>
-    <input type="checkbox" id="checkbox" v-on:click="$emit('select-friend')" />
-    <label for="checkbox">{{ name.text }}</label>
+    <input
+      type="checkbox"
+      id="{name.text}"
+      v-on:click="$emit('select-friend')"
+    />
+    <label for="{name.text}">{{ name.text }}</label>
   </div>
   <!--Q: div or p looks better? -->
 </template>
