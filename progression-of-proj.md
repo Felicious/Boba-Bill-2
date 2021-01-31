@@ -73,3 +73,17 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - write first issue: realized unchecking the box adds an additional name to friend list when it should remove
 - began this journal (:
 - fixed the issue!! (:
+
+### 1/27/21 Wed
+
+- Add new feature: entering name saves it in both FriendList that displays a list of friends entered into the app, and checkbox choices to decide who to split between
+
+### 1/28/21 Thurs
+
+- Add [first mockup](https://raw.githubusercontent.com/Felicious/Boba-Bill-2/main/images/mockup/web-view-mockup-1.png); Derrick says the design was too light
+
+### 1/30/21 Sat
+
+- Started designing features again, even if it's ugly
+  - This was hard to do, wanted a cute design before implementing ):
+- Begin Transaction class

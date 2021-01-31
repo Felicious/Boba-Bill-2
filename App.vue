@@ -2,11 +2,14 @@
   <div id="app">
     <h2>Boba Bill</h2>
     <FriendList />
+
+    <TransactionList />
   </div>
 </template>
 
 <script>
 import FriendList from "./components/FriendList.vue";
+import TransactionList from "./components/TransactionList.vue";
 
 export default {
   components: {
@@ -16,9 +19,11 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 #app {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Varela Round", sans-serif;
+  background-color: #fbdec8;
+  color: #1e1a1c;
 }
 h2 {
   text-align: center;
