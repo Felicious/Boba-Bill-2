@@ -87,3 +87,9 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - Started designing features again, even if it's ugly
   - This was hard to do, wanted a cute design before implementing ):
 - Begin Transaction class
+
+### 2/3/21 Wed
+
+- Working on Transaction class, review form submissions
+- Todo: write docs of Taiwan Cafe proj!
+-

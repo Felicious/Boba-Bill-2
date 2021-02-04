@@ -14,16 +14,6 @@
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
       <Friend v-for="friend in friends" :key="friend.id" :name="friend" />
-
-      <h2>Split Between</h2>
-      <SplitBetw
-        v-for="person in friends"
-        :key="person.id"
-        :name="person"
-        v-on:select-friend="checkboxHandler(person)"
-      />
-
-      <p>{{ selectedFriends }}</p>
     </ul>
     <p v-else>
       Add some friends to the list!
@@ -34,14 +24,12 @@
 <script>
 import InputText from "./InputText.vue";
 import Friend from "./Friend.vue";
-import SplitBetw from "./SplitBetw.vue";
 
 let nextFriendId = 1;
 export default {
   components: {
     InputText,
-    Friend,
-    SplitBetw
+    Friend
   },
   data() {
     return {
@@ -55,8 +43,7 @@ export default {
           id: nextFriendId++,
           text: "Bunbun"
         }
-      ],
-      selectedFriends: []
+      ]
     };
   },
   methods: {
@@ -69,23 +56,6 @@ export default {
           text: trimmedText
         });
         this.newFriendName = ""; // clear
-      }
-    },
-    /* @param: instance of friend; {id: someNum, text: "name"}
-     * returns: name of friend added/removed from selectedFriends list
-     */
-    checkboxHandler(friend) {
-      // if name is in list, remove name
-      if (this.selectedFriends.find(element => element === friend.text)) {
-        /* why is it so complicated to remove an item from an array?
-          splice requires 1) index of thing you're removing
-          2) num of things you're removing*/
-        this.selectedFriends.splice(
-          this.selectedFriends.indexOf(friend.text),
-          1
-        );
-      } else {
-        this.selectedFriends.push(friend.text);
       }
     }
   }
