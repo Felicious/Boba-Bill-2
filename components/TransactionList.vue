@@ -2,7 +2,7 @@
   <h2>Transaction</h2>
 
   <form id="transaction" 
-    @submit="checkForm" 
+    @submit="checkForErrors" 
     action="[destination url]" 
     method="post"
   >
@@ -31,7 +31,10 @@
     v-on:select-friend="checkboxHandler(friend)"
   />
 
+  <!--use selected friends to store checked checkbox values-->
   <p>{{ selectedFriends }}</p>
+
+
 
 
 
@@ -72,8 +75,22 @@ export default {
   },
 
   methods: {
-    checkForm: function(e){
-        
+    checkForErrors: function(e){
+      if(this.name && (this.expense > 0) && 
+        (this.ppl.length > 0) && (this.payers.length > 0)) 
+      {
+        return true;
+      }
+
+      this.errors = [];
+
+      if(!this.name) {
+          this.errors.push('Shop name required.');
+      }
+      if(this.expense <= 0){
+          this.errors.push('Congrats! Was your boba on the house bc you look Q today? Go ahead and cancel this transaction bc you can\'t split your charm (;');
+      }
+      if
     }
 
     /* @param: instance of friend; {id: someNum, text: "name"}
