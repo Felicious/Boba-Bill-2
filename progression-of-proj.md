@@ -92,4 +92,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Working on Transaction class, review form submissions
 - Todo: write docs of Taiwan Cafe proj!
--
+
+### 2/4/21 Thurs
+
+- learned about `sync` modifier to achieve a 2 way binding betw parent and child for a checkbox input (something I had trouble with); DELETED bad code ><

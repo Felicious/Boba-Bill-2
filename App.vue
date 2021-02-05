@@ -2,16 +2,19 @@
   <div id="app">
     <h2>Boba Bill</h2>
     <FriendList />
+
+    <TransactionList />
   </div>
 </template>
 
 <script>
 import FriendList from "./components/FriendList.vue";
-//import TransactionList from "./components/TransactionList.vue";
+import TransactionList from "./components/TransactionList.vue";
 
 export default {
   components: {
-    FriendList
+    FriendList,
+    TransactionList
   }
 };
 </script>

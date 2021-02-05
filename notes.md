@@ -53,7 +53,7 @@ To summarize what the example in the Vue docs illustrates, you need to do 4 thin
 4. Include `v-on:...="$emit('...')"` in the HTML element that will communicate a user's response back to the parent (code snippet 5)
    - located in the child component
 
-#### instances of emitting in my code
+#### Emitting (obsolete but simple ex. nonetheless)
 
 Long after this project is over, I might forget how exactly I emitted information from the Child component back to the parent, so I'll show code snippets of my code as examples for each of the numbered parts I explained in the section above.
 
@@ -90,7 +90,7 @@ export default {
   v-for="friend in friends"
   :key="friend.id"
   :name="friend"
-  v-on:select-friend="selectedFriends.push(friend.text)"
+  v-on:select-friend="checkboxHandler(friend)"
 />
 ```
 
@@ -99,6 +99,34 @@ export default {
 ```html
 <input type="checkbox" id="checkbox" v-on:click="$emit('select-friend')" />
 ```
+
+5. Then, in a class method (which is called by `v-on` modifier in parent), I saved the names of the friends who were checked in this array called `selectedFriends` using this method:
+
+```js
+/* @param: instance of friend; {id: someNum, text: "name"}
+     * returns: name of friend added/removed from selectedFriends list
+     */
+    checkboxHandler(friend) {
+      // if name is in list, remove name
+      if (this.selectedFriends.find(element => element === friend.text)) {
+        /* why is it so complicated to remove an item from an array?
+          splice requires 1) index of thing you're removing
+          2) num of things you're removing*/
+        this.selectedFriends.splice(
+          this.selectedFriends.indexOf(friend.text),
+          1
+        );
+      } else {
+        this.selectedFriends.push(friend.text);
+      }
+    }
+```
+
+#### 2 way binding by emitting
+
+Problem: I had trouble emitting responses to a checkbox because, as u see above, I had to write a function to both save and remove the name from the array, and I felt like Vue should have a way to do all of this easier. This [StackOverFlow post](https://stackoverflow.com/questions/62429355/check-uncheck-a-checkbox-in-a-child-component-with-vuejs) explained that I could achieve this behavior by using the `sync` modifier by achieving a 2-way binding on the parent and child components by using emitting.
+
+### TODO: give example and explantion from own code
 
 ## data as a function?
 
