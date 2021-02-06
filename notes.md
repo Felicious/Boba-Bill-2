@@ -126,6 +126,8 @@ export default {
 
 Problem: I had trouble emitting responses to a checkbox because, as u see above, I had to write a function to both save and remove the name from the array, and I felt like Vue should have a way to do all of this easier. This [StackOverFlow post](https://stackoverflow.com/questions/62429355/check-uncheck-a-checkbox-in-a-child-component-with-vuejs) explained that I could achieve this behavior by using the `sync` modifier by achieving a 2-way binding on the parent and child components by using emitting.
 
+[Using v-model on components](https://vuejs.org/v2/guide/components.html#Using-v-model-on-Components)
+
 ### TODO: give example and explantion from own code
 
 ## data as a function?

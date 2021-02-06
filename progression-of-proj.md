@@ -96,3 +96,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/4/21 Thurs
 
 - learned about `sync` modifier to achieve a 2 way binding betw parent and child for a checkbox input (something I had trouble with); DELETED bad code ><
+
+### 2/5/21 Fri
+
+- finished first draft of `TransactionList`
+- No compilation errors, but the parts that require inheriting arrays from `FriendList` aren't working.
