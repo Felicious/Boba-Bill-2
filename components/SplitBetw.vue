@@ -1,11 +1,12 @@
 <template>
   <!-- this is the child of TransactionList
      displays checkbox next to Friend name-->
-  <div>
-    <input v-model="updateCheckbox" type="checkbox" id="{name.text}" />
-
-    <label for="{name.text}">{{ name.text }}</label>
-  </div>
+  <p>
+    <label for="{name}">
+      <input v-model="updateCheckbox" type="checkbox" :value="friend" />
+      {{ name }}
+    </label>
+  </p>
   <!--Q: div or p looks better? -->
 </template>
 
@@ -15,7 +16,11 @@ export default {
     // return selected checkboxes to selectedFriends
     cats: Array,
     // local re-name of "friend", a Friend obj passed in from parent
-    name: Object
+    name: {
+      type: Object,
+      required: true
+    },
+    friends: Array
   },
   computed: {
     updateCheckbox: {

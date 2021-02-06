@@ -100,4 +100,4 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/5/21 Fri
 
 - finished first draft of `TransactionList`
-- No compilation errors, but the parts that require inheriting arrays from `FriendList` aren't working.
+- No compilation errors, but `SplitBetw` is not displaying the checkboxes; friends seem to be inherited over fine.

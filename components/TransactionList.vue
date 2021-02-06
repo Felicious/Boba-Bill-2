@@ -29,7 +29,7 @@
         v-for="friend in friends"
         :key="friend.id"
         :cats.sync="selectedFriends"
-        :name="friend"
+        :name="friend.text"
       />
 
       <h2>Payers</h2>
@@ -37,7 +37,7 @@
         v-for="friend in friends"
         :key="friend.id"
         :cats.sync="payers"
-        :name="friend"
+        :name="friend.text"
       />
     </form>
 
@@ -88,7 +88,16 @@ export default {
       selectedPayers: [],
 
       // list of friends from FriendList
-      friends: []
+      friends: [
+        {
+          id: 0,
+          text: "Derrick"
+        },
+        {
+          id: 1,
+          text: "Bunbun"
+        }
+      ]
     };
   },
 
