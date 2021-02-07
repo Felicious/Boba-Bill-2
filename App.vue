@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <h2>Boba Bill</h2>
-    <FriendList v-bind:friends="friends" v-bind:initialCounter="nextFriendId" />
+    <FriendList v-bind:friends="friends" />
 
-    <TransactionList friends="friends" />
+    <TransactionList v-bind:friends="friends" />
   </div>
 </template>
 
@@ -11,7 +11,6 @@
 import FriendList from "./components/FriendList.vue";
 import TransactionList from "./components/TransactionList.vue";
 
-let nextFriendId = 1;
 export default {
   components: {
     FriendList,
@@ -20,18 +19,7 @@ export default {
 
   data() {
     return {
-      friends: [
-        {
-          id: nextFriendId++,
-          text: "Derrick"
-        },
-        {
-          id: nextFriendId++,
-          text: "Bunbun"
-        }
-      ],
-
-      nextFriendId
+      friends: ["Derrick", "Bunbun"]
     };
   }
 };

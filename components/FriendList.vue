@@ -15,7 +15,7 @@
       <h2>Friend List</h2>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-      <Friend v-for="friend in friends" :key="friend.text" :name="friend" />
+      <Friend v-for="friend in friends" :key="friend" :name="friend" />
     </ol>
     <p v-else>
       Add some friends to the list!
@@ -27,7 +27,6 @@
 import InputText from "./InputText.vue"; // referencing/using other files or dependencies
 import Friend from "./Friend.vue";
 
-let counter = 0;
 export default {
   // variables accepted from parent
   props: {
@@ -48,10 +47,7 @@ export default {
       // trim removes the "" at both ends of the string
       const trimmedText = this.newFriendName.trim();
       if (trimmedText) {
-        this.friends.push({
-          id: counter++,
-          text: trimmedText
-        });
+        this.friends.push(trimmedText);
         this.newFriendName = ""; // clear
       }
     }

@@ -2,7 +2,7 @@
 <template>
   <!-- this is the child of FriendList
            displays each friend in the list-->
-  <li>{{ name.text }}</li>
+  <li>{{ name }}</li>
   <!--Q: div or p looks better? -->
 </template>
 
@@ -17,7 +17,7 @@ li {
 export default {
   props: {
     name: {
-      type: Object,
+      type: String,
       required: true
     }
   }

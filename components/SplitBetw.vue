@@ -3,7 +3,7 @@
      displays checkbox next to Friend name-->
   <p>
     <label for="{name}">
-      <input v-model="updateCheckbox" type="checkbox" :value="friend" />
+      <input v-model="updateCheckbox" type="checkbox" />
       {{ name }}
     </label>
   </p>
@@ -16,11 +16,11 @@ export default {
     // return selected checkboxes to selectedFriends
     cats: Array,
     // local re-name of "friend", a Friend obj passed in from parent
+
     name: {
       type: Object,
       required: true
-    },
-    friends: Array
+    }
   },
   computed: {
     updateCheckbox: {

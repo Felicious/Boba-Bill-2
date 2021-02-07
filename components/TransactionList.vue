@@ -27,35 +27,36 @@
       <h2>Split Between</h2>
       <SplitBetw
         v-for="friend in friends"
-        :key="friend.id"
+        :key="friend"
+        :name="friend"
         :cats.sync="selectedFriends"
-        :name="friend.text"
       />
 
       <h2>Payers</h2>
       <SplitBetw
         v-for="friend in friends"
-        :key="friend.id"
+        :key="friend"
         :cats.sync="payers"
-        :name="friend.text"
+        :name="friend"
       />
     </form>
 
     <!--use selected friends to store checked checkbox values
 
     NOT SURE IF THIS IS RIGHT PLS CHECK AGAIN + look at Friend class-->
-    <p v-for="friend in selectedFriends" :key="friend.id">{{ friend.text }}</p>
+    <p v-for="friend in selectedFriends" :key="friend">{{ friend }}</p>
   </div>
 </template>
 
 <script>
-import FriendList from "./FriendList.vue";
 import SplitBetw from "./SplitBetw.vue";
 
 let nextShopId = 1;
 export default {
   // variables accepted from parent
-  props: ["friends"],
+  props: {
+    friends: Array
+  },
   components: {
     SplitBetw
 
@@ -89,10 +90,6 @@ export default {
       selectedFriends: [],
       selectedPayers: []
     };
-  },
-
-  mounted() {
-    this.friends = FriendList.friends;
   },
 
   methods: {
