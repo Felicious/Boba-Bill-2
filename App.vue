@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <h2>Boba Bill</h2>
-    <FriendList />
+    <FriendList friends="friends" />
 
-    <TransactionList />
+    <TransactionList :friends="friends" />
   </div>
 </template>
 
@@ -11,11 +11,22 @@
 import FriendList from "./components/FriendList.vue";
 import TransactionList from "./components/TransactionList.vue";
 
+let nextFriendId = 1;
 export default {
   components: {
     FriendList,
     TransactionList
-  }
+  },
+  friends: [
+    {
+      id: nextFriendId++,
+      text: "Derrick"
+    },
+    {
+      id: nextFriendId++,
+      text: "Bunbun"
+    }
+  ]
 };
 </script>
 

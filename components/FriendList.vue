@@ -27,23 +27,17 @@ import Friend from "./Friend.vue";
 
 let nextFriendId = 1;
 export default {
+  // variables accepted from parent
+  props: {
+    friends: Array
+  },
   components: {
     InputText,
     Friend
   },
   data() {
     return {
-      newFriendName: "",
-      friends: [
-        {
-          id: nextFriendId++,
-          text: "Derrick"
-        },
-        {
-          id: nextFriendId++,
-          text: "Bunbun"
-        }
-      ]
+      newFriendName: ""
     };
   },
   methods: {

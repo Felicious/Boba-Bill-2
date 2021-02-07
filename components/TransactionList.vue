@@ -54,6 +54,8 @@ import SplitBetw from "./SplitBetw.vue";
 
 let nextShopId = 1;
 export default {
+  // variables accepted from parent
+  props: ["friends"],
   components: {
     SplitBetw
 
@@ -85,19 +87,7 @@ export default {
 
       // list that stores checked boxes
       selectedFriends: [],
-      selectedPayers: [],
-
-      // list of friends from FriendList
-      friends: [
-        {
-          id: 0,
-          text: "Derrick"
-        },
-        {
-          id: 1,
-          text: "Bunbun"
-        }
-      ]
+      selectedPayers: []
     };
   },
 
