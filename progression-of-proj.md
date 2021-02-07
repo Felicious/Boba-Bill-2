@@ -101,3 +101,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - finished first draft of `TransactionList`
 - No compilation errors, but `SplitBetw` is not displaying the checkboxes; friends seem to be inherited over fine.
+
+### 2/6/21
+
+- Use v-bind to pass properties from parent to child

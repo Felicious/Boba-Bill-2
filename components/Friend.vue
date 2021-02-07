@@ -2,9 +2,7 @@
 <template>
   <!-- this is the child of FriendList
            displays each friend in the list-->
-  <li>
-    {{ name.text }}
-  </li>
+  <li>{{ name.text }}</li>
   <!--Q: div or p looks better? -->
 </template>
 

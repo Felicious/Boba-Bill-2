@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <h2>Boba Bill</h2>
-    <FriendList friends="friends" />
+    <FriendList v-bind:friends="friends" v-bind:initialCounter="nextFriendId" />
 
-    <TransactionList :friends="friends" />
+    <TransactionList friends="friends" />
   </div>
 </template>
 
@@ -17,16 +17,23 @@ export default {
     FriendList,
     TransactionList
   },
-  friends: [
-    {
-      id: nextFriendId++,
-      text: "Derrick"
-    },
-    {
-      id: nextFriendId++,
-      text: "Bunbun"
-    }
-  ]
+
+  data() {
+    return {
+      friends: [
+        {
+          id: nextFriendId++,
+          text: "Derrick"
+        },
+        {
+          id: nextFriendId++,
+          text: "Bunbun"
+        }
+      ],
+
+      nextFriendId
+    };
+  }
 };
 </script>
 
