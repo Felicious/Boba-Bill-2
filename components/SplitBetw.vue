@@ -3,7 +3,12 @@
      displays checkbox next to Friend name-->
   <p>
     <label for="{name}">
-      <input v-model="updateCheckbox" type="checkbox" />
+      <input
+        v-model="updateCheckbox"
+        type="checkbox"
+        id="{name}"
+        :value="{ name }"
+      />
       {{ name }}
     </label>
   </p>
