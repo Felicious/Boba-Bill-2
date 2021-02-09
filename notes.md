@@ -128,9 +128,20 @@ Problem: I had difficulty allowing for the exchange of data between parent and c
 
 I could achieve this behavior by using the `sync` modifier and a getter and setter in the `computed` part of the child component. From [StackOverFlow](https://stackoverflow.com/questions/62429355/check-uncheck-a-checkbox-in-a-child-component-with-vuejs)
 
-To summarize, the following is an example from my code as well as an explanation of what is happening.
+**TL;DR** of what's happening in the code:
 
-1. While passing the array to the child component, an additional `.sync` modifier is used on `cats`, a temporary array that stores the emitted responses from the child. The responses are then safely stored in `selectedFriends`.
+`.sync` is used in the parent component while calling the child, and `cats` is the temporary array that stores the emitted responses from the child. Inside the child's method, the child does (`update:cats`, [info that child component is passing back to the parent]).
+
+```
+< SplitBetw :cats.sync="selectedFriends">
+
+// inside child component, method section:
+this.$emit('update:cats, newValue);
+```
+
+The long explanation, with examples of this phenomenon in my code to follow.
+
+1. While passing the array to the child component, an additional [.sync modifier](https://vuejs.org/v2/guide/components-custom-events.html#sync-Modifier) is used on `cats`, a temporary array that stores the emitted responses from the child. The responses are then safely stored in `selectedFriends`.
 
 ```html
 <SplitBetw

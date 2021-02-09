@@ -19,8 +19,7 @@ input {
 export default {
   props: {
     value: {
-      type: String,
-      default: "Derrick"
+      type: String
     }
   },
   computed: {

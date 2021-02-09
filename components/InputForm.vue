@@ -23,14 +23,16 @@
       v-for="friend in friends"
       :key="friend"
       :name="friend"
-      :cats.sync="selectedFriends"
+      :returnedCheckboxes.sync="selectedFriends"
     />
+
+    {{ selectedFriends }}
 
     <h2>Payers</h2>
     <SplitBetw
       v-for="friend in friends"
       :key="friend"
-      :cats.sync="payers"
+      :returnedCheckboxes.sync="payers"
       :name="friend"
     />
 
@@ -55,13 +57,13 @@ export default {
   data() {
     return {
       errors: [],
-      bill: {
+      
         yourBusnName: "",
         yourExpense: "",
         // list that stores checked boxes
         selectedFriends: [],
         selectedPayers: []
-      }
+      
     };
   },
 
@@ -103,7 +105,7 @@ export default {
   },
   addTransaction() {
     if(this.checkForErrors()) {
-      this.$emit('bill:add-transaction', this.bill);
+      this.$emit('update:add-transaction', this.bill);
     }
   }
 };

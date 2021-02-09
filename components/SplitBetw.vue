@@ -1,5 +1,5 @@
 <template>
-  <!-- this is the child of TransactionList
+  <!-- this is the grand-child of TransactionList
      displays checkbox next to Friend name-->
   <p>
     <label for="{name}">
@@ -19,7 +19,7 @@
 export default {
   props: {
     // return selected checkboxes to selectedFriends
-    cats: Array,
+    returnedCheckboxes: Array,
 
     // local re-name of "friend", a Friend obj passed in from parent
     name: {
@@ -30,10 +30,10 @@ export default {
   computed: {
     updateCheckbox: {
       get() {
-        return this.cats;
+        return this.returnedCheckboxes;
       },
       set(newValue) {
-        this.$emit("update:cats", newValue);
+        this.$emit("update:returnedCheckboxes", newValue);
       }
     }
   }

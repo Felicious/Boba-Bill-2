@@ -6,8 +6,9 @@
     <InputForm
       v-bind:friends="friends"
       v-model="newTransaction"
-      v-on:add-transaction="addTransaction"
+      :add-transaction.sync="addTransaction"
     />
+    <!-- shorthand is :add-transaction.sync="addTransaction"-->
 
     <!--use selected friends to store checked checkbox values
 
