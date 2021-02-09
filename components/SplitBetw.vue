@@ -20,8 +20,8 @@ export default {
   props: {
     // return selected checkboxes to selectedFriends
     cats: Array,
-    // local re-name of "friend", a Friend obj passed in from parent
 
+    // local re-name of "friend", a Friend obj passed in from parent
     name: {
       type: Object,
       required: true
