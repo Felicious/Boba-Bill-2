@@ -4,7 +4,7 @@
 
     <!--shorthand; v-bind:friends is same is :friends-->
     <InputForm
-      v-bind:friends="friends"
+      :friends="friends"
       v-model="newTransaction"
       :add-transaction.sync="addTransaction"
     />

@@ -4,9 +4,9 @@
   <p>
     <label for="{name}">
       <input
+        id="{name}"
         v-model="updateCheckbox"
         type="checkbox"
-        id="{name}"
         :value="{ name }"
       />
       {{ name }}
@@ -22,10 +22,7 @@ export default {
     returnedCheckboxes: Array,
 
     // local re-name of "friend", a Friend obj passed in from parent
-    name: {
-      type: Object,
-      required: true
-    }
+    name: String
   },
   computed: {
     updateCheckbox: {

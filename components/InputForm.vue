@@ -1,5 +1,5 @@
 <template>
-  <form id="transaction" v-on:submit="addTransaction">
+  <form id="transaction" v-on:submit.prevent="addTransaction">
     <p v-if="errors.length">
       <b>Please correct the following errors:</b>
       <ul>
@@ -58,11 +58,11 @@ export default {
     return {
       errors: [],
       
-        yourBusnName: "",
-        yourExpense: "",
-        // list that stores checked boxes
-        selectedFriends: [],
-        selectedPayers: []
+      yourBusnName: "",
+      yourExpense: "",
+      // list that stores checked boxes
+      selectedFriends: [],
+      selectedPayers: []
       
     };
   },
