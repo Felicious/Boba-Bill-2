@@ -6,14 +6,13 @@
     <InputForm
       :friends="friends"
       v-model="newTransaction"
-      :add-transaction.sync="addTransaction"
+      v-on:add-transaction="addTransaction"
     />
     <!-- shorthand is :add-transaction.sync="addTransaction"-->
 
     <!--use selected friends to store checked checkbox values
 
     NOT SURE IF THIS IS RIGHT PLS CHECK AGAIN + look at Friend class-->
-    <p v-for="friend in selectedFriends" :key="friend">{{ friend }}</p>
   </div>
 </template>
 

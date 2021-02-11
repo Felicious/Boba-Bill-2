@@ -4,7 +4,7 @@
   <p>
     <label for="{name}">
       <input
-        id="{name}"
+        id="{ name }"
         v-model="updateCheckbox"
         type="checkbox"
         :value="{ name }"

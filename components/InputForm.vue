@@ -18,24 +18,28 @@
       min="0"
     />
 
-    <h2>Split Between</h2>
-    <SplitBetw
-      v-for="friend in friends"
-      :key="friend"
-      :name="friend"
-      :returnedCheckboxes.sync="selectedFriends"
-    />
+    <div>
+      <h2>Split Between</h2>
+      <SplitBetw
+        v-for="friend in friends"
+        :key="friend"
+        :name="friend"
+        :returnedCheckboxes.sync="selectedFriends"
+      />
+    </div>
 
     {{ selectedFriends }}
 
-    <h2>Payers</h2>
-    <SplitBetw
-      v-for="friend in friends"
-      :key="friend"
-      :returnedCheckboxes.sync="selectedPayers"
-      :name="friend"
-    />
-
+    <div>
+      <h2>Payers</h2>
+      <SplitBetw
+        v-for="friend in friends"
+        :key="friend"
+        :returnedCheckboxes.sync="selectedPayers"
+        :name="friend"
+      />
+    </div>
+    
     <button type="submit">
       submit
     </button>
