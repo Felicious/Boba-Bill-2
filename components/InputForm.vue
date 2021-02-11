@@ -1,5 +1,5 @@
 <template>
-  <form id="transaction" v-on:submit.prevent="addTransaction">
+  <form id="transaction" @submit.prevent="addTransaction">
     <p v-if="errors.length">
       <b>Please correct the following errors:</b>
       <ul>
@@ -32,11 +32,11 @@
     <SplitBetw
       v-for="friend in friends"
       :key="friend"
-      :returnedCheckboxes.sync="payers"
+      :returnedCheckboxes.sync="selectedPayers"
       :name="friend"
     />
 
-    <button class="btn">
+    <button type="submit">
       submit
     </button>
   </form>
@@ -70,29 +70,29 @@ export default {
   methods: {
     checkForErrors: function(e) {
       if (
-        this.name &&
-        this.expense > 0 &&
-        this.ppl.length > 0 &&
-        this.payers.length > 0
+        this.yourBusnName &&
+        this.yourExpense > 0 &&
+        this.selectedFriends > 0 &&
+        this.selectedPayers > 0
       ) {
         return true;
       }
 
       this.errors = [];
 
-      if (!this.name) {
+      if (!this.yourBusnName) {
         this.errors.push("Shop name required.");
       }
-      if (!this.expense) {
+      if (!this.yourExpense) {
         // does falsy include 0?
         this.errors.push(
           "Congrats! Was your boba on the house bc you look Q today? Go ahead and cancel this transaction bc you can't split your charm (;"
         );
       }
-      if (this.ppl.length === 0) {
+      if (this.selectedFriends.length === 0) {
         this.errors.push("People to split bill with required.");
       }
-      if (this.payers.length === 0) {
+      if (this.selectedPayers.length === 0) {
         this.errors.push("Payer required.");
       }
 
