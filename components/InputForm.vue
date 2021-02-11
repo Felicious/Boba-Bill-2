@@ -23,6 +23,7 @@
       <SplitBetw
         v-for="friend in friends"
         :key="friend"
+        type="split"
         :name="friend"
         :returnedCheckboxes.sync="selectedFriends"
       />
@@ -34,6 +35,7 @@
       <h2>Payers</h2>
       <SplitBetw
         v-for="friend in friends"
+        type="payers"
         :key="friend"
         :returnedCheckboxes.sync="selectedPayers"
         :name="friend"

@@ -2,13 +2,13 @@
   <!-- this is the grand-child of TransactionList
      displays checkbox next to Friend name-->
   <p>
-    <label for="{name}">
-      <input
-        id="{ name }"
-        v-model="updateCheckbox"
-        type="checkbox"
-        :value="{ name }"
-      />
+    <input
+      :id="name + type"
+      v-model="updateCheckbox"
+      type="checkbox"
+      :value="name"
+    />
+    <label :for="name + type">
       {{ name }}
     </label>
   </p>
@@ -22,7 +22,8 @@ export default {
     returnedCheckboxes: Array,
 
     // local re-name of "friend", a Friend obj passed in from parent
-    name: String
+    name: String,
+    type: String
   },
   computed: {
     updateCheckbox: {
