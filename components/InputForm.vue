@@ -41,6 +41,8 @@
         :name="friend"
       />
     </div>
+
+    {{ selectedPayers }}
     
     <button type="submit">
       submit
@@ -64,6 +66,8 @@ export default {
     return {
       errors: [],
       
+      bill: [],
+
       yourBusnName: "",
       yourExpense: "",
       // list that stores checked boxes
@@ -96,13 +100,21 @@ export default {
         );
       }
       if (this.selectedFriends.length === 0) {
-        this.errors.push("People to split bill with required.");
+        this.errors.push("People to split costs with required.");
       }
       if (this.selectedPayers.length === 0) {
         this.errors.push("Payer required.");
       }
 
       if (!this.errors.length) {
+        this.bill.push(
+          {
+            busnName: this.yourBusnName,
+            expense: this.yourExpense,
+            friends: this.selectedFriends,
+            payers: this.selectedPayers
+          }
+        );
         return true;
       }
 
