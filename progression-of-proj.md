@@ -102,6 +102,15 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - finished first draft of `TransactionList`
 - No compilation errors, but `SplitBetw` is not displaying the checkboxes; friends seem to be inherited over fine.
 
-### 2/6/21
+### 2/6/21 Sat
 
 - Use v-bind to pass properties from parent to child
+- realize I can move the form to another component (continue tmr)
+- Use `prop` to pass `friends` array from parent to child
+
+### 2/7/21 Sun
+
+- Begin migrating form info of `TransactionList` into `InputForm` (will continue to have problems doing this for a week)
+- Realize that most of the time, u don't want child components 2-way binding with the parent and mutating the parent
+  - (unlearn and stop abusing `sync`! sometimes just using `prop:` to pass info from parent -> child is enough)
+-

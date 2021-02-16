@@ -44,7 +44,7 @@
 
     {{ selectedPayers }}
     
-    <button type="submit">
+    <button v-on:click="addTransaction">
       submit
     </button>
   </form>
