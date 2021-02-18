@@ -217,4 +217,8 @@ I used many components to organize my data, so the parent component always passe
 
 However, this meant the the child component, SplitBetw, had to [emit the checked checkboxes back to the parent](https://github.com/Felicious/Boba-Bill-2/blob/main/notes.md#2-way-binding-by-emitting). This emitting behavior is basically the child component telling the parent which checkbox has been clicked.
 
-### Binding the the values of the checkboxes to the parent
+## Migrating a Form to a New Component
+
+Todo: add documentation on this LOL
+
+By this stage of development, my project has started to have quite a few components, and with many components requires more knowledge of how to pass data between components.

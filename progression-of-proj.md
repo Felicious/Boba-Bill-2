@@ -113,4 +113,20 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - Begin migrating form info of `TransactionList` into `InputForm` (will continue to have problems doing this for a week)
 - Realize that most of the time, u don't want child components 2-way binding with the parent and mutating the parent
   - (unlearn and stop abusing `sync`! sometimes just using `prop:` to pass info from parent -> child is enough)
--
+
+### 2/10/21
+
+- Kinda sad, but Derrick reminded me that I can use Console to debug web apps in the browser
+- Gave unique IDs to the same options of different components (this was causing a bug that added Bunbun to a list of selectedFriends when clicking on Bunbun from the list of payers, a different list!)
+
+~ Stopped coding because I was preparing for Lunar New Year ~
+
+### 2/15/21 Mon
+
+- Started coding again today but I didn't get much done x.x
+- Confused about `reactive` properties. [doc](https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties)
+
+### 2/16/21 Tue
+
+- Still stuck on the bug ):
+- Derrick reminds that even he had experienced being stuck with trying to fix one bug for days, and that I shouldn't feel dumb or anything for getting stuck. I love him (: and should be proud of myself too

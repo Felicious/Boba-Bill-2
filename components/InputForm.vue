@@ -44,7 +44,7 @@
 
     {{ selectedPayers }}
     
-    <button v-on:click="addTransaction">
+    <button type="submit">
       submit
     </button>
   </form>
@@ -64,6 +64,7 @@ export default {
   },
   data() {
     return {
+      // initialize *reactive* data
       errors: [],
       
       bill: [],
@@ -119,11 +120,11 @@ export default {
       }
 
       e.preventDefault(); // what does this do?
-    }
-  },
-  addTransaction() {
-    if(this.checkForErrors()) {
-      this.$emit('update:add-transaction', this.bill);
+    }, 
+    addTransaction() {
+      if(this.checkForErrors()) {
+        this.$emit('update:add-transaction', this.bill);
+      }
     }
   }
 };
