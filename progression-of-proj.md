@@ -88,6 +88,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
   - This was hard to do, wanted a cute design before implementing ):
 - Begin Transaction class
 
+## Week 5 (1/31 ~ 2/6)
+
 ### 2/3/21 Wed
 
 - Working on Transaction class, review form submissions
@@ -108,6 +110,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - realize I can move the form to another component (continue tmr)
 - Use `prop` to pass `friends` array from parent to child
 
+## Week 6 (2/7 ~ 2/13)
+
 ### 2/7/21 Sun
 
 - Begin migrating form info of `TransactionList` into `InputForm` (will continue to have problems doing this for a week)
@@ -121,6 +125,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 ~ Stopped coding because I was preparing for Lunar New Year ~
 
+## Week 7 (2/14 ~ 2/20)
+
 ### 2/15/21 Mon
 
 - Started coding again today but I didn't get much done x.x
@@ -130,3 +136,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Still stuck on the bug ):
 - Derrick reminds that even he had experienced being stuck with trying to fix one bug for days, and that I shouldn't feel dumb or anything for getting stuck. I love him (: and should be proud of myself too
+
+### 2/17/21 Wed
+
+- resolved the most annoying bug that I was stuck on for more than a week, and it was all because I placed the method outside of the Vue instance by accident!! It was simply a misplaced comma and '}'!!! Grrr

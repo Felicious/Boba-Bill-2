@@ -56,7 +56,10 @@ import SplitBetw from "./SplitBetw.vue";
 
 export default {
   props: {
-    friends: Array
+    friends: Array,
+    
+    // returned to newTransaction in TransactionList
+    value: Object
   },
   components: {
     InputText,
@@ -67,7 +70,7 @@ export default {
       // initialize *reactive* data
       errors: [],
       
-      bill: [],
+      //bill: [],
 
       yourBusnName: "",
       yourExpense: "",
@@ -79,7 +82,7 @@ export default {
   },
 
   methods: {
-    checkForErrors: function(e) {
+    checkForErrors: function() {
       if (
         this.yourBusnName &&
         this.yourExpense > 0 &&
@@ -96,9 +99,7 @@ export default {
       }
       if (!this.yourExpense) {
         // does falsy include 0?
-        this.errors.push(
-          "Congrats! Was your boba on the house bc you look Q today? Go ahead and cancel this transaction bc you can't split your charm (;"
-        );
+        this.errors.push("Amount spent required.");
       }
       if (this.selectedFriends.length === 0) {
         this.errors.push("People to split costs with required.");
@@ -108,7 +109,7 @@ export default {
       }
 
       if (!this.errors.length) {
-        this.bill.push(
+        this.newTransaction.push(
           {
             busnName: this.yourBusnName,
             expense: this.yourExpense,
@@ -119,11 +120,10 @@ export default {
         return true;
       }
 
-      e.preventDefault(); // what does this do?
     }, 
     addTransaction() {
       if(this.checkForErrors()) {
-        this.$emit('update:add-transaction', this.bill);
+        this.$emit('update:add-transaction', this.newTransaction);
       }
     }
   }

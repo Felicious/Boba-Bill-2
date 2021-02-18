@@ -10,9 +10,7 @@
     />
     <!-- shorthand is :add-transaction.sync="addTransaction"-->
 
-    <!--use selected friends to store checked checkbox values
-
-    NOT SURE IF THIS IS RIGHT PLS CHECK AGAIN + look at Friend class-->
+    {{ newTransaction }}
   </div>
 </template>
 

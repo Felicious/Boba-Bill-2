@@ -35,6 +35,8 @@ Derrick explains colloquially that
 > "something" can emit events and another part of your code can listen for those events and run stuff based on those events.
 > So parent waits for x to happen, then when you, for example, click a child, it yells "I got clicked!" and parent hears it and runs some code
 
+# Explaining my code
+
 ### Documentation of the instance of emitting in my project (:
 
 I'm super proud of when I finally learned how to allow the parent component to listen for a response from the child component!
@@ -219,6 +221,104 @@ However, this meant the the child component, SplitBetw, had to [emit the checked
 
 ## Migrating a Form to a New Component
 
-Todo: add documentation on this LOL
-
 By this stage of development, my project has started to have quite a few components, and with many components requires more knowledge of how to pass data between components.
+
+### Potential Errors when using Repeated Components
+
+When re-using components, for example in my project when I re-used the `SplitBetw` component to display the list of checkboxes selected from both the "Split Between" and "Payers" section. For example, I have the following friends to choose from each section:
+
+```
+{"Split Between": [Derrick, Bunbun]}
+{"Payers": [Derrick, Bunbun]}
+```
+
+Since I had set the `id` of the checkbox input in `SplitBetw` to simply be the name (ie. "Derrick"), clicking on the checkbox for "Split Between"'s Derrick also checked the box for "Payer"'s Derrick. Therefore, the `id` needed to not only contain the name but the section ("Split Between" or "Payers") as well.
+
+**Problematic**:
+
+```html
+<input type="checkbox" :id="name" ... />
+<label :for="name">
+  {{ name }}
+</label>
+```
+
+**Fixed bugs** (for now):
+Out in the parent component, the `name` and `type` are passed in:
+
+```html
+<h2>Payers</h2>
+<SplitBetw
+  v-for="friend in friends"
+  :name="friend"
+  type="payers"
+  :key="friend"
+  :returnedCheckboxes.sync="selectedPayers"
+/>
+```
+
+To ensure that the child component `SplitBetw` knows what those two values `name` and `type` are, make sure to include them in the `props` section of the Vue instance!
+
+```js
+export default {
+  props: {
+    // sync-ed with parent, parent receives an arr selectedFriends
+    returnedCheckboxes: Array,
+
+    // local re-name of "friend", so the ids can be unique across diff iterations of SplitBetw component
+    name: String,
+    type: String
+  },
+  ...
+};
+```
+
+In the child component, the html portion:
+
+```html
+<!-- now, ids are unique across diff iterations of component-->
+<input
+  :id="name + type"
+  v-model="updateCheckbox"
+  type="checkbox"
+  :value="name"
+/>
+<label :for="name + type">
+  {{ name }}
+</label>
+```
+
+#### Explanation of what `v-model` and `:value` do
+
+`v-model` syncs the checkbox with the function `updateCheckbox`. Thus, every time a certain checkbox is clicked or unclicked, this function updates the `returnedCheckboxes` array that returns the list of friends selected from this component.
+
+This is why the `:value` of the checkbox must be set to the name of the friend, as the getter and setter use `value` to add/remove the name from the `returnedCheckboxes` array that is emitted back up to the parent component, `InputForm`
+
+### Unexpected usage of v-model
+
+Up until this point, I had used v-model to save an input value to an initialized variable in the Vue instance, such as these code snippets from [InputForm](https://github.com/Felicious/Boba-Bill-2/blob/main/components/InputForm.vue)
+
+```html
+<input id="expense" v-model="yourExpense" ... />
+```
+
+```js
+export default {
+  ...
+  data() {
+    return {
+      ...
+      yourExpense: "",
+    }
+  },
+  methods: {
+    checkForErrors:{
+      ...
+      // then do something with the input u got
+      this.yourExpense
+    }
+  }
+};
+```
+
+However, it was the first time I saw v-model used to **trigger a function** like [here](https://github.com/Felicious/Boba-Bill-2/blob/main/notes.md#Explanation-of-what-v-model-and-:value-do). please look above in the previous section for the example! it's really interesting.
