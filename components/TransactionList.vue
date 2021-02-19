@@ -3,14 +3,17 @@
     <h2>Transaction</h2>
 
     <!--shorthand; v-bind:friends is same is :friends-->
-    <InputForm
-      :friends="friends"
-      v-model="newTransaction"
-      v-on:add-transaction="addTransaction"
-    />
+    <!--
+    <InputForm :friends="friends" :Container.sync="newTransaction" /> -->
     <!-- shorthand is :add-transaction.sync="addTransaction"-->
 
-    {{ newTransaction }}
+    <InputForm
+      :friends="friends"
+      :value="newTransaction"
+      @input="formData => (newTransaction = formData)"
+    />
+    <!-- newTranaction is an object with 4 attributes-->
+    {{ newTransaction.busnName }}
   </div>
 </template>
 
@@ -45,12 +48,6 @@ export default {
         }
       ]
     };
-  },
-
-  methods: {
-    addTransaction() {
-      // put the data in
-    }
   }
 };
 </script>

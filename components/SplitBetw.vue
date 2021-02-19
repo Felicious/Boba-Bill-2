@@ -30,8 +30,8 @@ export default {
       get() {
         return this.returnedCheckboxes;
       },
-      set(newValue) {
-        this.$emit("update:returnedCheckboxes", newValue);
+      set(updateCheckbox) {
+        this.$emit("update:returnedCheckboxes", updateCheckbox);
       }
     }
   }
