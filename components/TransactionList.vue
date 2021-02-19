@@ -7,13 +7,8 @@
     <InputForm :friends="friends" :Container.sync="newTransaction" /> -->
     <!-- shorthand is :add-transaction.sync="addTransaction"-->
 
-    <InputForm
-      :friends="friends"
-      :value="newTransaction"
-      @input="formData => (newTransaction = formData)"
-    />
+    <InputForm :friends="friends" :emit-form.sync="newTransaction" />
     <!-- newTranaction is an object with 4 attributes-->
-    {{ newTransaction.busnName }}
   </div>
 </template>
 

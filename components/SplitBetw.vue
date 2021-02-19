@@ -19,7 +19,10 @@
 export default {
   props: {
     // sync-ed with parent, parent receives an arr selectedFriends
-    returnedCheckboxes: Array,
+    returnedCheckboxes: {
+      type: Array,
+      required: true
+    },
 
     // local re-name of "friend", so the ids can be unique across diff iterations of SplitBetw component
     name: String,
@@ -30,8 +33,12 @@ export default {
       get() {
         return this.returnedCheckboxes;
       },
-      set(updateCheckbox) {
-        this.$emit("update:returnedCheckboxes", updateCheckbox);
+      set(newVal) {
+        // TODO: find out more!
+        // i thought update:returnedCheckboxes was BAD PRACTICE
+        // bc I thought that event names were only supposed to be lowercase
+        // it seems to be ok for sync?
+        this.$emit("update:returnedCheckboxes", newVal);
       }
     }
   }

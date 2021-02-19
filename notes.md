@@ -323,6 +323,10 @@ export default {
 
 However, it was the first time I saw v-model used to **trigger a function** like [here](https://github.com/Felicious/Boba-Bill-2/blob/main/notes.md#Explanation-of-what-v-model-and-:value-do). please look above in the previous section for the example! it's really interesting.
 
+#### what is value used for?
+
+By default, `v-model` uses `value` as a prop! [This can be modified](https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model), however
+
 ## Nested Vue Components
 
 I found this [blog](https://zaengle.com/blog/using-v-model-on-nested-vue-components) while working with nested Vue components that was sooo useful!
