@@ -322,3 +322,29 @@ export default {
 ```
 
 However, it was the first time I saw v-model used to **trigger a function** like [here](https://github.com/Felicious/Boba-Bill-2/blob/main/notes.md#Explanation-of-what-v-model-and-:value-do). please look above in the previous section for the example! it's really interesting.
+
+## Nested Vue Components
+
+I found this [blog](https://zaengle.com/blog/using-v-model-on-nested-vue-components) while working with nested Vue components that was sooo useful!
+
+## WHAT IS THE COMPUTED THING
+
+Apparently, it's a [computed setter](https://vuejs.org/v2/guide/computed.html#Computed-Setter)
+
+"which allows us to both receive a dynamic value as well as call a function when we attempt to change that value." - zaengle blog
+
+?? still have many questions. get to this later LOL
+
+**HOWEVER** the example noted in the docs doesn't work for our use case.
+
+NO!! :
+
+```js
+computed: {
+  localForm: {
+      get() { return this.value },
+      set(localForm) {this.$emit('input', localForm)}
+  }
+```
+
+"`v-html` should only used when you want to render HTML content from a variable"
