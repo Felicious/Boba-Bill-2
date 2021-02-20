@@ -140,3 +140,10 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/17/21 Wed
 
 - resolved the most annoying bug that I was stuck on for more than a week, and it was all because I placed the method outside of the Vue instance by accident!! It was simply a misplaced comma and '}'!!! Grrr
+
+### 2/18/21 Thu
+
+- spent all day reading about `computed` and `watch`, not sure if i completely get it. [Useful blog post](https://zaengle.com/blog/using-v-model-on-nested-vue-components)
+- Successfully emitted form data, but did not use the fancy computed and watch functions I struggled to learn about all day. Used anti-climactic solution of storing form data in temporary object and emitting it
+- Very odd because this was the first solution I tried but it failed because I made a syntax mistake while initializing the temp object (`localForm`) and tried it again as the last, at-my-wits-end attempt, and it worked!
+- kinda felt like i wasted my whole day but whatever LOL

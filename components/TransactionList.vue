@@ -1,13 +1,7 @@
 <template>
   <div>
     <h2>Transaction</h2>
-
-    <!--shorthand; v-bind:friends is same is :friends-->
-    <!--
-    <InputForm :friends="friends" :Container.sync="newTransaction" /> -->
-    <!-- shorthand is :add-transaction.sync="addTransaction"-->
-
-    <InputForm :friends="friends" :emit-form.sync="newTransaction" />
+    <InputForm :friends="friends" @update:emit-form="addTransaction" />
     <!-- newTranaction is an object with 4 attributes-->
   </div>
 </template>
@@ -43,6 +37,14 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    // @param: returned form data from InputForm
+    addTransaction(newTransaction) {
+      console.log("Adding a transaction");
+      this.transactions.push(newTransaction);
+    }
   }
 };
 </script>

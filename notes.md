@@ -352,3 +352,35 @@ computed: {
 ```
 
 "`v-html` should only used when you want to render HTML content from a variable"
+
+### Use v-on to send data + call parent's method from child
+
+I learned this from this [StackOverFlow post](https://stackoverflow.com/a/61998896) that when emitting a value from the child component, in the parent component, you can:
+
+1. Bind the emitted variable to a parent-level property like this:
+
+```html
+<InputForm :friends="friends" :emit-form.sync="newTransaction" />
+```
+
+so that the emitted `localForm` object (from the child using this call: `this.$emit('update:emit-form', this.localForm);`) is saved to the parent-level property `newTransaction`. You can then take this `newTransaction` property and add it to the list of transactions you have in the component, OR
+
+2. Directly use `v-on` to listen for the child-level emit event `update:emit-form` to be called in the child `InputForm` and call the parent-level method `addTransaction`.
+
+```html
+<InputForm :friends="friends" @update:emit-form="addTransaction" />
+```
+
+Conveniently, the second field of the emit statement used in the child (so `this.localForm`) is the **parameter** of the method you will declare in parent!
+
+```js
+methods: {
+    // @param: returned form data from InputForm
+    addTransaction(newTransaction) {
+      console.log("Adding a transaction");
+      this.transactions.push(newTransaction);
+    }
+  }
+```
+
+So in this method, you can directly add the emitted object from child into the list `transactions` in parent! This is a better solution for this situation compared to the first because the 1st only handles passing the form object from the child, whereas the second handles both passing the object and triggering a method to add the object to the list `transactions`.

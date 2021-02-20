@@ -26,11 +26,11 @@
         :key="friend"
         :name="friend"
         type="split"
-        v-bind:returnedCheckboxes.sync="localForm.friends"
+        v-bind:returnedCheckboxes.sync="localForm.ppl"
       />
     </div>
 
-    {{ localForm.friends }}
+    {{ localForm.ppl }}
 
     <div>
       <h2>Payers</h2>
@@ -70,7 +70,7 @@ export default {
       localForm: {
         name: "",
         expense: 0,
-        friends: [],
+        ppl: [],
         payers: []
       }
       
@@ -82,7 +82,7 @@ export default {
       if (
         this.localForm.name &&
         this.localForm.expense > 0 &&
-        this.localForm.friends > 0 &&
+        this.localForm.ppl > 0 &&
         this.localForm.payers > 0
       ) {
         return true;
@@ -97,7 +97,7 @@ export default {
         // does falsy include 0?
         this.errors.push("Amount spent required.");
       }
-      if (this.localForm.friends.length === 0) {
+      if (this.localForm.ppl.length === 0) {
         this.errors.push("People to split costs with required.");
       }
       if (this.localForm.payers.length === 0) {
@@ -109,20 +109,10 @@ export default {
       }
 
     },
-    
+
     emitFormData() { // on submit handler
       if(this.checkForErrors()) {
         console.log("start emitting");
-
-        // emit each property one by one
-
-        console.log(`business name: ${this.localForm.name}`);
-        
-        console.log(`cost: ${this.localForm.expense}`);
-
-        console.log(`selected friends: ${this.localForm.friends}`);
-        
-        console.log(`selected payers: ${this.localForm.payers}`);
 
         // syncs with newTransaction in TransactionList.vue
         this.$emit('update:emit-form', this.localForm);
