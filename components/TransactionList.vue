@@ -2,7 +2,19 @@
   <div>
     <h2>Transaction</h2>
     <InputForm :friends="friends" @update:emit-form="addTransaction" />
-    <!-- newTranaction is an object with 4 attributes-->
+
+    <!-- display transactions -->
+    <div v-if="transactions.length" class="display">
+      <div class="box">
+        <!--TODO: transaction 1 displayed here -->
+      </div>
+      <div class="box">
+        <!--second transaction displayed here-->
+      </div>
+      <div class="box">
+        <!-- third displayed here -->
+      </div>
+    </div>
   </div>
 </template>
 
