@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fbdec8;
+  color: #1e1a1c;
+  font-family: "BioRhyme", serif;
+  overflow: hidden; /* do i need this? */
+}
+
+/* ~~~~~~~~~~~~
+   transactions
+   ~~~~~~~~~~~~ */
+
+.transaction {
+  /*
+  background-color: #fbdec8;*/
+  overflow: hidden;
+  /*TODO: make the corners gradually become smaller
+   to imitate the shape of a boba cup*/
+}
+
+/* wave transition (copied from g4g for now)*/
+svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.wave {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+/* parent container for displaying transactions */
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Displays 3 equally sized panels:
+  to display the transactions */
+.box {
+  background-color: #1e1a1c;
+  color: #fbdec8;
+  /* layout */
+  flex: 0 1 30%;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 0 30px 1rem;
+}
+
+input {
+  border: 5px solid white;
+  padding: 15px;
+  background: pink;
+  margin: 0 0 10px 0;
+  font-family: "Varela Round", sans-serif;
+  font-size: smaller;
+}
+
+.name {
+  font-size: 40px;
+  font-family: "Cute Font", cursive;
+  font-weight: 600;
+}
