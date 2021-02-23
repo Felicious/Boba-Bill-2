@@ -18,30 +18,9 @@ body {
    ~~~~~~~~~~~~ */
 
 .transaction {
-  /*
-  background-color: #fbdec8;*/
-  overflow: hidden;
+  background-color: #fbdec8;
   /*TODO: make the corners gradually become smaller
    to imitate the shape of a boba cup*/
-}
-
-/* wave transition (copied from g4g for now)*/
-svg {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.wave {
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  padding-bottom: 100%;
-  vertical-align: middle;
-  overflow: hidden;
-  top: 0;
-  left: 0;
 }
 
 /* parent container for displaying transactions */

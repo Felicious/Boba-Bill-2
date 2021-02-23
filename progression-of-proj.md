@@ -147,3 +147,22 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - Successfully emitted form data, but did not use the fancy computed and watch functions I struggled to learn about all day. Used anti-climactic solution of storing form data in temporary object and emitting it
 - Very odd because this was the first solution I tried but it failed because I made a syntax mistake while initializing the temp object (`localForm`) and tried it again as the last, at-my-wits-end attempt, and it worked!
 - kinda felt like i wasted my whole day but whatever LOL
+
+### 2/19/21 Fri
+
+- Can emit form data now, but how can you call method to add the form data into the `transaction` array?
+- use v:on! (: Figured something out quite quickly!
+- added docs on this
+- Add/organize Issues to keep track of project progress
+
+### 2/20/21 Sat
+
+- Add docs on new things I learned this week (:
+
+### 2/21/21 Sun
+
+- Attempt to design, add wave pattern, and make mockup
+
+### 2/22/21 Mon
+
+- Organize issues
