@@ -10,9 +10,9 @@ export default {
       type: String
     }
   },
-  /*
+
   computed: {
-     // don't really understand the copied code, but look at
+    // don't really understand the copied code, but look at
     // DOCS: https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components
 
     listeners() {
@@ -24,5 +24,5 @@ export default {
       };
     }
   }
-}; */
+};
 </script>

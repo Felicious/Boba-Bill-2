@@ -166,3 +166,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/22/21 Mon
 
 - Organize issues
+
+### 2/23/21 Tue
+
+- meow reminded me to use `array.some()` callback functions to check for duplicate friend names before adding

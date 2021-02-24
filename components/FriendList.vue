@@ -9,6 +9,7 @@
       placeholder="add a friend here!"
       @keydown.enter="addFriend"
     />
+    <p v-if="duplicateName.length">{{ duplicateName }} already added!</p>
 
     <!--friends is arr that contains all friend data-->
     <ol v-if="friends.length">
@@ -39,16 +40,27 @@ export default {
   },
   data() {
     return {
-      newFriendName: ""
+      newFriendName: "",
+      duplicateName: ""
     };
   },
   methods: {
+    // check if name is already in array
+    isDuplicate(name) {
+      return this.friends.some(
+        friendName => friendName.toLowerCase() === name.toLowerCase()
+      ); // true if name is in friends
+    },
     addFriend() {
       // trim removes the "" at both ends of the string
       const trimmedText = this.newFriendName.trim();
-      if (trimmedText) {
+      if (!this.isDuplicate(trimmedText)) {
         this.friends.push(trimmedText);
         this.newFriendName = ""; // clear
+        this.duplicateName = ""; // clear previous input, if any
+      } else {
+        // name has been added already, notify user
+        this.duplicateName = trimmedText;
       }
     }
   }
