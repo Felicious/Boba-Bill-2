@@ -11,16 +11,22 @@
     />
     <p v-if="duplicateName.length">{{ duplicateName }} already added!</p>
 
+    <h2>Friend List</h2>
     <!--friends is arr that contains all friend data-->
-    <ol v-if="friends.length">
-      <h2>Friend List</h2>
-      <!-- friend is variable declared locally
+    <ol>
+      <div v-for="friend in friends" :key="friend">
+        <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-      <Friend v-for="friend in friends" :key="friend" :name="friend" />
+
+        <Friend
+          :name="friend"
+          @mouseover.native="hover = true"
+          @mouseleave.native="hover = false"
+        />
+
+        <p v-if="hover">ur hovering {{ friend }}</p>
+      </div>
     </ol>
-    <p v-else>
-      Add some friends to the list!
-    </p>
   </div>
 </template>
 
@@ -41,7 +47,8 @@ export default {
   data() {
     return {
       newFriendName: "",
-      duplicateName: ""
+      duplicateName: "",
+      hover: false
     };
   },
   methods: {

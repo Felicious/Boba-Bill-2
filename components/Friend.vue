@@ -2,8 +2,11 @@
 <template>
   <!-- this is the child of FriendList
            displays each friend in the list-->
-  <li>{{ name }}</li>
-  <!--Q: div or p looks better? -->
+  <li>
+    {{ name }}
+
+    <!--Q: div or p looks better? -->
+  </li>
 </template>
 
 <style>
