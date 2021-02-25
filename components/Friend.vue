@@ -1,12 +1,10 @@
-<!--TODO: make component for Splitbetw, separate from FriendList-->
 <template>
-  <!-- this is the child of FriendList
-           displays each friend in the list-->
-  <li>
-    {{ name }}
-
-    <!--Q: div or p looks better? -->
-  </li>
+  <div>
+    <li @mouseover.native="hover = true" @mouseleave.native="hover = false">
+      {{ name }}
+    </li>
+    <span v-if="hover">u are hovering over {{ name }}</span>
+  </div>
 </template>
 
 <style>
@@ -23,6 +21,11 @@ export default {
       type: String,
       required: true
     }
+  },
+  data() {
+    return {
+      hover: false
+    };
   }
 };
 </script>

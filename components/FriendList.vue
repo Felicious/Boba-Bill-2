@@ -14,18 +14,10 @@
     <h2>Friend List</h2>
     <!--friends is arr that contains all friend data-->
     <ol>
-      <div v-for="friend in friends" :key="friend">
-        <!-- friend is variable declared locally
+      <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
 
-        <Friend
-          :name="friend"
-          @mouseover.native="hover = true"
-          @mouseleave.native="hover = false"
-        />
-
-        <p v-if="hover">ur hovering {{ friend }}</p>
-      </div>
+      <Friend v-for="friend in friends" :key="friend" :name="friend" />
     </ol>
   </div>
 </template>
@@ -47,8 +39,7 @@ export default {
   data() {
     return {
       newFriendName: "",
-      duplicateName: "",
-      hover: false
+      duplicateName: ""
     };
   },
   methods: {

@@ -384,3 +384,37 @@ methods: {
 ```
 
 So in this method, you can directly add the emitted object from child into the list `transactions` in parent! This is a better solution for this situation compared to the first because the 1st only handles passing the form object from the child, whereas the second handles both passing the object and triggering a method to add the object to the list `transactions`.
+
+### Hovering with Vue
+
+I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue 1) to toggle visibility of an edit name button next to the name itself, but I got stuck because I didn't know how to **make the hover variable unique** to a name.
+
+I currently have the component `Friend` that takes the friend name from an array and creates a list item.
+**Expected behavior**: after the `Friend` list item is created, an `edit` option is created next to the component that toggles
+
+```html
+<ol>
+  <div v-for="friend in friends" :key="friend">
+    <!-- friend is variable declared locally
+      name is a property of class obj from Friend.vue-->
+
+    <Friend
+      :name="friend"
+      @mouseover.native="hover = true"
+      @mouseleave.native="hover = false"
+    />
+
+    <p v-if="hover">ur hovering {{ friend }}</p>
+  </div>
+</ol>
+```
+
+where `hover` is initialized as false
+
+```js
+data() {
+  return {
+    ...
+    hover: false
+  };
+```
