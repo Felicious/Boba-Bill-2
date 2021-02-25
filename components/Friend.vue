@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li @mouseover.native="hover = true" @mouseleave.native="hover = false">
+    <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
     </li>
     <span v-if="hover">u are hovering over {{ name }}</span>
