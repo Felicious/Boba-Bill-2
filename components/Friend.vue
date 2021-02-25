@@ -1,9 +1,12 @@
 <template>
-  <div>
+  <div class="list-item">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
+      <small v-if="hover" @click="changeName">edit</small>
     </li>
-    <span v-if="hover">u are hovering over {{ name }}</span>
+    <div v-if="edit">
+      <input type="text" />
+    </div>
   </div>
 </template>
 
@@ -24,8 +27,14 @@ export default {
   },
   data() {
     return {
-      hover: false
+      hover: false,
+      edit: false
     };
+  },
+  methods: {
+    changeName: {
+      // somehow throw in an inputbox
+    }
   }
 };
 </script>
