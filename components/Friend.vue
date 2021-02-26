@@ -2,10 +2,16 @@
   <div class="list-item">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
-      <small v-if="hover" @click="changeName">edit</small>
+      <a class="link" v-if="hover" @click="edit = true">edit</a>
     </li>
     <div v-if="edit">
-      <input type="text" />
+      <input
+        class="edit-name"
+        type="text"
+        placeholder="edit name here"
+        v-model="newName"
+        @keydown.enter="emitName"
+      />
     </div>
   </div>
 </template>
@@ -28,12 +34,16 @@ export default {
   data() {
     return {
       hover: false,
-      edit: false
+      edit: false,
+      newName: ""
     };
   },
   methods: {
-    changeName: {
-      // somehow throw in an inputbox
+    emitName() {
+      console.log("start emitting changed name");
+      // third param is saved as second param
+      //   of v-on method call (editName) in parent
+      this.$emit("update:emit-name", this.newName, this.name);
     }
   }
 };

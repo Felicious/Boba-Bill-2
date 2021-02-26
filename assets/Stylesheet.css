@@ -14,6 +14,22 @@ body {
 }
 
 /* ~~~~~~~~~~~~
+      friends
+   ~~~~~~~~~~~~ */
+.link {
+  color: pink;
+}
+
+/*input text box for: */
+.edit-name {
+  border-style: none none dotted;
+  border-color: black;
+  background-color: inherit;
+  color: gray;
+  padding: 14px 10px 3px 10px;
+}
+
+/* ~~~~~~~~~~~~
    transactions
    ~~~~~~~~~~~~ */
 

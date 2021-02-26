@@ -17,7 +17,7 @@
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
       <div v-for="friend in friends" :key="friend">
-        <Friend :name="friend" @ />
+        <Friend :name="friend" @update:emit-name="editName" />
       </div>
     </ol>
   </div>
@@ -60,6 +60,20 @@ export default {
       } else {
         // name has been added already, notify user
         this.duplicateName = trimmedText;
+      }
+    },
+    editName(newName, oldName) {
+      // check if duplicate
+      // find in array and replace
+      newName = newName.trim();
+      if (!this.isDuplicate(newName)) {
+        // index of oldName
+        const i = this.friends.findIndex(element => element === oldName);
+        this.friends.splice(i, 1, newName);
+      }
+      // error message
+      else {
+        this.duplicateName = newName;
       }
     }
   }
