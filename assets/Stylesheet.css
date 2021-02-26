@@ -9,8 +9,12 @@
 body {
   background-color: #fbdec8;
   color: #1e1a1c;
-  font-family: "BioRhyme", serif;
+  font-family: "Varela Round", sans-serif;
   overflow: hidden; /* do i need this? */
+}
+
+h2 {
+  font-family: "BioRhyme", serif;
 }
 
 /* ~~~~~~~~~~~~
@@ -27,6 +31,11 @@ body {
   background-color: inherit;
   color: gray;
   padding: 14px 10px 3px 10px;
+}
+
+/* error message */
+.error {
+  font-family: "BioRhyme", serif;
 }
 
 /* ~~~~~~~~~~~~

@@ -387,34 +387,15 @@ So in this method, you can directly add the emitted object from child into the l
 
 ### Hovering with Vue
 
-I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue 1) to toggle visibility of an edit name button next to the name itself, but I got stuck because I didn't know how to **make the hover variable unique** to a name.
+I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue 1) to toggle visibility of an edit name button next to the name itself
 
-I currently have the component `Friend` that takes the friend name from an array and creates a list item.
-**Expected behavior**: after the `Friend` list item is created, an `edit` option is created next to the component that toggles
+# Design Thoughts
 
-```html
-<ol>
-  <div v-for="friend in friends" :key="friend">
-    <!-- friend is variable declared locally
-      name is a property of class obj from Friend.vue-->
+## Fonts
 
-    <Friend
-      :name="friend"
-      @mouseover.native="hover = true"
-      @mouseleave.native="hover = false"
-    />
+So far, my **not finalized** font choices are
 
-    <p v-if="hover">ur hovering {{ friend }}</p>
-  </div>
-</ol>
-```
-
-where `hover` is initialized as false
-
-```js
-data() {
-  return {
-    ...
-    hover: false
-  };
-```
+- [Biorhyme](https://fonts.google.com/specimen/BioRhyme?preview.text_type=custom&sidebar.open=true&selection.family=BioRhyme#standard-styles) for headings
+  - I found these font recommendations from this [blog post](https://www.typewolf.com/biorhyme)
+- [Varela Round](https://fonts.google.com/specimen/Varela+Round?preview.text_type=custom&sidebar.open=true&selection.family=BioRhyme|Varela+Round&query=vare) for the body
+- [Cute Font](https://fonts.google.com/specimen/Cute+Font?preview.text_type=custom&sidebar.open=true&selection.family=BioRhyme|Varela+Round&query=cute+), my most questionable choice, is for displaying restaurant names in the boba balls

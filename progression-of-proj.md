@@ -170,3 +170,12 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/23/21 Tue
 
 - meow reminded me to use `array.some()` callback functions to check for duplicate friend names before adding
+
+### 2/24/21 Wed
+
+- Begin implementing edit friend name feature
+
+### 2/25/21 Thu
+
+- Add edit friend feature! This is important bc I achieved this without referencing someone's guide or blog post (: Proud of myself
+- Add some styling but it's not that great yet LOL come back to thiss

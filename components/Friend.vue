@@ -12,6 +12,9 @@
         v-model="newName"
         @keydown.enter="emitName"
       />
+      <ul class="error" v-if="empty">
+        Can't add an empty name!
+      </ul>
     </div>
   </div>
 </template>
@@ -33,9 +36,14 @@ export default {
   },
   data() {
     return {
+      // editing name
       hover: false,
       edit: false,
-      newName: ""
+      newName: "",
+      //error checking
+      empty: {
+        type: Boolean
+      }
     };
   },
   methods: {
@@ -43,7 +51,11 @@ export default {
       console.log("start emitting changed name");
       // third param is saved as second param
       //   of v-on method call (editName) in parent
-      this.$emit("update:emit-name", this.newName, this.name);
+      if (this.newName.length > 0) {
+        this.$emit("update:emit-name", this.newName, this.name);
+      } else {
+        this.empty = true;
+      }
     }
   }
 };
