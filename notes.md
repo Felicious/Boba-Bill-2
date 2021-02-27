@@ -387,7 +387,40 @@ So in this method, you can directly add the emitted object from child into the l
 
 ### Hovering with Vue
 
-I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue 1) to toggle visibility of an edit name button next to the name itself
+I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue to toggle visibility of an edit name button next to the name itself.
+
+**The how-to**:
+In the parent component `FriendList`, I included `v-on` (the @) to listen to the child component for a new edited friend name, if any.
+
+```html
+<ol>
+  <Friend
+    v-for="friend in friends"
+    :key="friend"
+    :name="friend"
+    @update:emit-name="editName"
+  />
+</ol>
+```
+
+Inside the child component `Friend`, each `for` loop passes in a friend name that needs to be created into a list item. I used `v-on` to listen for when the mouse hovers over the specific list item, like "1. Derrick", and this toggles the visibility of the `edit` button.
+``html
+
+<li @mouseover="hover = true" @mouseleave="hover = false">
+  {{ name }}
+  <a class="link" v-show="hover" @click="edit = true">edit</a>
+</li>
+```
+
+`hover` and `edit` are both booleans I initialized in this component to help me keep track of which elements I want to show.
+
+#### v-if vs v-show
+
+So far, I've only used `v-if`, but the difference (described in the [docs](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)) is that event listeners and components are actually created and destroyed on toggle with `v-if`. On the other hand, elements tagged with `v-show` are always rendered, with css-based toggling.
+
+> "Generally speaking, v-if has higher toggle costs while v-show has higher initial render costs. So prefer v-show if you need to toggle something very often, and prefer v-if if the condition is unlikely to change at runtime."
+
+Therefore, I used `v-show` to toggle the edit button in `Friend.vue` that becomes visible on hover, and `v-if` for editing the name, as the components for that operation would only be generated when the user clicks on the "edit" button, and not on render.
 
 # Design Thoughts
 
@@ -399,3 +432,7 @@ So far, my **not finalized** font choices are
   - I found these font recommendations from this [blog post](https://www.typewolf.com/biorhyme)
 - [Varela Round](https://fonts.google.com/specimen/Varela+Round?preview.text_type=custom&sidebar.open=true&selection.family=BioRhyme|Varela+Round&query=vare) for the body
 - [Cute Font](https://fonts.google.com/specimen/Cute+Font?preview.text_type=custom&sidebar.open=true&selection.family=BioRhyme|Varela+Round&query=cute+), my most questionable choice, is for displaying restaurant names in the boba balls
+
+```
+
+```

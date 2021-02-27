@@ -16,9 +16,13 @@
     <ol>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-      <div v-for="friend in friends" :key="friend">
-        <Friend :name="friend" @update:emit-name="editName" />
-      </div>
+
+      <Friend
+        v-for="friend in friends"
+        :key="friend"
+        :name="friend"
+        @update:emit-name="editName"
+      />
     </ol>
   </div>
 </template>

@@ -185,3 +185,4 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/26/21 Fri
 
 - Begin reading beginner CSS for transitional animations (:
+- Determine what needs to be styled next: how to display transaction, buttons, expand/collapse buttons. Wonder if u can over-design a button LOL

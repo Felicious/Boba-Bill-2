@@ -3,6 +3,7 @@
     <!--TODO: transaction 1 displayed here -->
     <span class="name">{{ bill.name }}</span>
     <span class="expense">{{ bill.expense }}</span>
+    <a class="plus" @click="expand = true">[+]</a>
     <div v-if="expand">
       <ul>
         Split Between:
@@ -17,6 +18,12 @@
           {{ name }}
         </li>
       </ul>
+
+      <!--TODO: edit and delete transactions;
+          these two do not appear on hover. They are auto
+          visible when the user expands the transaction-->
+      <a @click="edit = true">edit</a>
+      <button>delete</button>
     </div>
   </div>
 </template>
