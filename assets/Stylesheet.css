@@ -10,7 +10,6 @@ body {
   background-color: #fbdec8;
   color: #1e1a1c;
   font-family: "Varela Round", sans-serif;
-  overflow: hidden; /* do i need this? */
 }
 
 h2 {
@@ -20,8 +19,15 @@ h2 {
 /* ~~~~~~~~~~~~
       friends
    ~~~~~~~~~~~~ */
+
+/*edit button*/
 .link {
-  color: pink;
+  color: gray;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /*input text box for: */

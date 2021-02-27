@@ -12,9 +12,10 @@
         v-model="newName"
         @keydown.enter="emitName"
       />
-      <ul class="error" v-if="empty">
+      <button @click="(edit = false), (empty = false)">x</button>
+      <p class="error" v-if="empty">
         Can't add an empty name!
-      </ul>
+      </p>
     </div>
   </div>
 </template>
@@ -41,9 +42,7 @@ export default {
       edit: false,
       newName: "",
       //error checking
-      empty: {
-        type: Boolean
-      }
+      empty: false
     };
   },
   methods: {

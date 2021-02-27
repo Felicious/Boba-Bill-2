@@ -170,6 +170,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 2/23/21 Tue
 
 - meow reminded me to use `array.some()` callback functions to check for duplicate friend names before adding
+- Implement error checking for adding friend name
 
 ### 2/24/21 Wed
 
@@ -179,3 +180,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Add edit friend feature! This is important bc I achieved this without referencing someone's guide or blog post (: Proud of myself
 - Add some styling but it's not that great yet LOL come back to thiss
+- Add minor error checking for editing friend name
+
+### 2/26/21 Fri
+
+- Begin reading beginner CSS for transitional animations (:

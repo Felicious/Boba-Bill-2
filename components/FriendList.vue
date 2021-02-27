@@ -63,13 +63,11 @@ export default {
       }
     },
     editName(newName, oldName) {
-      // check if duplicate
-      // find in array and replace
       newName = newName.trim();
       if (!this.isDuplicate(newName)) {
         // index of oldName
         const i = this.friends.findIndex(element => element === oldName);
-        this.friends.splice(i, 1, newName);
+        this.friends.splice(i, 1, newName); //replace
       }
       // error message
       else {
