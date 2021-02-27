@@ -30,8 +30,6 @@
       />
     </div>
 
-    {{ localForm.ppl }}
-
     <div>
       <h2>Payers</h2>
       <SplitBetw
@@ -42,8 +40,6 @@
         :name="friend"
       />
     </div>
-
-    {{ localForm.payers }}
     
     <button type="submit">
       submit
@@ -112,7 +108,6 @@ export default {
 
     emitFormData() { // on submit handler
       if(this.checkForErrors()) {
-        console.log("start emitting");
 
         // syncs with newTransaction in TransactionList.vue
         this.$emit('update:emit-form', this.localForm);

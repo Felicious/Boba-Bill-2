@@ -11,12 +11,11 @@
     />
     <p v-if="duplicateName.length">{{ duplicateName }} already added!</p>
 
-    <h2>Friend List</h2>
     <!--friends is arr that contains all friend data-->
-    <ol>
+    <ol v-if="friends.length">
+      <h2>Friend List</h2>
       <!-- friend is variable declared locally
          name is a property of class obj from Friend.vue-->
-
       <Friend
         v-for="friend in friends"
         :key="friend"
@@ -24,6 +23,7 @@
         @update:emit-name="editName"
       />
     </ol>
+    <p v-else>Add some friends to get started!</p>
   </div>
 </template>
 

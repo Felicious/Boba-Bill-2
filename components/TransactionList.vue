@@ -1,5 +1,5 @@
 <template>
-  <div class="transaction">
+  <div v-if="friends.length" class="transaction">
     <h2>Transaction</h2>
     <InputForm :friends="friends" @update:emit-form="addTransaction" />
 
