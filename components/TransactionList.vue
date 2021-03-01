@@ -1,7 +1,11 @@
 <template>
   <div v-if="friends.length" class="transaction">
     <h2>Transaction</h2>
-    <InputForm :friends="friends" @update:emit-form="addTransaction" />
+    <InputForm
+      :friends="friends"
+      :id="transactionId"
+      @update:emit-form="addTransaction"
+    />
 
     <!-- display transactions -->
     <div v-if="transactions.length" class="display">
@@ -31,15 +35,17 @@ export default {
 
   data() {
     return {
-      newTransaction: {},
+      transactionId: 2,
       transactions: [
         {
+          id: 0,
           name: "Fugetsu",
           expense: 25,
           ppl: ["Derrick", "Bunbun"],
           payers: ["Derrick"]
         },
         {
+          id: 1,
           name: "Shihlin Street Snacks",
           expense: 14,
           ppl: ["Derrick", "Bunbun"],
@@ -52,8 +58,11 @@ export default {
   methods: {
     // @param: returned form data from InputForm
     addTransaction(newTransaction) {
-      console.log("Adding a transaction");
+      console.log(newTransaction);
       this.transactions.push(newTransaction);
+
+      //reset values for new transaction
+      this.transactionId++;
     }
   }
 };

@@ -1,8 +1,5 @@
 <template>
-  <!-- THIS IS TODO LIST,
-        the parent of Friend.vue-->
-
-  <!--friends aren't being properly imported -->
+  <!-- TODO: toggle friendlist and transaction list-->
   <div>
     <InputText
       v-model="newFriendName"

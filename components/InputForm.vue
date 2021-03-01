@@ -52,7 +52,10 @@ import InputText from "./InputText.vue";
 import SplitBetw from "./SplitBetw.vue";
 
 export default {
-  props: { friends: Array },
+  props: { 
+    friends: Array,
+    id: Number
+  },
   components: {
     InputText,
     SplitBetw
@@ -64,6 +67,7 @@ export default {
 
       // emit this to TransactionList
       localForm: {
+        id: 0,
         name: "",
         expense: 0,
         ppl: [],
@@ -108,10 +112,29 @@ export default {
 
     emitFormData() { // on submit handler
       if(this.checkForErrors()) {
+        this.localForm.id = this.id;
 
         // syncs with newTransaction in TransactionList.vue
         this.$emit('update:emit-form', this.localForm);
+
+        //reset form values
+        this.localForm= {id: 0, name: "", expense: 0, ppl: [], payers: []};
       }
+    },
+    editFormData(){
+      // TODO:
+      // animate: jump-to the form
+      // indicate with css: editing a transaction
+
+      // re-assign values to the form
+
+      // error checking
+      if(this.checkForErrors()){
+        // make sure to emit the correct id so parent knows
+      // which transaction to replace!
+
+      }
+      
     }
   }
 };
