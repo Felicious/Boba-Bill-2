@@ -159,6 +159,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Add docs on new things I learned this week (:
 
+## Week 8 (2/21 ~ 2/27)
+
 ### 2/21/21 Sun
 
 - Attempt to design, add wave pattern, and make mockup
@@ -186,3 +188,19 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Begin reading beginner CSS for transitional animations (:
 - Determine what needs to be styled next: how to display transaction, buttons, expand/collapse buttons. Wonder if u can over-design a button LOL
+
+### 2/27/21 Sat
+
+- Derrick showed me some [pretty checkboxes](https://tailwindui.com/components/application-ui/forms/form-layouts) and I tried to copy them by inspecting the CSS
+
+## Week 9 (2/28 ~ 3/6)
+
+### 2/28/21 Sun
+
+- add id attribute to transaction
+- outline `editTransaction` function, but not implement it yet
+- add more intuitive UX: pressing "edit" the second time also closes edit tab
+
+### 2/29/21 Mon
+
+- attempted and failed to reverse engineer css animation of moving bottom border line of a text input down during focus

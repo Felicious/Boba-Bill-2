@@ -26,11 +26,14 @@ li {
 
 /*edit button*/
 .link {
+  /*todo: */
+  padding: 2px 8px 2px;
   color: white;
 }
 
 .link:hover {
   text-decoration: underline;
+  background-color: #f0cbae;
   cursor: pointer;
 }
 
@@ -77,16 +80,27 @@ li {
   margin: 5px;
   padding: 0 30px 1rem;
 }
+/*
+input {
+  border-style: none none solid;
+  border-color: brown;
+}
+
+input:focus {
+  transform: translateY(10px);
+}*/
 
 input {
   border: 5px solid white;
   border-radius: 5px;
   padding: 15px;
-  background: pink;
+  background: #fdb5a7;
   margin: 0 0 10px 0;
   font-family: "Varela Round", sans-serif;
   font-size: 15px;
 }
+
+/*darker pink: f09381 */
 
 .name {
   font-size: 40px;
@@ -127,7 +141,7 @@ input {
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
-  color: #2563eb;
+  color: #f09381;
   background-color: #fff;
   border-color: #6b7280;
   border-width: 1px;
@@ -136,7 +150,7 @@ input {
 [type="checkbox"]:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  outline-color: blue;
+  outline-color: #f09381;
   /* box shadow needs to be color of background*/
   --tw-ring-inset: 0;
   --tw-ring-offset-width: 2px;

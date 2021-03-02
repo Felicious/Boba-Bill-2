@@ -2,8 +2,9 @@
   <div class="list-item">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
-      <a class="link" v-show="hover" @click="edit = true">edit</a>
+      <a class="link" v-show="hover" @click="toggle">edit</a>
     </li>
+
     <div v-if="edit">
       <!-- emits changed name to parent at "enter"-->
       <input
@@ -58,6 +59,9 @@ export default {
       } else {
         this.empty = true;
       }
+    },
+    toggle() {
+      this.edit = !this.edit;
     }
   }
 };
