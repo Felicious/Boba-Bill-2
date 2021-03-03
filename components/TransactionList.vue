@@ -1,5 +1,5 @@
 <template>
-  <div v-if="friends.length" class="transaction">
+  <div v-show="friends.length" class="transaction">
     <h2>Transaction</h2>
     <InputForm
       :friends="friends"
@@ -11,6 +11,7 @@
     <div v-if="transactions.length" class="display">
       <Transaction
         v-for="transaction in transactions"
+        @update:fill-form="editTransaction"
         :key="transaction.name"
         :bill="transaction"
       />
@@ -63,6 +64,10 @@ export default {
 
       //reset values for new transaction
       this.transactionId++;
+    },
+    editTransaction(bill) {
+      console.log(`editing this ${bill.name} now`);
+      //Todo: fill in the
     }
   }
 };
