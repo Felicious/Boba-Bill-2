@@ -67,7 +67,8 @@ export default {
     },
     editTransaction(bill) {
       console.log(`editing this ${bill.name} now`);
-      //Todo: fill in the
+      //Todo: fill in the form?
+      // HOW TO PASS DATA INTO INPUT FORM?
     }
   }
 };

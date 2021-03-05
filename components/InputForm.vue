@@ -54,7 +54,8 @@ import SplitBetw from "./SplitBetw.vue";
 export default {
   props: { 
     friends: Array,
-    id: Number
+    id: Number,
+    autoFillFormData: Object
   },
   components: {
     InputText,

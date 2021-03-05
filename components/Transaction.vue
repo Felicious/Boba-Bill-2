@@ -1,7 +1,13 @@
 <template>
   <div class="box">
-    <!--TODO: transaction 1 displayed here -->
-    <span class="name">{{ bill.name }}</span>
+    <span
+      class="name"
+      @mouseover="hover.name = true"
+      @mouseleave="hover.name = false"
+    >
+      {{ bill.name }}
+      <a class="link" v-show="hover" @click="editName">edit</a>
+    </span>
     <span class="expense">{{ bill.expense }}</span>
     <a class="plus" @click="toggle">{{ expandIcon }}</a>
     <div v-if="expandToggle">
@@ -39,7 +45,12 @@ export default {
   data() {
     return {
       expandToggle: false,
-      expandIcon: "[+]"
+      hover: {
+        name: false,
+        expense: false
+      },
+      expandIcon: "[+]",
+      isEdit: false
     };
   },
   methods: {
@@ -52,12 +63,8 @@ export default {
         this.expandIcon = "[+]";
       }
     },
-    // should be named emitThisTransaction
-    // this simply emits current transaction to parent
-    // real editing happens there
-    editThisTransaction() {
-      this.$emit("update:fill-form", this.bill);
-    }
+    //
+    isEdit() {}
   }
 };
 </script>

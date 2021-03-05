@@ -201,6 +201,14 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - outline `editTransaction` function, but not implement it yet
 - add more intuitive UX: pressing "edit" the second time also closes edit tab
 
-### 2/29/21 Mon
+### 3/1/21 Mon
 
 - attempted and failed to reverse engineer css animation of moving bottom border line of a text input down during focus
+
+### 3/3/21 Wed
+
+- realized, through Derrick while asking him about how to implement edit Transaction, that im confused about how props work and that's why i've been stuck
+
+### 3/4/21 Thu
+
+- Begin edit transaction, one part at a time!
