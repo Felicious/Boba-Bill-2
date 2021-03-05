@@ -10,9 +10,10 @@
     <!-- display transactions -->
     <div v-if="transactions.length" class="display">
       <Transaction
-        v-for="transaction in transactions"
+        v-for="(transaction, index) in transactions"
         @update:fill-form="editTransaction"
-        :key="transaction.name"
+        :key="index"
+        :index="index"
         :bill="transaction"
       />
     </div>

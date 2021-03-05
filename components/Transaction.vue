@@ -6,7 +6,7 @@
       @mouseleave="hover.name = false"
     >
       {{ bill.name }}
-      <a class="link" v-show="hover" @click="editName">edit</a>
+      <a class="link" v-show="hover.name" @click="editName">edit</a>
     </span>
     <span class="expense">{{ bill.expense }}</span>
     <a class="plus" @click="toggle">{{ expandIcon }}</a>
@@ -40,7 +40,8 @@ export default {
     bill: {
       type: Object,
       required: true
-    }
+    },
+    index: Number
   },
   data() {
     return {
@@ -63,8 +64,7 @@ export default {
         this.expandIcon = "[+]";
       }
     },
-    //
-    isEdit() {}
+    editName() {}
   }
 };
 </script>
