@@ -55,11 +55,18 @@ export default {
   props: { 
     friends: Array,
     id: Number,
-    autoFillFormData: Object
+    autoFillFormData: {
+      type: Object,
+      required: false
+    }
   },
   components: {
     InputText,
     SplitBetw
+  },
+  mounted(){
+    // if values are passed in, initialize with these values instead of starting from empty
+    this.localForm = this.autoFillFormData;
   },
   data() {
     return {

@@ -11,8 +11,9 @@
     <div v-if="transactions.length" class="display">
       <Transaction
         v-for="(transaction, index) in transactions"
+        :friends="friends"
         @update:fill-form="editTransaction"
-        :key="index"
+        :key="transaction.name"
         :index="index"
         :bill="transaction"
       />
@@ -53,7 +54,8 @@ export default {
           ppl: ["Derrick", "Bunbun"],
           payers: ["Bunbun"]
         }
-      ]
+      ],
+      currentState: "view"
     };
   },
 
