@@ -65,8 +65,7 @@ export default {
     SplitBetw
   },
   mounted(){
-    // if values are passed in, initialize with these values instead of starting from empty
-    this.localForm = this.autoFillFormData;
+    this.initEdits();
   },
   data() {
     return {
@@ -80,12 +79,20 @@ export default {
         expense: 0,
         ppl: [],
         payers: []
-      }
-      
+      },
+
+      // is this form for adding/editing transactions?
+      isEdit: false
     };
   },
 
   methods: {
+    initEdits(){
+      if(this.autoFillFormData){
+      this.localForm = this.autoFillFormData;
+      this.isEdit = true;
+      }
+    },
     checkForErrors: function() {
       if (
         this.localForm.name &&
@@ -119,7 +126,26 @@ export default {
     },
 
     emitFormData() { // on submit handler
-      if(this.checkForErrors()) {
+      if(!this.checkForErrors()) {
+        return; // cancel if errors
+      }
+
+      // editing form
+      if(this.isEdit){
+
+        // TODO:
+      // animate: jump-to the form
+      // indicate with css: editing a transaction
+
+      // re-assign values to the form
+
+        console.log("emit edits");
+        this.$emit('edit-form', this.localForm);
+        console.log(this.localForm);
+      }
+      //adding new form
+      else {
+        console.log("add new transaction");
         this.localForm.id = this.id;
 
         // syncs with newTransaction in TransactionList.vue
@@ -127,20 +153,6 @@ export default {
 
         //reset form values
         this.localForm= {id: 0, name: "", expense: 0, ppl: [], payers: []};
-      }
-    },
-    editFormData(){
-      // TODO:
-      // animate: jump-to the form
-      // indicate with css: editing a transaction
-
-      // re-assign values to the form
-
-      // error checking
-      if(this.checkForErrors()){
-        // make sure to emit the correct id so parent knows
-      // which transaction to replace!
-
       }
       
     }

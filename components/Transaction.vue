@@ -24,13 +24,18 @@
         <!--TODO: edit and delete transactions;
           these two do not appear on hover. They are auto
           visible when the user expands the transaction-->
-        <a @click="editThisTransaction">edit</a>
+        <a @click="isEdit = true">edit</a>
         <button>delete</button>
       </div>
     </div>
 
     <div v-if="isEdit">
-      <InputForm :autoFillFormData="this.bill" :friends="friends" :id="index" />
+      <InputForm
+        :autoFillFormData="this.bill"
+        :friends="friends"
+        :id="index"
+        @emit-form="editThisTransaction"
+      />
     </div>
   </div>
 </template>
@@ -71,8 +76,11 @@ export default {
         this.expandIcon = "[+]";
       }
     },
-    editThisTransaction() {
-      this.isEdit = true;
+    editThisTransaction(formData) {
+      // just passing on the data LOL
+      console.log(`the parent got tis`);
+      console.log(formData);
+      this.$emit("update:fill-form", formData);
     }
   }
 };
