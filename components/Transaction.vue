@@ -76,11 +76,13 @@ export default {
         this.expandIcon = "[+]";
       }
     },
+
+    // TODO: figure out how to emit to grandparent component
     editThisTransaction(formData) {
       // just passing on the data LOL
       console.log(`the parent got tis`);
       console.log(formData);
-      this.$emit("update:fill-form", formData);
+      this.$emit("update:fill-form", formData, this.index);
     }
   }
 };

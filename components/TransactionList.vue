@@ -68,10 +68,9 @@ export default {
       //reset values for new transaction
       this.transactionId++;
     },
-    editTransaction(bill) {
+    editTransaction(bill, index) {
       console.log(`editing this ${bill.name} now`);
-      //Todo: fill in the form?
-      // HOW TO PASS DATA INTO INPUT FORM?
+      this.transactions.splice(index, 1, bill);
     }
   }
 };
