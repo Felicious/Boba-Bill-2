@@ -212,3 +212,11 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/4/21 Thu
 
 - Begin edit transaction, one part at a time!
+
+### 3/6/21 Sat
+
+- got InputFrom to emit!
+
+### 3/7/21 Sun
+
+- failed to emit to grandparent component. perhaps need to use sync?
