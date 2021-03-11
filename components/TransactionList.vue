@@ -12,11 +12,14 @@
       <Transaction
         v-for="(transaction, index) in transactions"
         :friends="friends"
-        :bill.sync="transactions[index]"
         :key="transaction.name"
         :index="index"
+        :bill="transaction"
+        @edit-form="transactions[index]"
       />
     </div>
+
+    {{ transactions[0].name }}
   </div>
 </template>
 

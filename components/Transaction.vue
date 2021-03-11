@@ -30,12 +30,7 @@
     </div>
 
     <div v-if="isEdit">
-      <InputForm
-        :autoFillFormData="this.bill"
-        :friends="friends"
-        :id="index"
-        @emit-form="editThisTransaction"
-      />
+      <InputForm :autoFillFormData="this.bill" :friends="friends" :id="index" />
     </div>
   </div>
 </template>
@@ -62,7 +57,6 @@ export default {
         name: false,
         expense: false
       },
-      icon: "[+]",
       isEdit: false
     };
   },
@@ -76,21 +70,6 @@ export default {
   methods: {
     toggle() {
       this.expandToggle = !this.expandToggle;
-      // change the icons
-      /*
-      if (this.expandIcon === "[+]") {
-        this.expandIcon = "[-]";
-      } else {
-        this.expandIcon = "[+]";
-      }*/
-    },
-
-    // TODO: figure out how to emit to grandparent component
-    editThisTransaction(formData) {
-      // just passing on the data LOL
-      console.log(`the parent got tis`);
-      console.log(formData);
-      this.$emit("update:fill-form", formData, this.index);
     }
   }
 };

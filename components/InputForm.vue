@@ -141,7 +141,6 @@ export default {
 
         console.log("emit edits");
         this.$emit('edit-form', this.localForm);
-        console.log(this.localForm);
       }
       //adding new form
       else {
