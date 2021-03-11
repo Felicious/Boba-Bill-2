@@ -213,10 +213,18 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - Begin edit transaction, one part at a time!
 
+### 3/5/21 Fri
+
+- use `mounted()` to initialize + auto-fill form
+
 ### 3/6/21 Sat
 
 - got InputFrom to emit!
 
 ### 3/7/21 Sun
 
-- failed to emit to grandparent component. perhaps need to use sync?
+- failed to emit to grandparent component. perhaps need to use [sync](https://vuejs.org/v2/guide/components-custom-events.html#sync-Modifier) to update the bill obj??
+
+### 3/10/21 Wed
+
+- sync isn't the answer. maybe `this.listeners()`? Check out this thread for help: https://stackoverflow.com/questions/42615445/vuejs-2-0-emit-event-from-grand-child-to-his-grand-parent-component

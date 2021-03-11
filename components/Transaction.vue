@@ -62,19 +62,27 @@ export default {
         name: false,
         expense: false
       },
-      expandIcon: "[+]",
+      icon: "[+]",
       isEdit: false
     };
+  },
+  // changes icon whenever expand icon changes
+  computed: {
+    expandIcon() {
+      // shows "+" when window is minimized, & vice versa
+      return this.expandToggle ? "[-]" : "[+]";
+    }
   },
   methods: {
     toggle() {
       this.expandToggle = !this.expandToggle;
       // change the icons
+      /*
       if (this.expandIcon === "[+]") {
         this.expandIcon = "[-]";
       } else {
         this.expandIcon = "[+]";
-      }
+      }*/
     },
 
     // TODO: figure out how to emit to grandparent component

@@ -12,10 +12,9 @@
       <Transaction
         v-for="(transaction, index) in transactions"
         :friends="friends"
-        @update:fill-form="editTransaction"
+        :bill.sync="transactions[index]"
         :key="transaction.name"
         :index="index"
-        :bill="transaction"
       />
     </div>
   </div>
