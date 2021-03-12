@@ -138,9 +138,11 @@ export default {
       // indicate with css: editing a transaction
 
       // re-assign values to the form
+        console.log('emit to Transaction');
+        this.$emit('update:edits', this.localForm);
 
-        console.log("emit edits");
-        this.$emit('edit-form', this.localForm);
+        console.log("emit to grandma");
+        this.$emit("edit-form", this.localForm);
       }
       //adding new form
       else {

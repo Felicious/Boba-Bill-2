@@ -19,7 +19,7 @@
       />
     </div>
 
-    {{ transactions[0].name }}
+    {{ transactions[0].payers }}
   </div>
 </template>
 

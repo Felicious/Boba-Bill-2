@@ -30,7 +30,12 @@
     </div>
 
     <div v-if="isEdit">
-      <InputForm :autoFillFormData="this.bill" :friends="friends" :id="index" />
+      <InputForm
+        :autoFillFormData="this.bill"
+        :friends="friends"
+        :id="index"
+        @update:edits="update"
+      />
     </div>
   </div>
 </template>
@@ -70,6 +75,16 @@ export default {
   methods: {
     toggle() {
       this.expandToggle = !this.expandToggle;
+    },
+    update(newBill) {
+      this.isEdit = false;
+      console.log("received update!");
+      this.bill = newBill;
+
+      /*
+      console.log("emit edits");
+      // the error is beloww
+      this.$emit("edit-form", newBill);*/
     }
   }
 };

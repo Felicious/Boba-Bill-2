@@ -228,3 +228,4 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/10/21 Wed
 
 - sync isn't the answer. maybe `this.listeners()`? Check out this thread for help: https://stackoverflow.com/questions/42615445/vuejs-2-0-emit-event-from-grand-child-to-his-grand-parent-component
+- followed stackoverflow, and changes from grandchild component are received, but it's at EVERY SINGLE EDIT, not on submit.
