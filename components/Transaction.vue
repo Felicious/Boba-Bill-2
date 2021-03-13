@@ -76,14 +76,13 @@ export default {
     toggle() {
       this.expandToggle = !this.expandToggle;
     },
-    update(newBill) {
+    update() {
       this.isEdit = false;
       console.log("received update!");
-      this.bill = newBill;
 
       /*
       console.log("emit edits");
-      // the error is beloww
+      // the error is beloww; get "handler.apply is not a function"
       this.$emit("edit-form", newBill);*/
     }
   }

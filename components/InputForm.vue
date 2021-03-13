@@ -139,7 +139,7 @@ export default {
 
       // re-assign values to the form
         console.log('emit to Transaction');
-        this.$emit('update:edits', this.localForm);
+        this.$emit('update:edits');
 
         console.log("emit to grandma");
         this.$emit("edit-form", this.localForm);
