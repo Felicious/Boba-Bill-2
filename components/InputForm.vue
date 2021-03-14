@@ -52,6 +52,7 @@
 <script>
 import InputText from "./InputText.vue";
 import SplitBetw from "./SplitBetw.vue";
+import formTests from "../assets/errorChecks.js";
 
 export default {
   props: { 
@@ -95,40 +96,23 @@ export default {
       this.isEdit = true;
       }
     },
-    checkForErrors: function() {
-      if (
-        this.localForm.name &&
-        this.localForm.expense > 0 &&
-        this.localForm.ppl > 0 &&
-        this.localForm.payers > 0
-      ) {
+
+    /*
+    this function is the long version of the (unreadable) 
+      functional function below
+      */
+    checkSize(arr){
+      if(arr.length === 0){
+        //
         return true;
+      } else {
+        return false
       }
-
-      this.errors = [];
-
-      if (!this.localForm.name) {
-        this.errors.push("Shop name required.");
-      }
-      if (!this.localForm.expense) {
-        // does falsy include 0?
-        this.errors.push("Amount spent required.");
-      }
-      if (this.localForm.ppl.length === 0) {
-        this.errors.push("People to split costs with required.");
-      }
-      if (this.localForm.payers.length === 0) {
-        this.errors.push("Payer required.");
-      }
-
-      if (!this.errors.length) {
-        return true;
-      }
-
     },
 
     emitFormData() { // on submit handler
-      if(!this.checkForErrors()) {
+      if( !this.checkSize (formTests.formIsFilled(this.errors, this.localForm)))
+      {
         return; // cancel if errors
       }
 
