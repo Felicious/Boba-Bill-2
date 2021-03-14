@@ -31,9 +31,10 @@
 
     <div v-if="isEdit">
       <InputForm
-        :autoFillFormData="this.bill"
+        :autoFillFormData="this.localBill"
         :friends="friends"
         :id="index"
+        :instance="bill.id"
         @update:edits="update"
       />
     </div>
@@ -58,12 +59,17 @@ export default {
   data() {
     return {
       expandToggle: false,
+      localBill: {},
       hover: {
         name: false,
         expense: false
       },
       isEdit: false
     };
+  },
+  // these var are created when the component is created
+  mounted() {
+    this.localBill = this.bill;
   },
   // changes icon whenever expand icon changes
   computed: {
@@ -77,7 +83,7 @@ export default {
       this.expandToggle = !this.expandToggle;
     },
     update() {
-      this.isEdit = false;
+      // this.isEdit = false;
       console.log("received update!");
 
       /*

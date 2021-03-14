@@ -3,7 +3,7 @@
      displays checkbox next to Friend name-->
   <p>
     <input
-      :id="name + type"
+      :id="instance + name + type"
       v-model="updateCheckbox"
       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
       type="checkbox"
@@ -27,7 +27,8 @@ export default {
 
     // local re-name of "friend", so the ids can be unique across diff iterations of SplitBetw component
     name: String,
-    type: String
+    type: String,
+    instance: String
   },
   computed: {
     updateCheckbox: {

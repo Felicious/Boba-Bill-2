@@ -15,7 +15,7 @@
         :key="transaction.name"
         :index="index"
         :bill="transaction"
-        @edit-form="transactions[index]"
+        @edit-form="editTransaction"
       />
     </div>
 
@@ -71,8 +71,8 @@ export default {
       this.transactionId++;
     },
     editTransaction(bill, index) {
-      console.log(`editing this ${bill.name} now`);
-      this.transactions.splice(index, 1, bill);
+      console.log(`editing ${index}: ${bill.name} now`);
+      // this.transactions.splice(index, 1, bill);
     }
   }
 };

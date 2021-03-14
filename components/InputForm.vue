@@ -26,6 +26,7 @@
         :key="friend"
         :name="friend"
         type="split"
+        :instance="localForm.id"
         v-bind:returnedCheckboxes.sync="localForm.ppl"
       />
     </div>
@@ -34,10 +35,11 @@
       <h2>Payers</h2>
       <SplitBetw
         v-for="friend in friends"
-        type="payers"
         :key="friend"
         :returnedCheckboxes.sync="localForm.payers"
         :name="friend"
+        type="payers"
+        :instance="localForm.id"
       />
     </div>
     
@@ -142,7 +144,7 @@ export default {
         this.$emit('update:edits');
 
         console.log("emit to grandma");
-        this.$emit("edit-form", this.localForm);
+        this.$emit("edit-form", this.localForm, this.localForm.id);
       }
       //adding new form
       else {
