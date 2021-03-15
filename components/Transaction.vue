@@ -35,7 +35,7 @@
         :friends="friends"
         :id="index"
         :instance="bill.id"
-        @toggleUpdateStatus="isEdit = false"
+        @toggle-update-status="isEdit = false"
       />
     </div>
   </div>
