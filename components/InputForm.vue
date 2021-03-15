@@ -98,8 +98,7 @@ export default {
     },
 
     /*
-    this function is the long version of the (unreadable) 
-      functional function below
+    helper function that returns array size of errors
       */
     haveErrors(){
       let errorArray = formTests.formIsFilled(this.errors, this.localForm);
@@ -117,7 +116,7 @@ export default {
         return; // cancel if there are errors
       }
 
-      // editing form
+      // EDIT TRANSACTION
       if(this.isEdit){
 
         // TODO:
@@ -131,7 +130,7 @@ export default {
         console.log("emit to grandma");
         this.$emit("edit-form", this.localForm, this.localForm.id);
       }
-      //adding new form
+      // ADD TRANSACTION
       else {
         console.log("add new transaction");
         this.localForm.id = this.id;

@@ -35,7 +35,7 @@
         :friends="friends"
         :id="index"
         :instance="bill.id"
-        @update:edits="update"
+        @update:edits="isEdit = false"
       />
     </div>
   </div>
@@ -83,7 +83,7 @@ export default {
       this.expandToggle = !this.expandToggle;
     },
     update() {
-      // this.isEdit = false;
+      this.isEdit = false;
       console.log("received update!");
 
       /*

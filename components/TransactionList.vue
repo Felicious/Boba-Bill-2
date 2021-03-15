@@ -12,7 +12,7 @@
       <Transaction
         v-for="(transaction, index) in transactions"
         :friends="friends"
-        :key="transaction.name"
+        :key="index"
         :index="index"
         :bill="transaction"
         @edit-form="editTransaction"
