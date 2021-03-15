@@ -436,3 +436,44 @@ So far, my **not finalized** font choices are
 ```
 
 ```
+
+# Refactoring
+
+## Using js functions from another file
+
+Following this [StackOverFlow post](https://stackoverflow.com/questions/43608457/how-to-import-functions-from-different-js-file-in-a-vuewebpackvue-loader-proje), I was able to import functions from a local js file in order to move the error checking functions out to an external file so I don't have to look at it while debugging component stuff!
+
+To do this, I must export the error checking functions as an object that I named `formTests`
+
+```js
+let formTests = {
+  formIsFilled() {
+    // error checking to see if all form fields are filled
+  }
+};
+
+export default formTests;
+```
+
+This all was written in a file I named "errorChecks.js"
+
+Then in the Vue component I wish to use these functions in, I must include the relational file path and the name of the file that contains the js tests.
+
+```js
+import formTests from "../assets/errorChecks.js";
+```
+
+where the file organization is as follows
+
+```
+- assets
+  -errorChecks
+- components
+  - current Vue component
+```
+
+Then when I want to use the function `formIsFilled` from another js file in the Vue component, I simply call
+
+```js
+formTests.formIsFilled();
+```

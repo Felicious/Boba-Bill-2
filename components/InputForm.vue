@@ -101,19 +101,20 @@ export default {
     this function is the long version of the (unreadable) 
       functional function below
       */
-    checkSize(arr){
-      if(arr.length === 0){
-        //
-        return true;
+    haveErrors(){
+      let errorArray = formTests.formIsFilled(this.errors, this.localForm);
+      if(errorArray.length === 0){
+        // no errors!
+        return false;
       } else {
-        return false
+        return true;
       }
     },
 
     emitFormData() { // on submit handler
-      if( !this.checkSize (formTests.formIsFilled(this.errors, this.localForm)))
+      if(this.haveErrors())
       {
-        return; // cancel if errors
+        return; // cancel if there are errors
       }
 
       // editing form
