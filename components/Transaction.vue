@@ -35,7 +35,7 @@
         :friends="friends"
         :id="index"
         :instance="bill.id"
-        @update:edits="isEdit = false"
+        @toggleUpdateStatus="isEdit = false"
       />
     </div>
   </div>
@@ -81,15 +81,6 @@ export default {
   methods: {
     toggle() {
       this.expandToggle = !this.expandToggle;
-    },
-    update() {
-      this.isEdit = false;
-      console.log("received update!");
-
-      /*
-      console.log("emit edits");
-      // the error is beloww; get "handler.apply is not a function"
-      this.$emit("edit-form", newBill);*/
     }
   }
 };

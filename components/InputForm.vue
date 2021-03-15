@@ -125,7 +125,7 @@ export default {
 
       // re-assign values to the form
         console.log('emit to Transaction');
-        this.$emit('update:edits');
+        this.$emit('toggleUpdateStatus');
 
         console.log("emit to grandma");
         this.$emit("edit-form", this.localForm, this.localForm.id);
