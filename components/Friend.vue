@@ -16,7 +16,7 @@
       />
 
       <!-- to close edit box -->
-      <button @click="(edit = false), (empty = false)">x</button>
+      <button @click="closeEditBox">x</button>
 
       <!-- error checking for edited name -->
       <p class="error" v-if="empty">
@@ -62,6 +62,10 @@ export default {
     },
     toggle() {
       this.edit = !this.edit;
+    },
+    closeEditBox() {
+      this.edit = false;
+      this.empty = false;
     }
   }
 };
