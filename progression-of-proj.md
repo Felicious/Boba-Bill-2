@@ -229,3 +229,13 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - sync isn't the answer. maybe `this.listeners()`? Check out this thread for help: https://stackoverflow.com/questions/42615445/vuejs-2-0-emit-event-from-grand-child-to-his-grand-parent-component
 - followed stackoverflow, and changes from grandchild component are received, but it's at EVERY SINGLE EDIT, not on submit.
+
+### 3/15/21 Mon
+
+- solved a handful of issues, and can now edit a business name while editing transactions
+- discovered sometime this past week that updating the grandparent, `TransactionList` by changing the key automatically passes down the updates to `Transaction`. Thus, `Transaction` only needs to switch back from editing status to the display status
+- can now successfully edit transaction, only SIDE EFFECT is that changes to the checkboxes are automatically updated without pressing the "submit" button in `InputForm`. watch out, as this might cause undesired side effects later on, so the issue is still open. however, i still don't know how to fix this
+
+### 3/16/21 Tue
+
+- add calculateOwed method, without edge cases
