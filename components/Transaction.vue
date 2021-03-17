@@ -34,7 +34,7 @@
         :autoFillFormData="this.localBill"
         :friends="friends"
         :id="index"
-        :instance="bill.id"
+        :instance="bill.id.toString()"
         @toggle-update-status="isEdit = false"
       />
     </div>

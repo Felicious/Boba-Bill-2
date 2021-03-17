@@ -26,7 +26,7 @@
         :key="friend"
         :name="friend"
         type="split"
-        :instance="localForm.id"
+        :instance="localForm.id.toString()"
         v-bind:returnedCheckboxes.sync="localForm.ppl"
       />
     </div>
@@ -39,7 +39,7 @@
         :returnedCheckboxes.sync="localForm.payers"
         :name="friend"
         type="payers"
-        :instance="localForm.id"
+        :instance="localForm.id.toString()"
       />
     </div>
     

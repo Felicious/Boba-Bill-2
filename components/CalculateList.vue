@@ -1,4 +1,11 @@
-<template> </template>
+<template>
+  <div>
+    <button @click="calculateOwed(transactions[0])">
+      calculate
+    </button>
+    {{ friendsOwed }}
+  </div>
+</template>
 
 <script>
 export default {
@@ -33,10 +40,10 @@ export default {
         if (transaction.payer.includes(person)) {
           // YES: expect a negative value
           const payerPaid = transaction.cost / transaction.payer.length;
-          friendsOwed[index] += individCost - payerPaid;
+          this.friendsOwed[index] += individCost - payerPaid;
         } else {
           // NO:
-          friendsOwed[index] += individCost;
+          this.friendsOwed[index] += individCost;
         }
         // ALERT: what if a payer paid but didn't eat?
         // TODO: handle this edge case
