@@ -30,7 +30,8 @@ import Transaction from "./Transaction.vue";
 export default {
   // variables accepted from parent
   props: {
-    friends: Array
+    friends: Array,
+    transactions: Array
   },
 
   components: {
@@ -41,22 +42,6 @@ export default {
   data() {
     return {
       transactionId: 2,
-      transactions: [
-        {
-          id: 0,
-          name: "Fugetsu",
-          expense: 25,
-          ppl: ["Derrick", "Bunbun"],
-          payers: ["Derrick"]
-        },
-        {
-          id: 1,
-          name: "Shihlin Street Snacks",
-          expense: 14,
-          ppl: ["Derrick", "Bunbun"],
-          payers: ["Bunbun"]
-        }
-      ],
       currentState: "view"
     };
   },
