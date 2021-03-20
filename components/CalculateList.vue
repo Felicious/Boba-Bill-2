@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="calculateOwed(transactions[0])">
+    <button @click="calculateOwed(transactions[2])">
       calculate
     </button>
     {{ friendsOwed }}
@@ -42,10 +42,12 @@ export default {
       // amount everyone owes if split evenly
       console.log(transaction.expense);
       let individCost = transaction.expense / transaction.ppl.length;
-      console.log(`each person owes ${individCost}`);
       for (let i = 0; i < transaction.ppl.length; i++) {
         const person = transaction.ppl[i];
+        /* data of how much a person owes will be the saved 
+            in the same order as how the names are stored in "friends"*/
         const index = this.friends.indexOf(person);
+
         // add to friendsOwed[index]
         this.friendsOwed[index].name = person;
 
@@ -63,9 +65,21 @@ export default {
           console.log(`${person} owes some smoney.`);
           this.friendsOwed[index].owed += individCost;
         }
-        // ALERT: what if a payer paid but didn't eat?
-        // TODO: handle this edge case
       }
+
+      // edge case ALERT: what if a payer paid but didn't eat?
+      transaction.payers.forEach(currentPayer => {
+        if (!transaction.ppl.includes(currentPayer)) {
+          // this is the edge case!
+          const index = this.friends.indexOf(currentPayer);
+          const amountPaid = transaction.expense / transaction.payers.length;
+          this.friendsOwed[index].owed -= amountPaid;
+
+          console.log(
+            `Edge case triggered: ${currentPayer} paid ${amountPaid} but didn't eat themselves ><`
+          );
+        }
+      });
     }
   }
 };
