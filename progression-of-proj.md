@@ -239,3 +239,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/16/21 Tue
 
 - add calculateOwed method, without edge cases
+
+### 3/19/21 Fri
+
+- Handle edge case described on 3/16

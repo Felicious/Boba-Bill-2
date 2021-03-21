@@ -1,3 +1,4 @@
 Things I need to test
 1. id/index of transactions -> are they actually being passed in and assgined by (transactions, index)?
 2. check if `friends` and `transactions` get passed back up to App.vue
+3. check if local `friends` and `transactions` are created in `CalculateList`

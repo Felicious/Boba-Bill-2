@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="calculateOwed(transactions[2])">
+    <button @click="calculateAll">
       calculate
     </button>
     {{ friendsOwed }}
@@ -21,32 +21,42 @@ export default {
       friendsOwed: [
         //name: "",
         //owed: 0
-      ]
+      ],
+      flagTransaction: []
     };
   },
   mounted() {
-    this.initArray();
+    this.init();
   },
   methods: {
-    initArray() {
+    init() {
+      // TODO: check if new friends and transactions are created when a new friend or transaction is added
       console.log("initialization");
-      // populate array
+      // populate local friends array
       this.friends.forEach(friend => {
         this.friendsOwed.push({ name: friend, owed: 0 });
       });
+
+      // set flags to unread
+      this.transactions.forEach(() => {
+        this.flagTransaction.push(false);
+      });
     },
-    /* 
-		id, name, expense, ppl:[], payers:[]  */
+    /*
+    id, name, expense, ppl:[], payers:[]
+    */
     calculateOwed(transaction) {
       console.log("starting calc");
       // amount everyone owes if split evenly
       console.log(transaction.expense);
       let individCost = transaction.expense / transaction.ppl.length;
       for (let i = 0; i < transaction.ppl.length; i++) {
+        // TODO: person, the variable, is unnecessary but it's here for readability. maybe can remove it in a later date?
         const person = transaction.ppl[i];
-        /* data of how much a person owes will be the saved 
+        /* data of how much a person owes will be the saved
             in the same order as how the names are stored in "friends"*/
         const index = this.friends.indexOf(person);
+        console.log(`before, ${person} owed ${this.friendsOwed[index].owed}.`);
 
         // add to friendsOwed[index]
         this.friendsOwed[index].name = person;
@@ -62,7 +72,7 @@ export default {
           this.friendsOwed[index].owed += individCost - payerPaid;
         } else {
           // NO:
-          console.log(`${person} owes some smoney.`);
+          console.log(`${person} owes ${individCost} smoney.`);
           this.friendsOwed[index].owed += individCost;
         }
       }
@@ -80,7 +90,21 @@ export default {
           );
         }
       });
+    },
+    calculateAll() {
+      this.transactions.forEach(transaction => {
+        /* NOTE TO SELF:
+          the index of the transaction is stored at:
+          transaction.id (: */
+        if (!this.flagTransaction[transaction.id]) {
+          this.calculateOwed(transaction);
+          // mark as "read"
+          this.flagTransaction[transaction.id] = true;
+        }
+        // don't count again if flag is true
+      });
     }
+    // end of "methods()"
   }
 };
 </script>
