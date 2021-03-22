@@ -243,3 +243,13 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/19/21 Fri
 
 - Handle edge case described on 3/16
+
+### 3/20/21 Sat
+
+- Add "read" flag to transactions, so that pressing the "Calculate" button won't recount any transactions, doubling ppl's debts.
+
+### 3/21/21 Sun
+
+- Add error check when adding friend names
+- Now checks if the name field is empty
+- suggests a random name from a list

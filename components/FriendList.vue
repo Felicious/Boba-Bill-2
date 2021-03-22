@@ -7,6 +7,7 @@
       @keydown.enter="addFriend"
     />
     <p v-if="duplicateName.length">{{ duplicateName }} already added!</p>
+    <p v-if="empty">Name cannot be empty, how about {{ newFriendName }}?</p>
 
     <!--friends is arr that contains all friend data-->
     <ol v-if="friends.length">
@@ -41,7 +42,32 @@ export default {
   data() {
     return {
       newFriendName: "",
-      duplicateName: ""
+      duplicateName: "",
+      empty: false,
+      randBobaNames: [
+        "Yuzu",
+        "Krema",
+        "Pearl",
+        "Winter",
+        "Creme",
+        "Brulee",
+        "Milk",
+        "Earl",
+        "Gray",
+        "Kuro",
+        "Sugar",
+        "Buddha",
+        "Latte",
+        "Ichigo",
+        "Sakura",
+        "Shiba",
+        "Corgi",
+        "Bogi",
+        "Matcha",
+        "Pudding",
+        "Verde",
+        "Ume"
+      ]
     };
   },
   methods: {
@@ -54,10 +80,26 @@ export default {
     addFriend() {
       // trim removes the "" at both ends of the string
       const trimmedText = this.newFriendName.trim();
+
+      // check if trimmedText is empty
+      if (trimmedText.length === 0) {
+        this.empty = true;
+        const index = Math.floor(Math.random() * this.randBobaNames.length);
+        this.newFriendName = this.randBobaNames[index];
+        console.log(this.newFriendName);
+        this.randBobaNames.splice(index, 1); // remove randBobaNames[index]
+        console.log(`remove, ${index} contains ${this.randBobaNames[index]}`);
+        return;
+      }
+
+      // TODO: write more readable error checks
       if (!this.isDuplicate(trimmedText)) {
         this.friends.push(trimmedText);
-        this.newFriendName = ""; // clear
+
+        // clear
+        this.newFriendName = "";
         this.duplicateName = ""; // clear previous input, if any
+        this.empty = false;
       } else {
         // name has been added already, notify user
         this.duplicateName = trimmedText;
