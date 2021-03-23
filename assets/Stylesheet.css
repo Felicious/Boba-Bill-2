@@ -74,7 +74,8 @@ li {
   background-color: #1e1a1c;
   color: #fbdec8;
   /* layout */
-  flex: 0 1 30%;
+
+  flex: 0 1 auto;
   padding: 10px;
   border-radius: 20px;
   margin: 5px;
@@ -90,6 +91,42 @@ input:focus {
   transform: translateY(10px);
 }*/
 
+/* contents of transaction box*/
+
+.box .titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.box .name {
+  font-size: 40px;
+  font-family: "Cute Font", cursive;
+  font-weight: 600;
+  justify-content: space-between;
+  margin: 0px 2rem 0px 0px;
+}
+
+/*TODO: style expense, expand/minimize button*/
+.box .expense {
+  /* position: starting pt / width */
+  align-self: flex-start;
+  float: right;
+}
+
+.box .plus {
+  /* position */
+  justify-content: space-between;
+  align-self: flex-start;
+}
+
+/* ========================
+
+   i n p u t   f i e l d s
+
+   ========================
+*/
+
+/* text box*/
+
 input {
   border: 5px solid white;
   border-radius: 5px;
@@ -101,14 +138,6 @@ input {
 }
 
 /*darker pink: f09381 */
-
-.name {
-  font-size: 40px;
-  font-family: "Cute Font", cursive;
-  font-weight: 600;
-}
-
-/*TODO: style expense, expand/minimize button*/
 
 /*checkbox styles ripped from Tailwind*/
 

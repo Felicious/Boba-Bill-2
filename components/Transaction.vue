@@ -1,11 +1,13 @@
 <template>
   <div class="box">
     <div v-show="!isEdit">
-      <span class="name">
-        {{ bill.name }}
-      </span>
+      <div class="titleContainer">
+        <span class="name">
+          {{ bill.name }}
+        </span>
+        <a class="plus" @click="toggle">{{ expandIcon }}</a>
+      </div>
       <span class="expense">{{ bill.expense }}</span>
-      <a class="plus" @click="toggle">{{ expandIcon }}</a>
       <div v-if="expandToggle">
         <ul>
           Split Between:

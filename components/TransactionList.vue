@@ -7,7 +7,7 @@
       @update:emit-form="addTransaction"
     />
 
-    <!-- display transactions -->
+    <!-- display transactions, 3 in a row -->
     <div v-if="transactions.length" class="display">
       <Transaction
         v-for="(transaction, index) in transactions"
