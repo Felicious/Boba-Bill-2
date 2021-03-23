@@ -7,7 +7,8 @@
         </span>
         <a class="plus" @click="toggle">{{ expandIcon }}</a>
       </div>
-      <span class="expense">{{ bill.expense }}</span>
+      <!--TODO: add friend icons that align with cost ?-->
+      <span class="expense">$ {{ bill.expense }}</span>
       <div v-if="expandToggle">
         <ul>
           Split Between:

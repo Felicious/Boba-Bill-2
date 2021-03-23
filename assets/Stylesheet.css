@@ -76,10 +76,10 @@ li {
   /* layout */
 
   flex: 0 1 auto;
-  padding: 10px;
-  border-radius: 20px;
+
   margin: 5px;
-  padding: 0 30px 1rem;
+  padding: 0 2rem 1rem;
+  border-radius: 20px;
 }
 /*
 input {
@@ -92,7 +92,6 @@ input:focus {
 }*/
 
 /* contents of transaction box*/
-
 .box .titleContainer {
   display: flex;
   justify-content: space-between;
@@ -102,20 +101,19 @@ input:focus {
   font-family: "Cute Font", cursive;
   font-weight: 600;
   justify-content: space-between;
+  /* adds space between name + minimize icon */
   margin: 0px 2rem 0px 0px;
 }
-
-/*TODO: style expense, expand/minimize button*/
-.box .expense {
-  /* position: starting pt / width */
-  align-self: flex-start;
-  float: right;
-}
-
 .box .plus {
   /* position */
   justify-content: space-between;
-  align-self: flex-start;
+  padding: 9px 0px 0px 0px;
+}
+
+.box .expense {
+  /* position: starting pt / width */
+  float: right;
+  font-size: 20px;
 }
 
 /* ========================

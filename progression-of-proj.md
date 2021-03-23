@@ -253,3 +253,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - Add error check when adding friend names
 - Now checks if the name field is empty
 - suggests a random name from a list
+
+### 3/22/21 Mon
+
+- style (minimized) transaction box
+- Review flex grow and aligning things
