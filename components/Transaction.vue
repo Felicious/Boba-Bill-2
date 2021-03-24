@@ -29,12 +29,14 @@
           </li>
         </ul>
 
-        <a @click="isEdit = true">edit</a>
-        <button>delete</button>
+        <div class="buttons">
+          <a class="edit" @click="isEdit = true">edit</a>
+          <button>delete</button>
+        </div>
 
         <br />
         <div v-show="!showCost" class="bottom">
-          <span style="margin:5px;"> total: </span>
+          <span> total: </span>
           <span class="expense">$ {{ bill.expense }}</span>
         </div>
 
