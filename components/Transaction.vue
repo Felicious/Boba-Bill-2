@@ -1,6 +1,7 @@
 <template>
   <div class="box">
     <div v-show="!isEdit">
+      <!-- "Containers" are defined for flex to align the elements within them-->
       <div class="titleContainer">
         <span class="name">
           {{ bill.name }}
@@ -8,7 +9,11 @@
         <a class="plus" @click="toggle">{{ expandIcon }}</a>
       </div>
       <!--TODO: add friend icons that align with cost ?-->
-      <span class="expense">$ {{ bill.expense }}</span>
+      <div v-if="showCost" class="costContainer">
+        <span> [friend icons go here] </span>
+        <span class="expense">$ {{ bill.expense }}</span>
+      </div>
+
       <div v-if="expandToggle">
         <ul>
           Split Between:
@@ -24,11 +29,18 @@
           </li>
         </ul>
 
+        <a @click="isEdit = true">edit</a>
+        <button>delete</button>
+
+        <br />
+        <div v-show="!showCost" class="bottom">
+          <span style="margin:5px;"> total: </span>
+          <span class="expense">$ {{ bill.expense }}</span>
+        </div>
+
         <!--TODO: edit and delete transactions;
           these two do not appear on hover. They are auto
           visible when the user expands the transaction-->
-        <a @click="isEdit = true">edit</a>
-        <button>delete</button>
       </div>
     </div>
 
@@ -67,7 +79,8 @@ export default {
         name: false,
         expense: false
       },
-      isEdit: false
+      isEdit: false,
+      showCost: true
     };
   },
   // these var are created when the component is created
@@ -84,6 +97,7 @@ export default {
   methods: {
     toggle() {
       this.expandToggle = !this.expandToggle;
+      this.showCost = !this.showCost;
     }
   }
 };

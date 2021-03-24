@@ -66,6 +66,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  grid-gap: 1rem;
 }
 
 /* Displays 3 equally sized panels:
@@ -76,9 +77,6 @@ li {
   /* layout */
 
   flex: 0 1 auto;
-
-  margin: 5px;
-  padding: 0 2rem 1rem;
   border-radius: 20px;
 }
 /*
@@ -95,25 +93,42 @@ input:focus {
 .box .titleContainer {
   display: flex;
   justify-content: space-between;
+  /*     top right bot left*/
+  padding: 0.25rem 0.75rem 0 1rem;
 }
 .box .name {
   font-size: 40px;
   font-family: "Cute Font", cursive;
   font-weight: 600;
-  justify-content: space-between;
   /* adds space between name + minimize icon */
   margin: 0px 2rem 0px 0px;
 }
 .box .plus {
   /* position */
-  justify-content: space-between;
-  padding: 9px 0px 0px 0px;
+  padding: 5px 0px;
+  cursor: pointer;
 }
 
+/* define the container so that 
+expense element can be aligned on the right
+and the friend icons on the left */
+.box .costContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem 1rem 1rem;
+}
 .box .expense {
   /* position: starting pt / width */
-  float: right;
   font-size: 20px;
+  color: white;
+}
+
+/*additional styling for bottom cost */
+.box .bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-gap: 1rem;
 }
 
 /* ========================
