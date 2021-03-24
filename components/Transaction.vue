@@ -6,7 +6,7 @@
         <span class="name">
           {{ bill.name }}
         </span>
-        <a class="plus" @click="toggle">{{ expandIcon }}</a>
+        <a class="button plus" @click="toggle">{{ expandIcon }}</a>
       </div>
       <!--TODO: add friend icons that align with cost ?-->
       <div v-if="showCost" class="costContainer">
@@ -29,8 +29,8 @@
           </li>
         </ul>
 
-        <div class="buttons">
-          <a class="edit" @click="isEdit = true">edit</a>
+        <div class="buttonsContainer">
+          <a class="button" @click="isEdit = true">edit</a>
           <button>delete</button>
         </div>
 
@@ -46,7 +46,12 @@
       </div>
     </div>
 
-    <div v-if="isEdit">
+    <div v-if="isEdit" class="form">
+      <div class="titleContainer">
+        <span>making edits...</span>
+        <a class="button" @click="isEdit = false"> cancel </a>
+      </div>
+      <br />
       <InputForm
         :autoFillFormData="this.localBill"
         :friends="friends"

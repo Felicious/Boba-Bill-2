@@ -16,6 +16,10 @@ h2 {
   font-family: "BioRhyme", serif;
 }
 
+.button {
+  cursor: pointer;
+}
+
 /* ~~~~~~~~~~~~
       friends
    ~~~~~~~~~~~~ */
@@ -55,12 +59,6 @@ li {
    transactions
    ~~~~~~~~~~~~ */
 
-.transaction {
-  background-color: #fbdec8;
-  /*TODO: make the corners gradually become smaller
-   to imitate the shape of a boba cup*/
-}
-
 /* parent container for displaying transactions */
 .display {
   display: flex;
@@ -96,7 +94,6 @@ li {
 .box .plus {
   /* position */
   padding: 5px 0px;
-  cursor: pointer;
 }
 
 /* define the container so that 
@@ -113,12 +110,14 @@ and the friend icons on the left */
   color: white;
 }
 
-.box .buttons {
+.box .buttonsContainer {
   margin: 0 1rem;
+  /*space between elements*/
+  display: flex;
+  column-gap: 0.5rem;
 }
 
 .buttons .edit {
-  cursor: pointer;
   margin: 5px;
 }
 /*additional styling for bottom cost */
@@ -129,6 +128,11 @@ and the friend icons on the left */
   grid-gap: 1rem;
   /*     top right bot left*/
   padding: 0 1rem 0.25rem 1rem;
+}
+
+/* edit form */
+.form {
+  margin: 0 1rem;
 }
 
 /* ========================

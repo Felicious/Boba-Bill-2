@@ -258,3 +258,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - style (minimized) transaction box
 - Review flex grow and aligning things
+
+### 3/23/21 Tue
+
+- complete styling transaction boxes
