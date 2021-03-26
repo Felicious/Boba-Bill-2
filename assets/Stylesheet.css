@@ -19,6 +19,9 @@ h2 {
 .button {
   cursor: pointer;
 }
+.button:hover {
+  text-decoration: underline;
+}
 
 /* ~~~~~~~~~~~~
       friends
@@ -96,6 +99,11 @@ li {
   padding: 5px 0px;
 }
 
+.plus:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* define the container so that 
 expense element can be aligned on the right
 and the friend icons on the left */
@@ -117,9 +125,10 @@ and the friend icons on the left */
   column-gap: 0.5rem;
 }
 
-.buttons .edit {
-  margin: 5px;
+.box .edit {
+  font-weight: 700;
 }
+
 /*additional styling for bottom cost */
 .box .bottom {
   display: flex;
@@ -128,8 +137,12 @@ and the friend icons on the left */
   grid-gap: 1rem;
   /*     top right bot left*/
   padding: 0 1rem 0.25rem 1rem;
+  font-weight: 800;
 }
 
+.bottom .expense {
+  font-size: inherit;
+}
 /* edit form */
 .form {
   margin: 0 1rem;

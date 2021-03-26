@@ -30,7 +30,7 @@
         </ul>
 
         <div class="buttonsContainer">
-          <a class="button" @click="isEdit = true">edit</a>
+          <a class="button edit" @click="isEdit = true">edit</a>
           <button>delete</button>
         </div>
 
