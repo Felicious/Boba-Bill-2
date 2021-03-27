@@ -262,3 +262,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/23/21 Tue
 
 - complete styling transaction boxes
+
+### 3/26/21 Fri
+
+- draw mockup for mobile view (2/3)
