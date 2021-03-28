@@ -156,17 +156,10 @@ and the friend icons on the left */
 */
 
 /* text box*/
-
-input {
-  border: 5px solid white;
-  border-radius: 5px;
-  padding: 15px;
-  background: #fdb5a7;
-  margin: 0 0 10px 0;
-  font-family: "Varela Round", sans-serif;
-  font-size: 15px;
+[type="text"] {
+  border: 5px #f09381;
+  border-style: none none solid none;
 }
-
 /*darker pink: f09381 */
 
 /*checkbox styles ripped from Tailwind*/
@@ -184,6 +177,7 @@ input {
 }
 
 [type="checkbox"] {
+  border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -210,15 +204,4 @@ input {
   outline: 2px solid transparent;
   outline-offset: 2px;
   outline-color: #f09381;
-  /* box shadow needs to be color of background*/
-  --tw-ring-inset: 0;
-  --tw-ring-offset-width: 2px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: #2563eb;
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
-    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
-    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
-    var(--tw-shadow, 0 0 #0000);
 }
