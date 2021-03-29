@@ -205,3 +205,25 @@ and the friend icons on the left */
   outline-offset: 2px;
   outline-color: #f09381;
 }
+
+.inputText {
+  /*
+  border: 5px #f09381;
+  border-style: none none solid none;
+  
+  */
+  border: none;
+
+  /* styling */
+  /*  top + bot sides*/
+  padding: 5px 5px;
+  background: transparent;
+}
+
+.line {
+  display: flex;
+  width: 112px;
+  height: 2px;
+  border-bottom: 5px solid gray;
+  position: absolute;
+}
