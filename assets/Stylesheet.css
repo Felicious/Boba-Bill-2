@@ -155,12 +155,27 @@ and the friend icons on the left */
    ========================
 */
 
-/* text box*/
+/* text box 
+    ~ see animations for this in other css file! ~ */
 [type="text"] {
-  border: 5px #f09381;
-  border-style: none none solid none;
+  border: none;
+  font-size: inherit;
+  /* styling */
+  /*       top  r   bot left */
+  padding: 10px 5px 5px 5px;
+  background: transparent;
 }
-/*darker pink: f09381 */
+
+/* bottom margin line for textbox */
+.line {
+  display: flex;
+  width: 112px;
+  height: 2px;
+  border-bottom: 5px solid gray;
+  /*      n e s w*/
+  margin: 0px 0px 0.5rem 0px;
+  position: absolute;
+}
 
 /*checkbox styles ripped from Tailwind*/
 
@@ -204,26 +219,4 @@ and the friend icons on the left */
   outline: 2px solid transparent;
   outline-offset: 2px;
   outline-color: #f09381;
-}
-
-.inputText {
-  /*
-  border: 5px #f09381;
-  border-style: none none solid none;
-  
-  */
-  border: none;
-
-  /* styling */
-  /*  top + bot sides*/
-  padding: 5px 5px;
-  background: transparent;
-}
-
-.line {
-  display: flex;
-  width: 112px;
-  height: 2px;
-  border-bottom: 5px solid gray;
-  position: absolute;
 }

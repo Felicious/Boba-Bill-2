@@ -1,6 +1,15 @@
 <template>
-  <input type="text" class="input" :value="value" v-on="listeners" />
+  <div class="inputContainer">
+    <label :for="question"> {{ question }} </label>
+    <br />
+    <input type="text" class="input" :value="value" v-on="listeners" />
+    <span class="line"></span>
+  </div>
 </template>
+
+<style>
+@import "../assets/Animations.css";
+</style>
 
 <script>
 // each Friend obj
@@ -8,7 +17,8 @@ export default {
   props: {
     value: {
       type: String
-    }
+    },
+    question: String
   },
 
   computed: {
