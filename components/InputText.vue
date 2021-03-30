@@ -2,7 +2,13 @@
   <div class="inputContainer">
     <label :for="question"> {{ question }} </label>
     <br />
-    <input type="text" class="input" :value="value" v-on="listeners" />
+    <input
+      type="text"
+      id="name"
+      class="input"
+      :value="value"
+      v-on="listeners"
+    />
     <span class="line"></span>
   </div>
 </template>

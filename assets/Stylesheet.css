@@ -166,6 +166,12 @@ and the friend icons on the left */
   background: transparent;
 }
 
+/* WARN: I only removed focus because I have a separate animation for focusing on these text inputs
+    in general, it's bad practice to remove a focus border*/
+[type="text"]:focus {
+  outline: none;
+}
+
 /* bottom margin line for textbox */
 .line {
   display: flex;

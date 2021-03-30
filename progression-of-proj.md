@@ -263,6 +263,19 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - complete styling transaction boxes
 
+### 3/24/21 Wed
+
+- clickable elements include class name `button` to change cursor to "click hand" when it hovers over a clickable obj
+
 ### 3/26/21 Fri
 
 - draw mockup for mobile view (2/3)
+
+### 3/28/21 Sun
+
+- implement (in isolated Codepen env) lowering bottom margin line animation for text boxes on `hover`
+
+### 3/29/21 Mon
+
+- attempt to implement animation on `focus`, but running into issues so far
+- document the logic for this animation

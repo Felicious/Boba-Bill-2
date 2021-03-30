@@ -497,3 +497,48 @@ formTests.formIsFilled();
   column-gap: 0.5rem;
 }
 ```
+
+# My Animation Struggles
+
+## animating the text box
+
+When collecting text inputs, I wanted to animate the bottom of the input box expanding when the user focuses on the text box.
+Visualizing the behavior, this is an unselected text box vs a text box that's being typed in
+
+```
+Name        Name
+____        Feli
+            --------
+```
+
+**the code that achieves this**
+Inside `InputText.vue`, the html for the input text box
+
+```html
+<div class="container">
+  <label :for="question"> Name </label>
+  <br />
+  <input type="text" id="name" />
+  <!-- styling for the line is found in Stylesheet.css -->
+  <span class="line"></span>
+</div>
+```
+
+Thus, when the `input` is **focused**, the label and line both need to respond by 1. changing color to pink and 2. line needs to be animated traveling down. **To achieve this behavior**, Derrick suggested that I use the [adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) `+` to indicate that I'd like to **style** the **second** html element when the **first** element is focused.
+
+```css
+/* adjacent sibling combinator in use  */
+#name:focus + .line {
+  transition: transform 125ms;
+  transform: translateY(10px);
+  border-color: #f09381;
+}
+
+/* animation for when mouse leaves */
+.line {
+  will-change: transform;
+  transition: transform 450ms;
+}
+```
+
+However, I still need to figure out how to animate the label that's above the focused element. The `+` combinator only works at styling elements that come **after** the focused input. Therefore, I struggle with styling the label that comes before. ):
