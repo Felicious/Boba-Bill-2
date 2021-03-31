@@ -8,7 +8,7 @@
 
     </p>
 
-    <InputText v-model="localForm.name" placeholder="name of shop" />
+    <InputText v-model="localForm.name" :question="busnName" />
 
     <input
       id="expense"
@@ -49,6 +49,12 @@
   </form>
 </template>
 
+<style>
+[type="text"] {
+  color: white;
+}
+</style>
+
 <script>
 import InputText from "./InputText.vue";
 import SplitBetw from "./SplitBetw.vue";
@@ -85,7 +91,8 @@ export default {
       },
 
       // is this form for adding/editing transactions?
-      isEdit: false
+      isEdit: false,
+      busnName: "Business name"
     };
   },
 

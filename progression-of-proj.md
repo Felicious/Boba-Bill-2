@@ -273,9 +273,15 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 ### 3/28/21 Sun
 
+- begin implementing changes from mockup!
 - implement (in isolated Codepen env) lowering bottom margin line animation for text boxes on `hover`
 
 ### 3/29/21 Mon
 
-- attempt to implement animation on `focus`, but running into issues so far
 - document the logic for this animation
+- can style textbox on `focus` now, but not label
+- learned about the adjacent sibling combinator `+`
+
+### 3/30/21 Tu
+
+- styled and animated textboxes! Yayy

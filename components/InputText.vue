@@ -1,6 +1,6 @@
 <template>
-  <div class="inputContainer">
-    <label :for="question"> {{ question }} </label>
+  <label :for="question">
+    {{ question }}
     <br />
     <input
       type="text"
@@ -10,7 +10,7 @@
       v-on="listeners"
     />
     <span class="line"></span>
-  </div>
+  </label>
 </template>
 
 <style>

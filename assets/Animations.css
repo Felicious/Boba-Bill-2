@@ -1,16 +1,16 @@
 /* Text input box animations */
-/*mouse enter animation is faster than exit */
+/* enter animation is faster than exit */
 #name:focus + .line {
   transition: transform 125ms;
   transform: translateY(10px);
   border-color: #f09381;
 }
 
-.inputContainer:focus label {
+label:focus-within {
   color: #f09381;
 }
 
-/* mouse leave*/
+/* focus leave*/
 .line {
   will-change: transform;
   transition: transform 450ms;

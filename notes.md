@@ -511,34 +511,57 @@ ____        Feli
             --------
 ```
 
-**the code that achieves this**
-Inside `InputText.vue`, the html for the input text box
+**note about focus** that I initially made a mistake with: "focus" is a state only applied to inputs, so I couldn't `focus` on a `<div>`, only a button, text box, and etc.
+
+## Coding the Animation
+
+Inside `InputText.vue`, the html for the input text box, I need a container (in this case, it is the `label`) that encapsulates everything.
 
 ```html
-<div class="container">
-  <label :for="question"> Name </label>
+<label :for="question">
+  Name
   <br />
-  <input type="text" id="name" />
+  <input type="text" id="question" />
   <!-- styling for the line is found in Stylesheet.css -->
   <span class="line"></span>
-</div>
+</label>
 ```
 
-Thus, when the `input` is **focused**, the label and line both need to respond by 1. changing color to pink and 2. line needs to be animated traveling down. **To achieve this behavior**, Derrick suggested that I use the [adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) `+` to indicate that I'd like to **style** the **second** html element when the **first** element is focused.
+Thus, when the `input` is **focused**, the label and line both need to respond by:
+
+1. changing color to pink and
+2. line needs to be animated traveling down.
+
+**To achieve this behavior**, Derrick suggested that I use the [adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) `+` to indicate that I'd like to **style** the **second** html element when the **first** element is focused.
 
 ```css
-/* adjacent sibling combinator in use  */
+/* adjacent sibling combinator in use
+  animation for focus enter  */
 #name:focus + .line {
   transition: transform 125ms;
   transform: translateY(10px);
   border-color: #f09381;
 }
 
-/* animation for when mouse leaves */
+/* animation for when focus leaves */
 .line {
   will-change: transform;
   transition: transform 450ms;
 }
 ```
 
-However, I still need to figure out how to animate the label that's above the focused element. The `+` combinator only works at styling elements that come **after** the focused input. Therefore, I struggle with styling the label that comes before. ):
+[StackOverflow](https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-one-element-is-hovered) post that helped me figure out which combinator to use.
+
+To animate the label, I took advantage of `focus-within`.
+
+I initially ran into an obstacle while animating this because the focus element, the text input, is sandwiched between the label and line, which both required css animations. However, adjacent combinators like `+` and `~` discussed only serve to style elements that come after the focused element. Therefore the label can't be animated with simply those combinators.
+
+To solve this, I moved the input and line elements into the `<label>` element (since i remembered that u could treat the label as a wrapper), so the label is now the container holding the `<input>`. This works, because `focus-within` styles the container when the input element inside is focused.
+
+Therefore, the css animating the label (when the label is the container) is
+
+```css
+label:focus-within {
+  color: #f09381;
+}
+```
