@@ -284,4 +284,4 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 ### 3/30/21 Tu
 
-- styled and animated textboxes! Yayy
+- styled and animated textboxes! Yayy it looks so good

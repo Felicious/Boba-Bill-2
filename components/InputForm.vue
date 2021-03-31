@@ -8,8 +8,8 @@
 
     </p>
 
-    <InputText v-model="localForm.name" :question="busnName" />
-
+    <InputText v-model="localForm.name" question="Business name" />
+    
     <input
       id="expense"
       placeholder="$"

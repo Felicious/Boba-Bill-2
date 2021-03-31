@@ -3,7 +3,8 @@
   <div>
     <InputText
       v-model="newFriendName"
-      :question="name"
+      question="Name"
+      type="text"
       @keydown.enter="addFriend"
     />
     <p v-if="duplicateName.length">{{ duplicateName }} already added!</p>
@@ -42,7 +43,6 @@ export default {
   data() {
     return {
       newFriendName: "",
-      name: "Name",
       duplicateName: "",
       empty: false,
       randBobaNames: [
