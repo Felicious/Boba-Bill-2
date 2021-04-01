@@ -157,7 +157,8 @@ and the friend icons on the left */
 
 /* text box 
     ~ see animations for this in other css file! ~ */
-[type="text"] {
+[type="text"],
+[type="number"] {
   border: none;
   font-size: inherit;
   /* styling */
@@ -169,6 +170,10 @@ and the friend icons on the left */
 /* WARN: I only removed focus because I have a separate animation for focusing on these text inputs
     in general, it's bad practice to remove a focus border*/
 [type="text"]:focus {
+  outline: none;
+}
+
+[type="number"]:focus {
   outline: none;
 }
 

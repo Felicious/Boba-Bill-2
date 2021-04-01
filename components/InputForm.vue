@@ -10,15 +10,10 @@
 
     <InputText v-model="localForm.name" question="Business name" 
       ref="busnInput"/>
+
+    <br>
     
-    <input
-      id="expense"
-      placeholder="$"
-      v-model="localForm.expense"
-      type="number"
-      name="expense"
-      min="0"
-    />
+    <InputNum v-model="localForm.expense" min="0" ref="costInput" />
 
     <div>
       <h2>Split Between</h2>
@@ -52,6 +47,7 @@
 
 <script>
 import InputText from "./InputText.vue";
+import InputNum from "./InputNum.vue"
 import SplitBetw from "./SplitBetw.vue";
 import formTests from "../assets/errorChecks.js";
 
@@ -66,6 +62,7 @@ export default {
   },
   components: {
     InputText,
+    InputNum,
     SplitBetw
   },
   mounted(){
@@ -99,6 +96,8 @@ export default {
       /* directly manipulate InputText to change font color
          of input to white so it can be seen on black background */
       this.$refs.busnInput.changeColor();
+      console.log("why?");
+      this.$refs.costInput.changeColor();
       }
     },
 
