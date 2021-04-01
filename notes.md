@@ -565,3 +565,66 @@ label:focus-within {
   color: #f09381;
 }
 ```
+
+### Conditional Styling
+
+What happens when I use a component for two different instances, once on white background, and another on black background, and the black text cannot be seen on black background?
+
+Check this [issue](https://github.com/Felicious/Boba-Bill-2/issues/35) for an image showing this problem!
+
+The font color depended on a conditional, and how would you implement this in Vue?
+
+In my two instances of `InputForm`, the empty form was on white background, and modify-able, filled out form on black background. Thus, to determine whether the font should be black or white, I needed to know whether the form was empty or not.
+
+Fortunately, upon creation of a form, my `initEdits()` method executes only when the form is filled in advance, so I added to this method, directly changing the font color to `white`.
+
+```js
+initEdits(){
+  // if form is filled
+  if(this.autoFillFormData){
+  ...
+
+  /* directly manipulate InputText to change font color
+      of input to white so it can be seen on black background */
+  this.$refs.busnInput.changeColor();
+  }
+}
+```
+
+#### How to directly modify styles for a child component
+
+In the parent, I marked the child component I'm going to be directly modifying with a `ref`
+
+```html
+<InputText v-model="localForm.name" question="Business name" ref="busnInput" />
+```
+
+Inside the child, since I wanted to change the font color of the `<input>` element only and nothing else, I also marked the input element with a `ref`
+
+```html
+<label>
+  {{ question }}
+  <br />
+  <input type="text" ... ref="input" />
+</label>
+```
+
+**note:** Notice that the `ref` names are different!
+
+Then, I defined in the child component `InputText` a method that the parent will call to change the color of the `<input>` element to white.
+
+```js
+methods: {
+  changeColor: function() {
+    this.$refs.input.style.color = "white";
+  }
+  }
+```
+
+Then, back in the parent `InputForm`, we can use
+
+```js
+this.$refs.busnInput.changeColor();
+```
+
+to call the child component's method from the parent and change the font color to white!

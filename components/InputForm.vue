@@ -8,7 +8,8 @@
 
     </p>
 
-    <InputText v-model="localForm.name" question="Business name" />
+    <InputText v-model="localForm.name" question="Business name" 
+      ref="busnInput"/>
     
     <input
       id="expense"
@@ -49,12 +50,6 @@
   </form>
 </template>
 
-<style>
-[type="text"] {
-  color: white;
-}
-</style>
-
 <script>
 import InputText from "./InputText.vue";
 import SplitBetw from "./SplitBetw.vue";
@@ -91,8 +86,7 @@ export default {
       },
 
       // is this form for adding/editing transactions?
-      isEdit: false,
-      busnName: "Business name"
+      isEdit: false
     };
   },
 
@@ -101,6 +95,10 @@ export default {
       if(this.autoFillFormData){
       this.localForm = this.autoFillFormData;
       this.isEdit = true;
+
+      /* directly manipulate InputText to change font color
+         of input to white so it can be seen on black background */
+      this.$refs.busnInput.changeColor();
       }
     },
 

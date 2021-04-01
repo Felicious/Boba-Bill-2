@@ -8,6 +8,7 @@
       class="input"
       :value="value"
       v-on="listeners"
+      ref="input"
     />
     <span class="line"></span>
   </label>
@@ -25,6 +26,15 @@ export default {
       type: String
     },
     question: String
+  },
+
+  mounted() {
+    this.changeColor();
+  },
+  methods: {
+    changeColor: function() {
+      this.$refs.input.style.color = "white";
+    }
   },
 
   computed: {

@@ -285,3 +285,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/30/21 Tu
 
 - styled and animated textboxes! Yayy it looks so good
+
+### 3/31/21 Wed
+
+- use `refs` to modify font color on a condition
