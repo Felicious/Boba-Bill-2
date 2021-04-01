@@ -1,5 +1,5 @@
 <template>
-  <label :for="question">
+  <label>
     {{ question }}
     <br />
     <input
