@@ -95,9 +95,8 @@ export default {
 
       /* directly manipulate InputText to change font color
          of input to white so it can be seen on black background */
-      this.$refs.busnInput.changeColor();
-      console.log("why?");
-      this.$refs.costInput.changeColor();
+      this.$refs.busnInput.changeColor("white");
+      this.$refs.costInput.changeColor("white");
       }
     },
 

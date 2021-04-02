@@ -27,13 +27,9 @@ export default {
     },
     question: String
   },
-
-  mounted() {
-    this.changeColor();
-  },
   methods: {
-    changeColor: function() {
-      this.$refs.input.style.color = "white";
+    changeColor: function(assignedColor) {
+      this.$refs.input.style.color = assignedColor;
     }
   },
 

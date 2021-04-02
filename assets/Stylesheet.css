@@ -161,6 +161,7 @@ and the friend icons on the left */
 [type="number"] {
   border: none;
   font-size: inherit;
+  color: black;
   /* styling */
   /*       top  r   bot left */
   padding: 10px 5px 5px 5px;
