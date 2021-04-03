@@ -289,3 +289,11 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 3/31/21 Wed
 
 - use `refs` to modify font color on a condition
+
+### 4/1/21 Thu
+
+- realized an annoying bug I was trying to fix in the morning where the text color kept being white even tho I modified the ref to change it to black in some situations was caused by an external factor (something related to the browser caching or needing an update) bc it resolved itself after I restarted the tab!
+
+### 4/2/21 Fri
+
+- placed the two text boxes for name and cost beside each other using `flex`

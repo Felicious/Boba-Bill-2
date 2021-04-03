@@ -8,12 +8,14 @@
 
     </p>
 
-    <InputText v-model="localForm.name" question="Business name" 
-      ref="busnInput"/>
+    <div class="lineContainer">
 
-    <br>
+    <InputText v-model="localForm.name" question="Business name" 
+      ref="busnInput" class="col-item"/>
     
-    <InputNum v-model="localForm.expense" min="0" ref="costInput" />
+    <InputNum v-model="localForm.expense" min="0" ref="costInput" class="col-item"/>
+
+    </div>
 
     <div>
       <h2>Split Between</h2>

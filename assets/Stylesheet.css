@@ -170,15 +170,22 @@ and the friend icons on the left */
 
 /* WARN: I only removed focus because I have a separate animation for focusing on these text inputs
     in general, it's bad practice to remove a focus border*/
-[type="text"]:focus {
-  outline: none;
-}
-
+[type="text"]:focus,
 [type="number"]:focus {
   outline: none;
 }
 
-/* bottom margin line for textbox */
+.lineContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* displays inputs for busn name and expense side-by-side*/
+.lineContainer .col-item {
+  flex-basis: content;
+}
+
+/* bottom margin line for text box */
 .line {
   display: flex;
   width: 112px;
