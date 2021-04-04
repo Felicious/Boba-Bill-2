@@ -618,7 +618,7 @@ methods: {
   changeColor: function() {
     this.$refs.input.style.color = "white";
   }
-  }
+}
 ```
 
 Then, back in the parent `InputForm`, we can use

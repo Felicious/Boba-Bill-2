@@ -165,6 +165,7 @@ and the friend icons on the left */
   /* styling */
   /*       top  r   bot left */
   padding: 10px 5px 5px 5px;
+  width: 130px;
   background: transparent;
 }
 
@@ -183,12 +184,13 @@ and the friend icons on the left */
 /* displays inputs for busn name and expense side-by-side*/
 .lineContainer .col-item {
   flex-basis: content;
+  margin: 0 1rem 0 0;
 }
 
 /* bottom margin line for text box */
 .line {
   display: flex;
-  width: 112px;
+  width: 130px;
   height: 2px;
   border-bottom: 5px solid gray;
   /*      n e s w*/
