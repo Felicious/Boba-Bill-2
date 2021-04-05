@@ -1,11 +1,13 @@
 <template>
   <div v-show="friends.length" class="transaction">
     <h2>Transaction</h2>
-    <InputForm
-      :friends="friends"
-      :id="transactionId"
-      @update:emit-form="addTransaction"
-    />
+    <div class="newTransaction">
+      <InputForm
+        :friends="friends"
+        :id="transactionId"
+        @update:emit-form="addTransaction"
+      />
+    </div>
 
     <!-- display transactions, 3 in a row -->
     <div v-if="transactions.length" class="display">

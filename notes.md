@@ -628,3 +628,11 @@ this.$refs.busnInput.changeColor();
 ```
 
 to call the child component's method from the parent and change the font color to white!
+
+### Color
+
+Up until now, I've been making mock-ups in Adobe Photoshop and I've only used hex notation (ie. #ff246) to indicate color. While following a tutorial, however, I realized that there are 2 other ways to describe the same color. I can use
+
+1. RGB -> red, green, blue values `rgb(240, 147, 129)`
+2. HSL -> hue, saturation, lightness `hsl(340deg 100% 32%)`
+   To switch between these, I can use the various color converters and color pickers available on the internet! I just wanted to save the different names of how to describe all these colors here in case I need them in the future.

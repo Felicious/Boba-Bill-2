@@ -241,3 +241,29 @@ and the friend icons on the left */
   outline-offset: 2px;
   outline-color: #f09381;
 }
+
+/* submit button 
+    for empty form
+    followed Josh W Comeau's tutorial for 3-D button!*/
+.newTransaction .submit {
+  background: hsl(10deg 78% 65%); /* hsl(10, 60%, 64%) ??*/
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.newTransaction .front {
+  display: block;
+  padding: 5px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background: hsl(10deg 78.7% 72.4%);
+  color: black;
+  transform: translateY(-6px);
+}
+
+.submit:active .front {
+  transform: translateY(-2px);
+}

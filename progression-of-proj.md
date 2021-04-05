@@ -297,3 +297,9 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/2/21 Fri
 
 - placed the two text boxes for name and cost beside each other using `flex`
+
+### 4/3/21 Sat
+
+- read blog post about making a beautiful button. I might want to make 1 for calculating the totals, but in the shape of a circle to boba? o;
+  - form submission button should look pretty but not too fancy
+  - the blog post is this https://www.joshwcomeau.com/animation/3d-button/

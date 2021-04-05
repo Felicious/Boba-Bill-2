@@ -41,8 +41,10 @@
       />
     </div>
     
-    <button type="submit">
-      submit
+    <button type="submit" class="submit">
+      <span class="front">
+        submit
+      </span>
     </button>
   </form>
 </template>
