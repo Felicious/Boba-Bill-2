@@ -246,7 +246,7 @@ and the friend icons on the left */
     for empty form
     followed Josh W Comeau's tutorial for 3-D button!*/
 .newTransaction .submit {
-  background: hsl(10deg 78% 65%); /* hsl(10, 60%, 64%) ??*/
+  background: hsl(10deg 60% 55%); /* hsl(10, 60%, 64%) ??*/
   border-radius: 12px;
   border: none;
   padding: 0;
@@ -256,14 +256,20 @@ and the friend icons on the left */
 
 .newTransaction .front {
   display: block;
-  padding: 5px;
+  /* length of button */
+  padding: 5px 1.5rem;
   border-radius: 12px;
   font-size: 1.25rem;
   background: hsl(10deg 78.7% 72.4%);
   color: black;
-  transform: translateY(-6px);
+
+  /* position of front relative to the others*/
+  transform: translateY(-3px);
 }
 
-.submit:active .front {
-  transform: translateY(-2px);
+/* :focus-visible applies only when user is on keyboard and navigating using tab
+    this hides outline when the button is focused and user using a pointer device
+*/
+.submit:focus:not(:focus-visible) {
+  outline: none;
 }

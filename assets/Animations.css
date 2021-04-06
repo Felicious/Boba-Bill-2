@@ -12,6 +12,29 @@ label:focus-within {
 
 /* focus leave*/
 .line {
+  /* set up default optimizations for element that will move*/
   will-change: transform;
   transition: transform 450ms;
+}
+
+/* submit button animations */
+
+/* mouse leave?? */
+.newTransaction .front {
+  will-change: transform;
+  transition: transform 600ms ease-out;
+}
+
+/* mouse enter */
+.newTransaction .submit:hover .front {
+  transform: translateY(-6px);
+  /* bezier is a custom timing function from Josh W. Comeau's blog
+      there's a little springy snap back to give it personality*/
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+/* push animation */
+.submit:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+  /* todo: make top shinier*/
 }

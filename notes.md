@@ -385,12 +385,73 @@ methods: {
 
 So in this method, you can directly add the emitted object from child into the list `transactions` in parent! This is a better solution for this situation compared to the first because the 1st only handles passing the form object from the child, whereas the second handles both passing the object and triggering a method to add the object to the list `transactions`.
 
+### Components that Return Numbers
+
+I've been getting this intriguing type error recently when I duplicated the `InputText` component and made one to take a numerical input for `cost`. In `InputNum`, whenever I submitted the form, an error message indicating that **"Expected Number, got String"** shows up, referencing the parent component `InputForm` in this line:
+
+```html
+<InputNum v-model="localForm.expense" />
+```
+
+In the child component `InputNum`, I was confused because the expected input type is indeed a number
+
+```html
+<template>
+  <label>
+    Cost
+    <br />
+    <input
+      type="number"
+      :value="value"
+      v-on="listeners"
+    />
+    ...
+</template>
+```
+
+and what is emitted is the input
+
+```js
+export default {
+  props: {
+    value: {
+      type: Number
+    }
+  },
+  ...
+
+  computed: {
+    listeners() {
+      return {
+        // Pass all component listeners directly to input
+        ...this.$listeners,
+
+        // Override input listener of the same name from v-on
+        input: event => this.$emit("input", event.target.value)
+      };
+    }
+  }
+```
+
+So, I originally fixed the error by converting the `input` to a number, assuming that somehow the input is a string for some reason.
+
+```js
+// change:
+input: event => this.$emit("input.Number()", event.target.value);
+```
+
+This removed the error message **"Expected Number, got String"** but a new issue arose. Now, whenever the form was submitted in `InputForm`, the field for expense would just reset to 0. `input.Number()` was causing an issue.
+
+In the end, [StackOverflow](https://stackoverflow.com/questions/57153798/vue-trying-to-emit-a-value-as-a-number-and-getting-string-when-emitted) came to the rescue again. Suffixing with `v-model.number` in the parent ensures that the emitted result is parsed as number. This proved to be less buggy that trying to change the `input` into a number in the child, as done previously.
+
+```html
+<InputNum v-model.number="localForm.expense" />
+```
+
 ### Hovering with Vue
 
-I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over components on Vue to toggle visibility of an edit name button next to the name itself.
-
-**The how-to**:
-In the parent component `FriendList`, I included `v-on` (the @) to listen to the child component for a new edited friend name, if any.
+I had been following this [blog post](https://michaelnthiessen.com/hover-in-vue/) on how to toggle hovering over
+components on Vue to toggle visibility of an edit name button next to the name itself. **The how-to**: In the parent component `FriendList`, I included `v-on` (the @) to listen to the child component for a new edited friend name, if any.
 
 ```html
 <ol>

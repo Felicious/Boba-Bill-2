@@ -43,7 +43,7 @@ export default {
         ...this.$listeners,
 
         // Override input listener of the same name from v-on
-        input: event => this.$emit("input.Number()", event.target.value)
+        input: event => this.$emit("input", event.target.value)
       };
     }
   }

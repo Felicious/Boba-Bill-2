@@ -13,7 +13,7 @@
     <InputText v-model="localForm.name" question="Business name" 
       ref="busnInput" class="col-item"/>
     
-    <InputNum v-model="localForm.expense" min="0" ref="costInput" class="col-item"/>
+    <InputNum v-model.number="localForm.expense" min="0" ref="costInput" class="col-item"/>
 
     </div>
 
@@ -49,9 +49,13 @@
   </form>
 </template>
 
+<style>
+@import "../assets/Animations.css";
+</style>
+
 <script>
 import InputText from "./InputText.vue";
-import InputNum from "./InputNum.vue"
+import InputNum from "./InputNum.vue";
 import SplitBetw from "./SplitBetw.vue";
 import formTests from "../assets/errorChecks.js";
 
