@@ -246,16 +246,30 @@ and the friend icons on the left */
     for empty form
     followed Josh W Comeau's tutorial for 3-D button!*/
 .newTransaction .submit {
-  background: hsl(10deg 60% 55%); /* hsl(10, 60%, 64%) ??*/
+  position: relative;
+  background: transparent;
   border-radius: 12px;
   border: none;
   padding: 0;
   cursor: pointer;
   outline-offset: 4px;
+  transition: filter 600ms;
+
+  /*mobile considerations*/
+  /* remove default tap effect */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.newTransaction .submit:hover {
+  transition: filter 250ms;
+  filter: brightness(110%);
 }
 
 .newTransaction .front {
   display: block;
+  /* to stack with the shadow and edge */
+  position: relative;
   /* length of button */
   padding: 5px 1.5rem;
   border-radius: 12px;
@@ -267,9 +281,57 @@ and the friend icons on the left */
   transform: translateY(-3px);
 }
 
+.newTransaction .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  filter: blur(4px);
+
+  /*position*/
+  transform: translateY(2px);
+}
+
+.newTransaction .button-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  /*background: hsl(10deg 60% 55%);*/
+
+  /*apply gradient to make 
+    rounded corners look like they're reflecting less light
+    
+    the 55 are the middle, 35 are the corners/edges that are darker*/
+  background: linear-gradient(
+    to left,
+    hsl(10deg 60% 35%) 0%,
+    hsl(10deg 60% 55%) 8%,
+    hsl(10deg 60% 55%) 92%,
+    hsl(10deg 60% 35%) 100%
+  );
+}
+
 /* :focus-visible applies only when user is on keyboard and navigating using tab
     this hides outline when the button is focused and user using a pointer device
 */
-.submit:focus:not(:focus-visible) {
+.newTransaction .submit:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* submit button for within the forms */
+.form .submit {
+  /*background: #fbdec8;
+  */
+  background: #f09381;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
 }

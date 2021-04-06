@@ -41,7 +41,11 @@
       />
     </div>
     
+    <!-- button itself is a wrapper
+          what we'll be clicking is the button edge? -->
     <button type="submit" class="submit">
+      <span class="shadow"></span>
+      <span class="button-edge"></span>
       <span class="front">
         submit
       </span>
