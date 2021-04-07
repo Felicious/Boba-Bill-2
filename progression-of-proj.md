@@ -303,3 +303,14 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - read blog post about making a beautiful button. I might want to make 1 for calculating the totals, but in the shape of a circle to boba? o;
   - form submission button should look pretty but not too fancy
   - the blog post is this https://www.joshwcomeau.com/animation/3d-button/
+
+### 4/5/21 Tu
+
+- finished following the 3D button tutorial and implemented a submit button for `InputForm`
+- discovered and fixed a parsing bug for `cost`
+- added a couple more issues
+- first time in 2 weeks that I commited more than twice in a day!
+
+### 4/6/21 Wed
+
+- begin working on calculate button (a circular ver of the 3-D button completed yesterday)

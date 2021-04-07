@@ -248,7 +248,6 @@ and the friend icons on the left */
 .newTransaction .submit {
   position: relative;
   background: transparent;
-  border-radius: 12px;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -334,4 +333,72 @@ and the friend icons on the left */
   border: none;
   cursor: pointer;
   padding: 5px 10px;
+}
+
+/* Calculate Owed round button */
+.boba-button {
+  position: relative;
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 600ms;
+
+  /*mobile considerations*/
+  /* remove default tap effect */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.boba-button .front {
+  display: block;
+  /* to stack with the shadow and edge */
+  position: relative;
+  /* button size + shape*/
+  padding: 3rem 1.5rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  /* backgrnd: to change later*/
+  background: darkgray;
+  color: white;
+
+  /* position of front relative to the others*/
+  transform: translateY(-3px);
+}
+
+.boba-button .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: hsl(0deg 0% 0% / 0.25);
+  filter: blur(4px);
+
+  /*position*/
+  transform: translateY(2px);
+}
+
+.boba-button .button-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  /*shading to make rounded corners look
+    like they're reflecting less light
+    
+    the 55 are the middle, 35 are the corners/edges that are darker*/
+  background: linear-gradient(
+    to left,
+    hsl(323deg 0% 16%) 0%,
+    hsl(323deg 0% 32%) 8%,
+    hsl(323deg 0% 32%) 92%,
+    hsl(323deg 0% 16%) 100%
+  );
 }

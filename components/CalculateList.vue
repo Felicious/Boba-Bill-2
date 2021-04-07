@@ -1,7 +1,11 @@
 <template>
   <div>
-    <button @click="calculateAll">
-      calculate
+    <button @click="calculateAll" class="boba-button">
+      <span class="shadow"></span>
+      <span class="button-edge"></span>
+      <span class="front">
+        calculate
+      </span>
     </button>
     {{ friendsOwed }}
   </div>
