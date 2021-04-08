@@ -337,11 +337,11 @@ and the friend icons on the left */
 
 /* submit button for within the forms */
 .form .submit {
-  /*background: #fbdec8;
-  */
+  margin: 1rem 0;
   background: #f09381;
   color: white;
   border-radius: 12px;
+  font-size: 18px;
   border: none;
   cursor: pointer;
   padding: 5px 10px;
