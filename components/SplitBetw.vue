@@ -9,7 +9,9 @@
       type="checkbox"
       :value="name"
     />
-    <label :for="name + type">
+    <!-- "for" in label needs to match w/ "id" in input
+          so that clicking on label also selects checkbox-->
+    <label :for="instance + name + type">
       {{ name }}
     </label>
   </p>
