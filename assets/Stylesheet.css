@@ -201,11 +201,15 @@ and the friend icons on the left */
 /* show 3 checkboxes per row*/
 .splitContainer {
   max-width: 24rem;
-  border: solid;
   display: grid;
   grid-gap: 1rem;
+  /*  parameters for minmax: <fixed length>, <track breadth>*/
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 1rem;
+  /* handle overflow: breaks word and continue it on next line*/
+  word-break: break-all;
 }
+
 /*checkbox styles ripped from Tailwind*/
 
 [type="checkbox"]:checked {
