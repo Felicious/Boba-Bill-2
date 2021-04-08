@@ -17,8 +17,9 @@
 
     </div>
 
-    <div>
-      <h2>Split Between</h2>
+    
+    <h2>Split Between</h2>
+    <div class="splitContainer">
       <SplitBetw
         v-for="friend in friends"
         :key="friend"

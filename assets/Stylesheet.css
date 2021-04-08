@@ -198,6 +198,14 @@ and the friend icons on the left */
   position: absolute;
 }
 
+/* show 3 checkboxes per row*/
+.splitContainer {
+  max-width: 24rem;
+  border: solid;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 /*checkbox styles ripped from Tailwind*/
 
 [type="checkbox"]:checked {

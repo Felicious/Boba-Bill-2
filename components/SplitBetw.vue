@@ -1,7 +1,7 @@
 <template>
   <!-- this is the grand-child of TransactionList
      displays checkbox next to Friend name-->
-  <p>
+  <span>
     <input
       :id="instance + name + type"
       v-model="updateCheckbox"
@@ -14,7 +14,7 @@
     <label :for="instance + name + type">
       {{ name }}
     </label>
-  </p>
+  </span>
   <!--Q: div or p looks better? -->
 </template>
 
