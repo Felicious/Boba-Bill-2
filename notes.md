@@ -353,6 +353,10 @@ computed: {
 
 "`v-html` should only used when you want to render HTML content from a variable"
 
+### Using computed for Dynamic Components
+
+Here is a [StackOverflow](https://stackoverflow.com/questions/43658481/passing-props-dynamically-to-dynamic-component-in-vuejs) that was particularly useful for learning when to use the `computed` property for dynamic components.
+
 ### Use v-on to send data + call parent's method from child
 
 I learned this from this [StackOverFlow post](https://stackoverflow.com/a/61998896) that when emitting a value from the child component, in the parent component, you can:

@@ -31,6 +31,7 @@ import InputText from "./InputText.vue"; // referencing/using other files or dep
 import Friend from "./Friend.vue";
 
 export default {
+  name: "FriendList",
   // variables accepted from parent
   props: {
     // kinda like function agruments (can pass to children. They're parent's data)

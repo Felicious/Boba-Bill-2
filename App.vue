@@ -1,33 +1,33 @@
 <template>
   <div id="app">
     <h2>Boba Bill</h2>
-    <header>
-      <nav>
-        <ul>
-          <li v-for="(tab, tabName) in tabs" :key="tabName">
-            <button
-              class="tab"
-              :class="{ active: tabName === activeTab }"
-              @click="setTabActive(tabName)"
-            >
-              <span class="tab-copy">{{ tabName }}</span>
-              <!-- TODO: handle this later
+
+    <button
+      v-for="tab in tabs"
+      :key="tab"
+      class="tab"
+      :class="['tab-button', { active: tab === activeTab }]"
+      @click="activeTab = tab"
+    >
+      <span class="tab-copy">{{ tab }}</span>
+      <!-- TODO: handle this later
             <span class="tab-background">
               <span class="tab-rounding left"></span>
               <span class="tab-rounding right"></span>
             </span> -->
-            </button>
-            <component v-bind:is="currentTabComponent" class="tab"></component>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    </button>
+    <component
+      v-bind:is="currentTabComponent"
+      v-bind="currentProperties"
+      class="tab"
+    ></component>
 
+    <!--
     <FriendList v-bind:friends="friends" />
 
     <TransactionList v-bind:friends="friends" :transactions="transactions" />
 
-    <CalculateList :friends="friends" :transactions="transactions" />
+    <CalculateList :friends="friends" :transactions="transactions" /> -->
   </div>
 </template>
 
@@ -40,8 +40,10 @@ import FriendList from "./components/FriendList.vue";
 import TransactionList from "./components/TransactionList.vue";
 import CalculateList from "./components/CalculateList.vue";
 
+/* globally register components */
+
 export default {
-  el: "#app",
+  name: "CurrentComponent",
   components: {
     FriendList,
     TransactionList,
@@ -49,14 +51,25 @@ export default {
   },
 
   computed: {
+    /* func that work together with :is 
+        to pass props into dynamic components */
     currentTabComponent() {
-      return "tab-" + this.currentTab.toLowerCase();
+      return this.activeTab + "List";
+    },
+    currentProperties() {
+      if (this.activeTab === "FriendList") {
+        // set props
+        return { friends: this.friends };
+      } else {
+        return { friends: this.friends, transactions: this.transactions };
+      }
     }
   },
 
   data() {
     return {
-      tabs: {},
+      tabs: ["Friend", "Transaction", "Calculate"],
+      activeTab: "Friend",
       friends: ["Derrick", "Bunbun"],
       transactions: [
         {
@@ -75,6 +88,13 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    setTabActive(tab) {
+      console.log("setActiveTab was called");
+      this.activeTab = tab;
+    }
   }
 };
 </script>
