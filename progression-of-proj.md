@@ -314,3 +314,12 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/6/21 Wed
 
 - begin working on calculate button (a circular ver of the 3-D button completed yesterday)
+
+### 4/9/21 Fri
+
+- implement dynamic components to create tabs! :D
+  - `is` attribute is a lifesaver
+
+### 4/10/21 Sat
+
+- add docs on dynamic components bc I know i'll forget it later

@@ -355,7 +355,41 @@ computed: {
 
 ### Using computed for Dynamic Components
 
+When switching between the "Friends", "Transaction", and "Calculate Owed" sections of the web app, I implemented tabs. Each of the components I just listed occupied a page on the tab. The key to easily implementing toggle-able tabs using Vue is using:
+
+1. **binding** the [`is` attribute](https://vuejs.org/v2/api/#is) that's set equal to
+2. a computed method (maybe named `currentTabComponent()`?) that returns the active page/component that we'll be viewing
+3. `v-bind` to assign any props the component takes in that's set equal to
+4. a computed method to return the properties
+5. [`:class` binding](https://vuejs.org/v2/guide/class-and-style.html) to assign a component as active at the response to a button
+6. `v-on:click` to assign a tab as clicked on click
+7. `data` variable (perhaps named `activeTab` ?) to store the name of the tab that's open
+
+```html
+<button
+  v-for="tab in tabs"
+  :key="tab"
+  class="tab"
+  :class="['tab-button', { active: tab === activeTab }]"
+  @click="activeTab = tab"
+>
+  <span class="tab-copy">{{ tab }}</span>
+  <!-- TODO: handle this later
+            <span class="tab-background">
+              <span class="tab-rounding left"></span>
+              <span class="tab-rounding right"></span>
+            </span> -->
+</button>
+<component
+  v-bind:is="currentTabComponent"
+  v-bind="currentProperties"
+  class="tab"
+></component>
+```
+
 Here is a [StackOverflow](https://stackoverflow.com/questions/43658481/passing-props-dynamically-to-dynamic-component-in-vuejs) that was particularly useful for learning when to use the `computed` property for dynamic components.
+
+We can use `v-bind:class` to dynamically toggle between classes. I used the `:class` binding to set a tab as the active one.
 
 ### Use v-on to send data + call parent's method from child
 

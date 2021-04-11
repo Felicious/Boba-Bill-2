@@ -43,7 +43,6 @@ import CalculateList from "./components/CalculateList.vue";
 /* globally register components */
 
 export default {
-  name: "CurrentComponent",
   components: {
     FriendList,
     TransactionList,
