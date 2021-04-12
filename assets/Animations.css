@@ -8,7 +8,7 @@
   transition: all 0.3s ease-out;
 }
 
-.slide-fade-enter, .slide-fade-leave-to
+.component-slide-enter, .component-slide-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
