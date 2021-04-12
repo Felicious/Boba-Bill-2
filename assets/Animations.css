@@ -1,3 +1,19 @@
+/* Animations */
+
+/*   ~ ~ T a b  ~ ~
+ T r a n s i t i o n s */
+
+.component-slide-enter-active,
+.component-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
 /* Text input box animations */
 /* enter animation is faster than exit */
 #name:focus + .line {

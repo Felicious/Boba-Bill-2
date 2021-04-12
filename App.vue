@@ -16,23 +16,19 @@
               <span class="tab-rounding right"></span>
             </span> -->
     </button>
-    <component
-      v-bind:is="currentTabComponent"
-      v-bind="currentProperties"
-      class="tab"
-    ></component>
-
-    <!--
-    <FriendList v-bind:friends="friends" />
-
-    <TransactionList v-bind:friends="friends" :transactions="transactions" />
-
-    <CalculateList :friends="friends" :transactions="transactions" /> -->
+    <transition name="component-slide" mode="out-in">
+      <component
+        v-bind:is="currentTabComponent"
+        v-bind="currentProperties"
+        class="tab"
+      ></component>
+    </transition>
   </div>
 </template>
 
 <style>
 @import "./assets/Stylesheet.css";
+@import "./assets/Animations.css";
 </style>
 
 <script>
