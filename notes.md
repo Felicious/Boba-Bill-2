@@ -355,7 +355,7 @@ computed: {
 
 ### Using computed for Dynamic Components
 
-When switching between the "Friends", "Transaction", and "Calculate Owed" sections of the web app, I implemented tabs. Each of the components I just listed occupied a page on the tab. The key to easily implementing toggle-able tabs using Vue is using:
+When switching between the "Friends", "Transaction", and "Calculate Owed" sections of the web app, I implemented tabs. Each of the components I just listed occupied a page on the tab. The key to easily implementing toggle-able tabs using Vue is using [dynamic Components](https://vuejs.org/v2/guide/components.html#Dynamic-Components):
 
 1. **binding** the [`is` attribute](https://vuejs.org/v2/api/#is) that's set equal to
 2. a computed method (maybe named `currentTabComponent()`?) that returns the active page/component that we'll be viewing
@@ -390,6 +390,14 @@ When switching between the "Friends", "Transaction", and "Calculate Owed" sectio
 Here is a [StackOverflow](https://stackoverflow.com/questions/43658481/passing-props-dynamically-to-dynamic-component-in-vuejs) that was particularly useful for learning when to use the `computed` property for dynamic components.
 
 We can use `v-bind:class` to dynamically toggle between classes. I used the `:class` binding to set a tab as the active one.
+
+#### Vue docs examples
+
+That I referenced!
+
+- [slide enter example](https://vuejs.org/v2/guide/transitions.html#CSS-Transitions)
+- [transition betw components](https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Components)
+- [api explanation for <transition> element](https://vuejs.org/v2/api/#transition)
 
 ### Use v-on to send data + call parent's method from child
 

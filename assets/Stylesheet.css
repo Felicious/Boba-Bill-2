@@ -24,6 +24,38 @@ h2 {
 }
 
 /* ~~~~~~~~~~~~
+    header/tab
+   ~~~~~~~~~~~~ */
+
+.tab-button {
+  position: relative;
+  margin: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* styling for the tab button */
+.tab-front {
+  position: relative;
+  margin: 0 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  height: 1.75rem;
+  width: 120%;
+  /*picked a random light gray */
+  border-bottom: 5px solid #c2c2d6;
+}
+
+/*TODO: hover animation where dark gray spreads from middle
+        to outer edges */
+.tab-button:hover .tab-front {
+  border-bottom: 5px solid gray;
+}
+
+/* TODO: active tab gets pink underline */
+/* ~~~~~~~~~~~~
       friends
    ~~~~~~~~~~~~ */
 

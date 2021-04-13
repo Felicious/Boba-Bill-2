@@ -3,13 +3,13 @@
     <h2>Boba Bill</h2>
 
     <button
-      v-for="tab in tabs"
-      :key="tab"
+      v-for="(tab, index) in tabs"
+      :key="index"
       class="tab"
       :class="['tab-button', { active: tab === activeTab }]"
       @click="activeTab = tab"
     >
-      <span class="tab-copy">{{ tab }}</span>
+      <span class="tab-front">{{ tab }}</span>
       <!-- TODO: handle this later
             <span class="tab-background">
               <span class="tab-rounding left"></span>

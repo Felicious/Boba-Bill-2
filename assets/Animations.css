@@ -1,7 +1,8 @@
 /* Animations */
 
-/*   ~ ~ T a b  ~ ~
- T r a n s i t i o n s */
+/* ~~~~~~~~~~~~~~~~
+      header/tab
+   ~~~~~~~~~~~~~~~~ */
 
 .component-slide-enter-active,
 .component-fade-leave-active {
@@ -13,6 +14,10 @@
   transform: translateX(10px);
   opacity: 0;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~
+      form animations
+   ~~~~~~~~~~~~~~~~~~~~ */
 
 /* Text input box animations */
 /* enter animation is faster than exit */

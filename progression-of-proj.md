@@ -323,3 +323,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/10/21 Sat
 
 - add docs on dynamic components bc I know i'll forget it later
+
+### 4/12/21 Mon
+
+- think about how to style the tab + animations
+- implement basic css w/o transitions
