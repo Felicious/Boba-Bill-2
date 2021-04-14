@@ -362,6 +362,16 @@ When switching between the "Friends", "Transaction", and "Calculate Owed" sectio
 3. `v-bind` to assign any props the component takes in that's set equal to
 4. a computed method to return the properties
 5. [`:class` binding](https://vuejs.org/v2/guide/class-and-style.html) to assign a component as active at the response to a button
+   1. Therefore, the active component would have the following class binding:
+   ```html
+   <div class="tab-button active"></div>
+   ```
+   2. Thus, it's possible to style the active component in the css file using the tag name
+   ```css
+   .active {
+     color: red;
+   }
+   ```
 6. `v-on:click` to assign a tab as clicked on click
 7. `data` variable (perhaps named `activeTab` ?) to store the name of the tab that's open
 

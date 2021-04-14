@@ -6,10 +6,12 @@
       v-for="(tab, index) in tabs"
       :key="index"
       class="tab"
-      :class="['tab-button', { active: tab === activeTab }]"
-      @click="activeTab = tab"
+      :class="['tab-button', { active: tab === activeTab }, 'toggleLine']"
+      @click="(activeTab = tab), changeColor"
     >
-      <span class="tab-front">{{ tab }}</span>
+      <span class="tab-front" :style=" {border-bottom: computedLine}">{{
+        tab
+      }}</span>
       <!-- TODO: handle this later
             <span class="tab-background">
               <span class="tab-rounding left"></span>
@@ -58,6 +60,9 @@ export default {
       } else {
         return { friends: this.friends, transactions: this.transactions };
       }
+    },
+    toggleLine() {
+      return this.lineColor;
     }
   },
 
@@ -81,14 +86,14 @@ export default {
           ppl: ["Derrick", "Bunbun"],
           payers: ["Bunbun"]
         }
-      ]
+      ],
+      lineColor: ""
     };
   },
 
   methods: {
-    setTabActive(tab) {
-      console.log("setActiveTab was called");
-      this.activeTab = tab;
+    changeColor(activeTab) {
+      this.lineColor = "#f09381";
     }
   }
 };
