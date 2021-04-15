@@ -328,3 +328,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - think about how to style the tab + animations
 - implement basic css w/o transitions
+
+### 4/14/21 Wed
+
+- been stressed about styling an active component and chose to re-augment myself by reading [blog posts](https://michaelnthiessen.com/conditional-class-binding-vue/) to gain a better understandin of `v-bind:class` and `v-bind:style` bindings for components

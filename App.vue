@@ -7,9 +7,9 @@
       :key="index"
       class="tab"
       :class="['tab-button', { active: tab === activeTab }, 'toggleLine']"
-      @click="(activeTab = tab), changeColor"
+      @click="activeTab = tab"
     >
-      <span class="tab-front" :style=" {border-bottom: computedLine}">{{
+      <span class="tab-front" :style="{ 'border-bottom': computedLine }">{{
         tab
       }}</span>
       <!-- TODO: handle this later
@@ -22,7 +22,6 @@
       <component
         v-bind:is="currentTabComponent"
         v-bind="currentProperties"
-        class="tab"
       ></component>
     </transition>
   </div>
@@ -48,7 +47,7 @@ export default {
   },
 
   computed: {
-    /* func that work together with :is 
+    /* func that work together with :is
         to pass props into dynamic components */
     currentTabComponent() {
       return this.activeTab + "List";
@@ -61,7 +60,9 @@ export default {
         return { friends: this.friends, transactions: this.transactions };
       }
     },
-    toggleLine() {
+    computedLine() {
+      console.log("does this do anything??");
+      console.log(this.lineColor);
       return this.lineColor;
     }
   },
@@ -87,14 +88,16 @@ export default {
           payers: ["Bunbun"]
         }
       ],
-      lineColor: ""
+      lineColor: "5px solid #f09381"
     };
   },
 
   methods: {
-    changeColor(activeTab) {
-      this.lineColor = "#f09381";
-    }
+    /*
+    changeColor() {
+      console("this method isn't being called");
+      this.lineColor = "border-bottom: 5px solid #f09381";
+    }*/
   }
 };
 </script>
