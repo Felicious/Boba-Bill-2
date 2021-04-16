@@ -16,18 +16,45 @@ let formTests = {
       return [];
     }
 
+    /* check if errors array has errors inside */
+    if (errors.length > 0) {
+      // remove error messages if the user has filled them since last time
+      // possibly use switch statement?
+
+      let toRemove = [];
+      // it'll be ok to use a loop + switch statement bc errors can only have a max length of 4
+      for (let i = 0; i < errors.length; i++) {
+        console.log(errors[i][id]);
+        switch (errors[i][id]) {
+          case "name":
+            if (formData.name) {
+              // push index of the error we can remove
+              toRemove.push(i);
+            }
+            // breaks out of switch statement right?
+            break;
+          case "expense":
+            if (formData > 0) {
+              toRemove.push(i);
+            }
+        }
+      }
+    }
+
+    // check if name is empty
+    // AND if the error is already inside the error array
     if (!formData.name) {
-      errors.push("Shop name required.");
+      errors.push({ id: "name", msg: "Shop name required." });
     }
     if (!formData.expense) {
       // does falsy include 0?
-      errors.push("Amount spent required.");
+      errors.push({ id: "expense", msg: "Amount spent required." });
     }
     if (formData.ppl.length === 0) {
-      errors.push("People to split costs with required.");
+      errors.push({ id: "ppl", msg: "People to split costs with required." });
     }
     if (formData.payers.length === 0) {
-      errors.push("Payer required.");
+      errors.push({ id: "payers", msg: "Payer required." });
     }
 
     if (!errors.length) {
