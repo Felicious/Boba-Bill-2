@@ -2,41 +2,44 @@
 
 let formTests = {
   /**
-   * @param: empty error [] array + form data object
+   * @param: error array (of objs) + form data object
+   *
    * returns a mutated error array.
-   *  If there are errors, the array will have content.
+   *  If no errors, the array will be empty: [].
+   *
+   *  a non-empty error array will always be length === 4:
+   *  ex: 1 error in payers will be stored as
+   *    [ {}, {}, {}, {id: "payers", msg: "u errored"}]
+   *
+   * to check if obj is empty, use `Object.keys()`
+   *
    */
   formIsFilled(errors, formData) {
+    console.log("starting error checking!");
+    console.log(`current errors: ${errors}`);
     if (
       formData.name &&
       formData.expense > 0 &&
       formData.ppl > 0 &&
       formData.payers > 0
     ) {
+      console.log("no errors! (:");
       return [];
     }
 
     /* check if errors array has errors inside */
+    console.log("oop there are errors! begin error checking.");
     if (errors.length > 0) {
-      // remove error messages if the user has filled them since last time
-      // possibly use switch statement?
+      /* TODO: handle duplicate error msg:
+          user fked up data entry for the same input AGAIN >.> */
 
-      let toRemove = [];
-      // it'll be ok to use a loop + switch statement bc errors can only have a max length of 4
       for (let i = 0; i < errors.length; i++) {
-        console.log(errors[i][id]);
-        switch (errors[i][id]) {
-          case "name":
-            if (formData.name) {
-              // push index of the error we can remove
-              toRemove.push(i);
-            }
-            // breaks out of switch statement right?
-            break;
-          case "expense":
-            if (formData > 0) {
-              toRemove.push(i);
-            }
+        // check if errors[i] is empty {}
+        if (() => Object.keys(errors[i]).length === 0) {
+          // no previously added errors.
+          // todo: check if user messed it up this time LOL
+        } else {
+          // ignore and don't push new error message
         }
       }
     }
