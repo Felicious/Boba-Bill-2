@@ -1,5 +1,5 @@
 <template>
-  <div v-show="friends.length" class="transaction">
+  <div class="transaction">
     <h2>Transaction</h2>
     <div class="newTransaction">
       <InputForm
@@ -44,7 +44,8 @@ export default {
   data() {
     return {
       transactionId: 2,
-      currentState: "view"
+      currentState: "view",
+      errors: []
     };
   },
 

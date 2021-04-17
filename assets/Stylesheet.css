@@ -55,10 +55,11 @@ h2 {
 }
 
 /*when a tab is open*/
+/*
 .active {
   justify-content: center;
   border-bottom: 5px solid #f09381;
-}
+}*/
 
 /* TODO: active tab gets pink underline */
 /* ~~~~~~~~~~~~
