@@ -28,7 +28,8 @@ let formTests = {
     }
 
     // clear residual errors from last time
-    errors = [];
+    // note: cannot use errors = []
+    errors.splice(0);
 
     // check if name is empty
     // AND if the error is already inside the error array

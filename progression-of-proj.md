@@ -332,3 +332,15 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/14/21 Wed
 
 - been stressed about styling an active component and chose to re-augment myself by reading [blog posts](https://michaelnthiessen.com/conditional-class-binding-vue/) to gain a better understandin of `v-bind:class` and `v-bind:style` bindings for components
+
+### 4/16/21 Fri
+
+- worked on error checks instead
+- ran into an unusual reactivity issue when resetting an array to an empty array [see issue](https://github.com/Felicious/Boba-Bill-2/issues/45)
+- Derrick explained that the changes to array isn't saved by Vue because of the reactivity issue
+- For more info, see this [StackOverflow](https://stackoverflow.com/questions/57834381/vue-js-clearing-an-array-content-and-reactivity-issues)
+
+### 4/17/21 Sat
+
+- solved reactivity issue and explained why it occurred
+- error checks now deal with duplicate error msgs (I originally implemented something super complicated but Derrick suggested I just reset the array)
