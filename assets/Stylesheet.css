@@ -293,7 +293,12 @@ and the friend icons on the left */
   outline-color: #f09381;
 }
 
-/* submit button 
+/* ____________________________
+
+   s u b m i t   b u t t o n s
+   ____________________________ */
+
+/* fancy submit button !
     for empty form
     followed Josh W Comeau's tutorial for 3-D button!*/
 .newTransaction .submit {
@@ -301,6 +306,7 @@ and the friend icons on the left */
   background: transparent;
   border: none;
   padding: 0;
+  margin: 1rem 1 0.5rem 0;
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 600ms;
@@ -373,6 +379,8 @@ and the friend icons on the left */
 .newTransaction .submit:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ~ end of fancy 3-D submit button ~ */
 
 /* submit button for within the forms */
 .form .submit {
