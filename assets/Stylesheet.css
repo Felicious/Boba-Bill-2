@@ -29,6 +29,7 @@ h2 {
 
 .tab-button {
   position: relative;
+  color: gray;
   margin: 1rem;
   border: none;
   background: transparent;
@@ -45,7 +46,7 @@ h2 {
   height: 1.75rem;
   width: 120%;
   /*picked a random light gray */
-  border-bottom: 5px none;
+  border-bottom: 5px solid gray;
 }
 
 /*TODO: hover animation where dark gray spreads from middle

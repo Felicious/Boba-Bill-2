@@ -344,3 +344,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - solved reactivity issue and explained why it occurred
 - error checks now deal with duplicate error msgs (I originally implemented something super complicated but Derrick suggested I just reset the array)
+
+### 4/20/21 Tu
+
+- successfully implemented dynamic style bindings for the first time!! the "active" tab now has a pink underline <3 Was struggling over this problem for 2 weeks at least
+- made the style bindings neater by putting them in a computed function

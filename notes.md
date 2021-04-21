@@ -683,13 +683,15 @@ label:focus-within {
 }
 ```
 
-### Conditional Styling
+## Conditional Styling
 
 What happens when I use a component for two different instances, once on white background, and another on black background, and the black text cannot be seen on black background?
 
 Check this [issue](https://github.com/Felicious/Boba-Bill-2/issues/35) for an image showing this problem!
 
 The font color depended on a conditional, and how would you implement this in Vue?
+
+### Directly applying styles in Javascript
 
 In my two instances of `InputForm`, the empty form was on white background, and modify-able, filled out form on black background. Thus, to determine whether the font should be black or white, I needed to know whether the form was empty or not.
 
@@ -753,3 +755,54 @@ Up until now, I've been making mock-ups in Adobe Photoshop and I've only used he
 1. RGB -> red, green, blue values `rgb(240, 147, 129)`
 2. HSL -> hue, saturation, lightness `hsl(340deg 100% 32%)`
    To switch between these, I can use the various color converters and color pickers available on the internet! I just wanted to save the different names of how to describe all these colors here in case I need them in the future.
+
+### Conditional Style Bindings using :style
+
+The method described above is what I originally used, and it works well, but I'm not sure if it's best practice, since I didn't really see `refs` used in the beginner's docs of Vue. Style bindings seem like the more elegant and less hacky (methods reminiscient of older forms of web development without frameworks where devs were forced to modify html and css directly through js), and most of all, more modern.
+
+**context**
+My app is divided into 3 tabs: Friends, Transaction, and Calculate, and I wanted to underline the tab with pink if the tab is open. [View the full code](https://github.com/Felicious/Boba-Bill-2/blob/main/App.vue)
+
+**explanation of code**
+
+Each of the `tabs` are named so, and have the normal styling class `tab-button` of grey text and grey underline applied. When the button is clicked, the clicked button becomes the active tab, and the `@click` toggles this behavior for us. So far, the code is within what a beginner html and css developer can expect :)
+
+```html
+<button
+  v-for="(tab, index) in tabs"
+  :key="index"
+  class="tab-button"
+  @click="activeTab = tab"
+></button>
+```
+
+Now moving on to the new info, the underline that we're going to conditionally style pink depending on whether the tab is active or not is as follows:
+
+```html
+<span class="tab-front" :style="tab === activeTab && styleActive"
+  >{{ tab }}</span
+>
+```
+
+Using `:style`, the first expression `tab === activeTab` evaluates whether the tab will apply the special style of the second, `styleActive`. This [blog post](https://michaelnthiessen.com/conditional-class-binding-vue/) describes this as a **guard expression** using a logical AND to apply `styleActive` if the boolean `tab === activeTab` evaluates to true.
+
+`styleActive` is a computed method that returns the css as an object that we will be conditionally applying. Make sure to include the Vue syntax of separating each item with a comma (,) instead of a semi-colon like in css, and attributes with dashes need to be **wrapped in quotes**!
+
+```js
+export default {
+  computed: {
+    styleActive() {
+      return {
+        "border-bottom": "5px solid #f09381",
+        color: "black"
+      };
+    }
+  }
+```
+
+**References**
+
+- I followed this helpful [blog post](https://michaelnthiessen.com/conditional-class-binding-vue/) on the best practices of using class bindings and applied the similar concepts for style.
+- an example of the usage of style bindings from [StackOverflow](https://stackoverflow.com/questions/40918076/vue-js-v-bindstyle-syntax-not-working/40918269) was helpful in figuring out the exact syntax. In particular, when modifying `css`, I learned from this post that css styles need to be wrapped by quotations (ie. `'background-color' : 'black'`), otherwise Vue wouldn't know what it is
+- this [StackOverFlow post](https://stackoverflow.com/questions/33731939/vue-js-toggle-class-on-click) helped me realize that the syntax `{active: ____}` expects a boolean in the blank. Therefore, it can be a variable that is saved as a boolean, like "isActive", or an expression that evaluates to a boolean, like my `activeTab === tab` ( I didn't really know how this worked bc I copied this from some expert's code and didn't get it for the longest time)
+- this was the most helpful [StackOverflow post](https://stackoverflow.com/questions/48455909/condition-in-v-bindstyle)! It showed me that these style bindings could be saved as objects and toggled as a `computed method`. Before, I didn't know what the difference between computed methods and normal methods were ( I think i still don't really know), but I saw how they could be used in this way, and it was really eye-opening

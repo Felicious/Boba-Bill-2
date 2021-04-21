@@ -5,18 +5,12 @@
     <button
       v-for="(tab, index) in tabs"
       :key="index"
-      class="tab"
-      :class="['tab-button', { active: tab === activeTab }, 'toggleLine']"
+      class="tab-button"
       @click="activeTab = tab"
     >
-      <span class="tab-front" :style="{ 'border-bottom': computedLine }">{{
+      <span class="tab-front" :style="tab === activeTab && styleActive">{{
         tab
       }}</span>
-      <!-- TODO: handle this later
-            <span class="tab-background">
-              <span class="tab-rounding left"></span>
-              <span class="tab-rounding right"></span>
-            </span> -->
     </button>
     <transition name="component-slide" mode="out-in">
       <component
@@ -36,8 +30,6 @@
 import FriendList from "./components/FriendList.vue";
 import TransactionList from "./components/TransactionList.vue";
 import CalculateList from "./components/CalculateList.vue";
-
-/* globally register components */
 
 export default {
   components: {
@@ -60,10 +52,11 @@ export default {
         return { friends: this.friends, transactions: this.transactions };
       }
     },
-    computedLine() {
-      console.log("does this do anything??");
-      console.log(this.lineColor);
-      return this.lineColor;
+    styleActive() {
+      return {
+        "border-bottom": "5px solid #f09381",
+        color: "black"
+      };
     }
   },
 
@@ -87,8 +80,7 @@ export default {
           ppl: ["Derrick", "Bunbun"],
           payers: ["Bunbun"]
         }
-      ],
-      lineColor: "5px solid #f09381"
+      ]
     };
   },
 
