@@ -6,7 +6,7 @@
       v-for="(tab, index) in tabs"
       :key="index"
       class="tab-button"
-      @click="activeTab = tab"
+      @click="(activeTab = tab), findTabDirection(index)"
     >
       <span class="tab-front" :style="tab === activeTab && styleActive">{{
         tab
@@ -63,7 +63,9 @@ export default {
   data() {
     return {
       tabs: ["Friend", "Transaction", "Calculate"],
+      previousTab: 0,
       activeTab: "Friend",
+      transitionRight: false,
       friends: ["Derrick", "Bunbun"],
       transactions: [
         {
@@ -83,13 +85,21 @@ export default {
       ]
     };
   },
-
   methods: {
-    /*
-    changeColor() {
-      console("this method isn't being called");
-      this.lineColor = "border-bottom: 5px solid #f09381";
-    }*/
+    findTabDirection(newIndex) {
+      console.log("new tab has been clicked!");
+      console.log(newIndex);
+      console.log(this.previousTab);
+
+      if (this.previousTab < newIndex) {
+        console.log("shift left");
+        this.transitionRight = false;
+      } else {
+        console.log("shift right");
+        this.transitionRight = true;
+      }
+      this.previousTab = newIndex;
+    }
   }
 };
 </script>
