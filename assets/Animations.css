@@ -4,17 +4,21 @@
       header/tab
    ~~~~~~~~~~~~~~~~ */
 
-.component-slide-enter-active,
-.component-fade-leave-active {
+.slide-left-enter-active {
   transition: all 0.3s ease-out;
 }
 
-.component-slide-enter, .component-slide-leave-to
+.slide-left-enter 
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
+  transform: translateX(50px);
 }
 
+.slide-left-leave-active {
+  transition: all 200ms ease-in;
+}
+.slide-left-leave-to {
+  transform: translateX(-50px);
+}
 /* ~~~~~~~~~~~~~~~~~~~~
       form animations
    ~~~~~~~~~~~~~~~~~~~~ */

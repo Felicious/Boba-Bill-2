@@ -8,11 +8,11 @@
       class="tab-button"
       @click="(activeTab = tab), findTabDirection(index)"
     >
-      <span class="tab-front" :style="tab === activeTab && styleActive">{{
+      <span class="tab-front" :style="tab === activeTab && styleActiveTab">{{
         tab
       }}</span>
     </button>
-    <transition name="component-slide" mode="out-in">
+    <transition :name="computeSlideDirection" mode="out-in">
       <component
         v-bind:is="currentTabComponent"
         v-bind="currentProperties"
@@ -52,11 +52,14 @@ export default {
         return { friends: this.friends, transactions: this.transactions };
       }
     },
-    styleActive() {
+    styleActiveTab() {
       return {
         "border-bottom": "5px solid #f09381",
         color: "black"
       };
+    },
+    computeSlideDirection() {
+      return this.transitionLeft ? "slide-left" : "slide-right";
     }
   },
 
@@ -65,7 +68,7 @@ export default {
       tabs: ["Friend", "Transaction", "Calculate"],
       previousTab: 0,
       activeTab: "Friend",
-      transitionRight: false,
+      transitionLeft: true,
       friends: ["Derrick", "Bunbun"],
       transactions: [
         {
@@ -87,16 +90,14 @@ export default {
   },
   methods: {
     findTabDirection(newIndex) {
-      console.log("new tab has been clicked!");
-      console.log(newIndex);
-      console.log(this.previousTab);
+      console.log(`${this.previousTab} -> ${newIndex}`);
 
       if (this.previousTab < newIndex) {
         console.log("shift left");
-        this.transitionRight = false;
+        this.transitionLeft = true;
       } else {
         console.log("shift right");
-        this.transitionRight = true;
+        this.transitionLeft = false;
       }
       this.previousTab = newIndex;
     }
