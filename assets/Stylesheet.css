@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #fbdec8;
+  background-color: white;
   color: #1e1a1c;
   font-family: "Varela Round", sans-serif;
 }
@@ -46,23 +46,15 @@ h2 {
   height: 1.75rem;
   width: 120%;
   /*picked a random light gray */
-  border-bottom: 5px solid gray;
+  border-bottom: 5px solid #c2c2d6;
 }
 
 /*TODO: hover animation where dark gray spreads from middle
         to outer edges */
 .tab-button:hover .tab-front {
-  border-bottom: 5px solid #c2c2d6;
+  border-bottom: 5px solid #fbdec8;
 }
 
-/*when a tab is open*/
-/*
-.active {
-  justify-content: center;
-  border-bottom: 5px solid #f09381;
-}*/
-
-/* TODO: active tab gets pink underline */
 /* ~~~~~~~~~~~~
       friends
    ~~~~~~~~~~~~ */
@@ -395,7 +387,13 @@ and the friend icons on the left */
   padding: 5px 10px;
 }
 
-/* Calculate Owed round button */
+/* ~~~~~~~~~~~~~~~~~~
+
+   c a l c u l a t e 
+   
+   ~~~~~~~~~~~~~~~~~~
+   
+   Calculate Owed round button */
 .boba-button {
   position: relative;
   background: transparent;
