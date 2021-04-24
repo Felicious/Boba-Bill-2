@@ -810,3 +810,33 @@ export default {
 ## Dynamic Transitions
 
 I had no idea how to program sliding transitions dependent on the direction of how the tabs are switched until I stumbled upon this [StackOverflow post](https://stackoverflow.com/questions/58479829/vuejs-is-there-a-way-to-conditionally-apply-a-transition). Unfortunately, though, I had a hard time understanding the official Vue documentation for [Dynamic transitions](https://vuejs.org/v2/guide/transitions.html#Dynamic-Transitions), so perhaps I can improve on this explanation someday.
+
+### implementation
+
+Since the direction the tabs will slide will depend on whether the tab indices will be changing from an ascending or descending value, I wrote a helper function to determine the direction of the slide transition
+
+```js
+data() {
+    return {
+      /* starts at 0 bc the first tab's index is 0*/
+      previousTab: 0,
+      transitionLeft: true
+    }
+},
+methods: {
+    findTabDirection(newIndex) {
+      console.log(`${this.previousTab} -> ${newIndex}`);
+
+      if (this.previousTab < newIndex) {
+        console.log("shift left");
+        this.transitionLeft = true;
+      } else {
+        console.log("shift right");
+        this.transitionLeft = false;
+      }
+      this.previousTab = newIndex;
+    }
+  }
+```
+
+I needed `previousTab` to keep track of the last index to determine the direction, and `transitionLeft` is the boolean value that is **absolutely crucial** for the dynamic transition

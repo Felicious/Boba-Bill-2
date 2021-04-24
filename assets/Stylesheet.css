@@ -257,8 +257,8 @@ and the friend icons on the left */
 }
 
 [type="checkbox"] {
-  /*
-  border-radius: 5px;*/
+  border: 1px solid #6b7280;
+  border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -276,10 +276,7 @@ and the friend icons on the left */
   height: 1rem;
   width: 1rem;
   color: #f09381;
-  background-color: #fff;
-  /* use outline instead of border for checkboxes */
-  outline: 1px solid #6b7280;
-  box-shadow: 0 0 3px #ddd;
+  background-color: white;
 }
 
 [type="checkbox"]:focus {

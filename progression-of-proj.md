@@ -349,3 +349,16 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - successfully implemented dynamic style bindings for the first time!! the "active" tab now has a pink underline <3 Was struggling over this problem for 2 weeks at least
 - made the style bindings neater by putting them in a computed function
+
+### 4/21/21 Wed
+
+- successfully used dynamic transitions!
+- currently animated the left shift slide transition for switching tabs only
+- however, the animation is a little jumpy and not smooth. try to fix this another timee
+
+### 4/23/21 Fri
+
+- kind of an amazing day, despite being feverish and exhausted of sorts from the second Moderna dose
+- smoothed out the slide animation by using the same `.slide-left-enter-active, .slide-left-leave-active` animation commands! sometimes the simplest solutions are the best
+- fixed a troublesome bug i've had for 25 days where the border of the checkboxes in my form mysteriously disappeared! missed the "solid" in `border: 1px solid #6b7280;`
+- truly it's the smallest things that breaks code
