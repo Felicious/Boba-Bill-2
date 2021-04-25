@@ -350,7 +350,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - successfully implemented dynamic style bindings for the first time!! the "active" tab now has a pink underline <3 Was struggling over this problem for 2 weeks at least
 - made the style bindings neater by putting them in a computed function
 
-### 4/21/21 Wed
+### 4/22/21 Thurs
 
 - successfully used dynamic transitions!
 - currently animated the left shift slide transition for switching tabs only

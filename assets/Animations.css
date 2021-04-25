@@ -5,7 +5,9 @@
    ~~~~~~~~~~~~~~~~ */
 
 .slide-left-enter-active,
-.slide-left-leave-active {
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
   transition: all 0.3s ease-out;
 }
 
@@ -13,12 +15,18 @@
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(50px);
 }
-/*
-.slide-left-leave-active {
-  transition: all 200ms ease-in;
-}*/
+
 .slide-left-leave-to {
   transform: translateX(-50px);
+}
+
+.slide-right-enter 
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-50px);
+}
+
+.slide-right-leave-to {
+  transform: translateX(50px);
 }
 /* ~~~~~~~~~~~~~~~~~~~~
       form animations
