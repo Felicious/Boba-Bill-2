@@ -359,6 +359,12 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/23/21 Fri
 
 - kind of an amazing day, despite being feverish and exhausted of sorts from the second Moderna dose
-- smoothed out the slide animation by using the same `.slide-left-enter-active, .slide-left-leave-active` animation commands! sometimes the simplest solutions are the best
+- smoothed out the slide animation by using the same **slide left active** animation commands! sometimes the simplest solutions are the best
 - fixed a troublesome bug i've had for 25 days where the border of the checkboxes in my form mysteriously disappeared! missed the "solid" in `border: 1px solid #6b7280;`
 - truly it's the smallest things that breaks code
+
+### 4/24/21 Sat
+
+- finish tab switching animations by adding like 2 lines of code to add right sliding animations after finishing the left switching animations from last thurs
+- its a feat bc when i first figured it out, i was kinda copying code from stackoverflow, but i get it now (:
+- u can read my docs for Dynamic Transitions in the notes.md for more info!

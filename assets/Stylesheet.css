@@ -29,10 +29,10 @@ h2 {
 
 .tab-button {
   position: relative;
-  color: gray;
   margin: 1rem;
   border: none;
   background: transparent;
+  color: gray;
   font-size: 1.25rem;
   cursor: pointer;
 }
@@ -53,6 +53,7 @@ h2 {
         to outer edges */
 .tab-button:hover .tab-front {
   border-bottom: 5px solid #fbdec8;
+  color: hsl(305deg 37% 21%);
 }
 
 /* ~~~~~~~~~~~~
@@ -98,7 +99,7 @@ li {
 .display {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   grid-gap: 1rem;
 }
 
