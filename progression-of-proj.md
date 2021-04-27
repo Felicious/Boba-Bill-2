@@ -368,3 +368,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - finish tab switching animations by adding like 2 lines of code to add right sliding animations after finishing the left switching animations from last thurs
 - its a feat bc when i first figured it out, i was kinda copying code from stackoverflow, but i get it now (:
 - u can read my docs for Dynamic Transitions in the notes.md for more info!
+
+### 4/25/21 Sun
+
+- begin working on friend icons
