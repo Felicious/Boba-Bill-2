@@ -2,8 +2,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
 
-* {
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(65ch, 100%)
+    1fr;
+}
+
+.wrapper > * {
+  grid-column: 2;
   box-sizing: border-box;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
 }
 
 body {

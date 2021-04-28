@@ -1,4 +1,4 @@
-<template>
+<template class="wrapper">
   <div id="app">
     <h2>Boba Bill</h2>
 
@@ -12,12 +12,14 @@
         tab
       }}</span>
     </button>
-    <transition :name="computeSlideDirection" mode="out-in">
-      <component
-        v-bind:is="currentTabComponent"
-        v-bind="currentProperties"
-      ></component>
-    </transition>
+    <main class="wrapper">
+      <transition :name="computeSlideDirection" mode="out-in">
+        <component
+          v-bind:is="currentTabComponent"
+          v-bind="currentProperties"
+        ></component>
+      </transition>
+    </main>
   </div>
 </template>
 
