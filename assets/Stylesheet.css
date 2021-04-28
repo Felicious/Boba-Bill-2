@@ -2,19 +2,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
 
+/* holy grail layout: fixed middle column that contains text
+    flexible outer columns of re-sizeable whitespace */
 .wrapper {
   display: grid;
   grid-template-columns:
     1fr
-    min(65ch, 100%)
+    min(65ch, calc(100% - 64px))
     1fr;
+  grid-column-gap: 32px;
 }
 
+/* display content only in the middle grid */
 .wrapper > * {
   grid-column: 2;
   box-sizing: border-box;
 }
 
+/* any content that will span the entire width of page */
 .full-bleed {
   width: 100%;
   grid-column: 1 / 4;
@@ -23,6 +28,7 @@
 body {
   background-color: white;
   color: #1e1a1c;
+  font-size: 1.25rem;
   font-family: "Varela Round", sans-serif;
 }
 
@@ -51,7 +57,7 @@ h2 {
   cursor: pointer;
 }
 
-/* styling for the tab button */
+/* styles for the tab button + the underline*/
 .tab-front {
   position: relative;
   margin: 0 0 1rem 0;
@@ -59,7 +65,7 @@ h2 {
   justify-content: center;
   height: 1.75rem;
   width: 120%;
-  /*picked a random light gray */
+  /*picked a random light gray for underline */
   border-bottom: 5px solid #c2c2d6;
 }
 
@@ -117,8 +123,8 @@ li {
   grid-gap: 1rem;
 }
 
-/* Displays 3 equally sized panels:
-  to display the transactions */
+/* each transaction box width dependent on
+    name length  */
 .box {
   background-color: #1e1a1c;
   color: #fbdec8;
@@ -247,7 +253,6 @@ and the friend icons on the left */
 
 /* show 3 checkboxes per row*/
 .splitContainer {
-  max-width: 24rem;
   display: grid;
   grid-gap: 1rem;
   /*  parameters for minmax: <fixed length>, <track breadth>*/

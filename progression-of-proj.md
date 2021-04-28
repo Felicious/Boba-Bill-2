@@ -372,3 +372,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 4/25/21 Sun
 
 - begin working on friend icons
+
+### 4/27/21 Tu
+
+- begin applying Holy Grail layout to center content
+- look over css to change overall display structure, while modifying comments to make css more readable
