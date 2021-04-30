@@ -57,4 +57,62 @@ let formTests = {
   }
 };
 
+let dupTransTests = {
+  /* checks if new transaction is already in transactions
+    algorithm: trying DFS method, where searching if the first attribute (busnName) matches,
+      will search deep and check if the other attributes are the same.
+      If there are no matches on a level, return false (no dupl) and exit (:
+  */
+
+  isDuplicateT(transactions, newTransaction) {
+    // sweep busNames first, if not dups, exit
+    for (let i = 0; i < transactions.length; i++) {
+      const currentName = transactions[i].name;
+      if (currentName === newTransaction.name) {
+        // this means we need to do a deep search, cri
+        console.log(
+          `another transaction at ${currentName} detected! Commencing deep search`
+        );
+
+        // check cost:
+        const currentCost = transactions[i].expense;
+        if (currentCost === newTransaction.expense) {
+          console.log(
+            `oop the prices of ${currentCost} match too! going deeper`
+          );
+
+          // now have to check the ppl it's split between. this is complicated because this is an array within an arr oop
+
+          /** thinking about the algorithm, say I have the currentArray ["Derrick", "Felicia"] and newArray ["Derrick"]
+           * since the array elements might not always have the same order, I can't always just check if the first element is Derrick
+           * I have to check if every element of the currentArray (so Derrick and Felicia) is in newArray
+           *
+           * Therefore, it is a duplicate if all elements of currentArray are found in newArray
+           * (I think there is an array member function that checks if a value is in the array? Let's call it "isIn()" for now,
+           * I'll look for the real name when I land hahaha)
+           */
+
+          const currentPpl = transactions[i].ppl;
+          // check if forEach is right array member function for this case
+          currentPpl.forEach(
+            // return bool for each comparison, if all are true, need to check payers
+            // each person is like a "Derrick" or "Felicia"
+            person => {
+              // check if person is in newTransaction.ppl
+            }
+          );
+        } else {
+          console.log(
+            `price of newTransaction: ${newTransaction.expense} does not match with array element cost ${currentCost}. We can continue looking at other names now`
+          );
+          continue; // move onto to comparing the next name
+        }
+      }
+    }
+
+    // if it got out of the for loop, that means none of the names matched! yay!
+    return false; // for no duplicates
+  }
+};
+
 export default formTests;

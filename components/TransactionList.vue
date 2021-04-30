@@ -53,10 +53,15 @@ export default {
     // @param: returned form data from InputForm
     addTransaction(newTransaction) {
       console.log(newTransaction);
-      this.transactions.push(newTransaction);
 
-      //reset values for new transaction
-      this.transactionId++;
+      // TODO: check new Transaction for duplicates
+      if (!isDuplicateT(this.transactions, newTransaction)) {
+        this.transactions.push(newTransaction);
+        //reset values for new transaction
+        this.transactionId++;
+      } else {
+        console.log("you're adding a duplicate!");
+      }
     },
     editTransaction(bill, index) {
       console.log(`editing ${index}: ${bill.name} now`);

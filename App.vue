@@ -1,17 +1,20 @@
-<template class="wrapper">
+<template>
   <div id="app">
-    <h2>Boba Bill</h2>
+    <!--TODO: work on navBar-->
+    <div class="nav-wrapper">
+      <h2>Boba Bill</h2>
 
-    <button
-      v-for="(tab, index) in tabs"
-      :key="index"
-      class="tab-button"
-      @click="(activeTab = tab), findTabDirection(index)"
-    >
-      <span class="tab-front" :style="tab === activeTab && styleActiveTab">{{
-        tab
-      }}</span>
-    </button>
+      <button
+        v-for="(tab, index) in tabs"
+        :key="index"
+        class="tab-button"
+        @click="(activeTab = tab), findTabDirection(index)"
+      >
+        <span class="tab-front" :style="tab === activeTab && styleActiveTab">{{
+          tab
+        }}</span>
+      </button>
+    </div>
     <main class="wrapper">
       <transition :name="computeSlideDirection" mode="out-in">
         <component
