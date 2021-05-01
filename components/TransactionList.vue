@@ -28,6 +28,7 @@
 <script>
 import InputForm from "./InputForm.vue";
 import Transaction from "./Transaction.vue";
+import formTests from "../assets/errorChecks.js";
 
 export default {
   // variables accepted from parent
@@ -52,10 +53,11 @@ export default {
   methods: {
     // @param: returned form data from InputForm
     addTransaction(newTransaction) {
-      console.log(newTransaction);
+      console.log("inside addTransaction function");
 
       // TODO: check new Transaction for duplicates
-      if (!isDuplicateT(this.transactions, newTransaction)) {
+      if (!formTests.isDuplicateT(this.transactions, newTransaction)) {
+        console.log("Was isDuplicate called?");
         this.transactions.push(newTransaction);
         //reset values for new transaction
         this.transactionId++;

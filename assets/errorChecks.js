@@ -54,10 +54,8 @@ let formTests = {
       console.log(errors);
       return errors;
     }
-  }
-};
+  },
 
-let dupTransTests = {
   /* checks if new transaction is already in transactions
     algorithm: trying DFS method, where searching if the first attribute (busnName) matches,
       will search deep and check if the other attributes are the same.
@@ -93,14 +91,26 @@ let dupTransTests = {
            */
 
           const currentPpl = transactions[i].ppl;
-          // check if forEach is right array member function for this case
-          currentPpl.forEach(
-            // return bool for each comparison, if all are true, need to check payers
-            // each person is like a "Derrick" or "Felicia"
-            person => {
-              // check if person is in newTransaction.ppl
-            }
-          );
+          console.log(`what array is it?: ${currentPpl}`);
+
+          // return true if all elements of currentArray are found in newArray
+          const pplMatch = currentPpl.every(person => {
+            // evaluates to true if this element is found in newArray
+            console.log(
+              `checking ${person}: ${transactions[i].ppl.includes(person)}`
+            );
+
+            transactions[i].ppl.includes(person);
+          });
+
+          console.log(pplMatch);
+
+          if (pplMatch) {
+            console.log("TODO: the ppl match! check if payers match too");
+          } else {
+            console.log("the ppl don't match! moving on (:");
+            continue;
+          }
         } else {
           console.log(
             `price of newTransaction: ${newTransaction.expense} does not match with array element cost ${currentCost}. We can continue looking at other names now`
@@ -111,6 +121,7 @@ let dupTransTests = {
     }
 
     // if it got out of the for loop, that means none of the names matched! yay!
+    console.log("No duplicates found");
     return false; // for no duplicates
   }
 };
