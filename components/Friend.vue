@@ -10,7 +10,7 @@
       <input
         class="edit-name"
         type="text"
-        placeholder="edit name here"
+        placeholder="edited name"
         v-model="newName"
         @keydown.enter="emitName"
       />

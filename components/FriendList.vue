@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: toggle friendlist and transaction list-->
   <div>
     <InputText
       v-model="newFriendName"
