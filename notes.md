@@ -839,4 +839,34 @@ methods: {
   }
 ```
 
-I needed `previousTab` to keep track of the last index to determine the direction, and `transitionLeft` is the boolean value that is **absolutely crucial** for the dynamic transition
+I needed `previousTab` to keep track of the last index to determine the direction, and `transitionLeft` is the boolean value that is **absolutely crucial** for the dynamic transition because it determines which direction, so therefore, which transition I'll be using.
+
+TODO: continue explaining the transitions in `Animations.css`
+
+# Evidence that Coding is Creative Writing
+
+I just want to put this somewhere to demonstrate how I can write a function that does the same thing differently.
+
+Here, I'm writing a function that checks if a newly entered name already exists in the list of friends. To ensure that "Derrick" and "derrick" are not considered different names because of case, I used the string member function `String.toLowerCase()` to change the name to lowercase before evaluating.
+
+This is what I wrote a couple months ago using `.some()`
+
+```js
+isDuplicate(name) {
+  return this.friends.some(
+    friendName => friendName.toLowerCase() === name.toLowerCase()
+  ); // true if name is in friends
+}
+```
+
+Today, on May 1, 2021, I wrote this:
+
+```js
+isDuplicateF(friends, newName) {
+    return friends
+      .map(friend => friend.toLowerCase())
+      .includes(newName.toLowerCase()); // true if name is in friends
+  }
+```
+
+The new one I wrote is kinda verbose and less intuitive. Not readable. I think i'll use the old one!

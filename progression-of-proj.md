@@ -384,5 +384,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 ### 5/1/21 Sat
 
-- smoothening out the errors I wrote on the plane
+- smoothening out the errors I wrote on the plane (simply needed to add a return statement ughh)
 - refreshed myself on js basics like the callback functions `.every()`, `includes()`
+- add error checks for duplicate transactions (Issue #19)
+- have extremely chatty logs for this

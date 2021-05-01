@@ -70,6 +70,12 @@ let formTests = {
     return: true if new transaction is already in transactions
   */
 
+  // check if name is already in array
+  isDuplicateF(friends, newName) {
+    return friends.some(name => name.toLowerCase() === newName.toLowerCase()); // true if name is in friends
+  },
+
+  // check if transaction already exists
   isDuplicateT(transactions, newTransaction) {
     // sweep busNames first, if not dups, exit
     for (let i = 0; i < transactions.length; i++) {

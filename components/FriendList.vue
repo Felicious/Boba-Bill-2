@@ -29,6 +29,7 @@
 <script>
 import InputText from "./InputText.vue"; // referencing/using other files or dependencies
 import Friend from "./Friend.vue";
+import formTests from "../assets/errorChecks.js";
 
 export default {
   name: "FriendList",
@@ -73,30 +74,23 @@ export default {
     };
   },
   methods: {
-    // check if name is already in array
-    isDuplicate(name) {
-      return this.friends.some(
-        friendName => friendName.toLowerCase() === name.toLowerCase()
-      ); // true if name is in friends
-    },
     addFriend() {
       // trim removes the "" at both ends of the string
-      const trimmedText = this.newFriendName.trim();
+      this.newFriendName = this.newFriendName.trim();
 
       // check if trimmedText is empty
-      if (trimmedText.length === 0) {
+      if (this.newFriendName.length === 0) {
         this.empty = true;
         const index = Math.floor(Math.random() * this.randBobaNames.length);
         this.newFriendName = this.randBobaNames[index];
         console.log(this.newFriendName);
         this.randBobaNames.splice(index, 1); // remove randBobaNames[index]
         console.log(`remove, ${index} contains ${this.randBobaNames[index]}`);
-        return;
       }
 
       // TODO: write more readable error checks
-      if (!this.isDuplicate(trimmedText)) {
-        this.friends.push(trimmedText);
+      if (!formTests.isDuplicateF(this.friends, this.newFriendName)) {
+        this.friends.push(this.newFriendName);
 
         // clear
         this.newFriendName = "";
@@ -104,12 +98,12 @@ export default {
         this.empty = false;
       } else {
         // name has been added already, notify user
-        this.duplicateName = trimmedText;
+        this.duplicateName = this.newFriendName;
       }
     },
     editName(newName, oldName) {
       newName = newName.trim();
-      if (!this.isDuplicate(newName)) {
+      if (!formTests.isDuplicateF(this.friends, newName)) {
         // index of oldName
         const i = this.friends.findIndex(element => element === oldName);
         this.friends.splice(i, 1, newName); //replace
