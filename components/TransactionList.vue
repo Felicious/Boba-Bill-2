@@ -57,7 +57,6 @@ export default {
 
       // TODO: check new Transaction for duplicates
       if (!formTests.isDuplicateT(this.transactions, newTransaction)) {
-        console.log("Was isDuplicate called?");
         this.transactions.push(newTransaction);
         //reset values for new transaction
         this.transactionId++;

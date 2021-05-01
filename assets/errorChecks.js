@@ -56,10 +56,18 @@ let formTests = {
     }
   },
 
-  /* checks if new transaction is already in transactions
-    algorithm: trying DFS method, where searching if the first attribute (busnName) matches,
-      will search deep and check if the other attributes are the same.
-      If there are no matches on a level, return false (no dupl) and exit (:
+  /* 
+    algorithm: DFS method, while searching for matches, check the first attriute (busName) for a match,
+      Will check the proceeding attributes only if all the attributes before it match
+      Ex: will only need to check (3) if both the business (1) and cost (2) match 
+
+      Priority:
+      1. Business name
+      2. Amount spent
+      3. Ppl the bill is split between
+      4. Payers
+
+    return: true if new transaction is already in transactions
   */
 
   isDuplicateT(transactions, newTransaction) {
@@ -91,31 +99,46 @@ let formTests = {
            */
 
           const currentPpl = transactions[i].ppl;
-          console.log(`what array is it?: ${currentPpl}`);
+          console.log(`who are the ppl?: ${currentPpl}`);
 
           // return true if all elements of currentArray are found in newArray
           const pplMatch = currentPpl.every(person => {
             // evaluates to true if this element is found in newArray
             console.log(
-              `checking ${person}: ${transactions[i].ppl.includes(person)}`
+              `checking if ${person} (current) is found in ${newTransaction.ppl}(new)`
             );
 
-            transactions[i].ppl.includes(person);
+            console.log(newTransaction.ppl.includes(person));
+            return newTransaction.ppl.includes(person);
           });
 
-          console.log(pplMatch);
-
           if (pplMatch) {
-            console.log("TODO: the ppl match! check if payers match too");
+            console.log("the ppl match! check if payers match too");
+
+            const currentPayers = transactions[i].payers;
+            console.log(`Who are the payers? ${currentPayers}`);
+
+            const payersMatch = currentPayers.every(payer => {
+              console.log(`is ${payer} in ${newTransaction.payers}?`);
+              console.log(newTransaction.payers.includes(payer));
+              return newTransaction.payers.includes(payer);
+            });
+
+            if (payersMatch) {
+              console.log("Omg everything matches, lol. This is a duplicate");
+              return true;
+            } else {
+              console.log(
+                `the payers don't match. Time to go all the way back to checking names!`
+              );
+            }
           } else {
             console.log("the ppl don't match! moving on (:");
-            continue;
           }
         } else {
           console.log(
-            `price of newTransaction: ${newTransaction.expense} does not match with array element cost ${currentCost}. We can continue looking at other names now`
+            `new price ${newTransaction.expense} does not match with array element cost ${currentCost}. We can continue looking at other names now`
           );
-          continue; // move onto to comparing the next name
         }
       }
     }

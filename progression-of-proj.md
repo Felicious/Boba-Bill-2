@@ -377,3 +377,12 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - begin applying Holy Grail layout to center content
 - look over css to change overall display structure, while modifying comments to make css more readable
+
+### 4/30/21 Fri
+
+- I applaud myself for coding on the flight to Taiwan and worked on the js for error checks
+
+### 5/1/21 Sat
+
+- smoothening out the errors I wrote on the plane
+- refreshed myself on js basics like the callback functions `.every()`, `includes()`
