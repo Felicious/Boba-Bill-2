@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item">
+  <div class="list-item" :class="computeBackground">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
       <a class="link" v-show="hover" @click="toggle">edit</a>
@@ -39,6 +39,18 @@ export default {
     name: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    /** need to use computed function + not simply assign
+     * :class="active : edit" because the background is expected to change
+     * when this.edit changes. Setting it like how i described above is static
+     * computed is dynaamic
+     */
+    computeBackground() {
+      return {
+        "edits-active": this.edit
+      };
     }
   },
   data() {
