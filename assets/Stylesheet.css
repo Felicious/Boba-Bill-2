@@ -105,9 +105,10 @@ li {
   border-radius: 5px;
   color: gray;
   width: 8rem;
-  padding: 14px 10px 3px 10px;
+  padding: 10px 10px 3px 10px;
 }
 
+/* background color of text box*/
 .edits-active {
   background-color: #f0cbae;
   border-radius: 5px;

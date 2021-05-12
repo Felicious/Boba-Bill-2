@@ -2,7 +2,7 @@
   <div class="list-item" :class="computeBackground">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
-      <a class="link" v-show="hover" @click="toggle">edit</a>
+      <a class="link" v-show="hover" @click="edit = !edit">edit</a>
     </li>
 
     <div v-if="edit">
@@ -66,14 +66,10 @@ export default {
   methods: {
     // emits newName and oldName to the method editName in parent
     emitName() {
-      if (this.newName.length > 0) {
-        this.$emit("update:emit-name", this.newName, this.name);
-      } else {
-        this.empty = true;
-      }
-    },
-    toggle() {
-      this.edit = !this.edit;
+      // ternary operator -> conditional ? if condition : else condition
+      return this.newName.length > 0
+        ? this.$emit("update:emit-name", this.newName, this.name)
+        : (this.empty = true);
     },
     closeEditBox() {
       this.edit = false;
