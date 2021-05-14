@@ -14,7 +14,7 @@
         <span class="expense">$ {{ bill.expense }}</span>
       </div>
 
-      <div v-if="expandToggle">
+      <div v-if="toggleIcon">
         <ul>
           Split Between:
           <li v-for="name in bill.ppl" :key="name">
@@ -80,7 +80,7 @@ export default {
   },
   data() {
     return {
-      expandToggle: false,
+      toggleIcon: false,
       localBill: {},
       hover: {
         name: false,
@@ -98,12 +98,12 @@ export default {
   computed: {
     expandIcon() {
       // shows "+" when window is minimized, & vice versa
-      return this.expandToggle ? "[-]" : "[+]";
+      return this.toggleIcon ? "[-]" : "[+]";
     }
   },
   methods: {
     toggle() {
-      this.expandToggle = !this.expandToggle;
+      this.toggleIcon = !this.toggleIcon;
       this.showCost = !this.showCost;
     }
   }

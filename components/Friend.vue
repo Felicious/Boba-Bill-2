@@ -1,17 +1,20 @@
 <template>
   <div class="list-item" :class="setBackground">
     <li @mouseover="hover = true" @mouseleave="hover = false">
-      {{ name }}
+      <!--a computed getter for display name-->
+      {{ displayName }}
       <a class="link" v-show="hover" @click="edit = !edit">edit</a>
     </li>
 
     <div v-if="edit">
+      <p v-if="test">can u see me?</p>
       <!-- emits changed name to parent at "enter"-->
       <input
+        @focus="test = true"
         class="edit-name"
         type="text"
         placeholder="edited name"
-        v-model="newName"
+        v-model="localName"
         @keydown.enter="emitName"
       />
 
@@ -41,6 +44,26 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      // editing name
+      hover: false,
+      edit: false,
+      localName: "",
+      displayName: this.name,
+      //error checking
+      empty: false,
+      test: false
+    };
+  },
+
+  watch: {
+    // whenever localName changes, this function will run
+    // from vue docs, "computed"
+    localName: function() {
+      this.displayName;
+    }
+  },
   computed: {
     /** need to use computed function + not simply assign
      * :class="active : edit" because the background is expected to change
@@ -53,22 +76,13 @@ export default {
       };
     }
   },
-  data() {
-    return {
-      // editing name
-      hover: false,
-      edit: false,
-      newName: "",
-      //error checking
-      empty: false
-    };
-  },
+
   methods: {
-    // emits newName and oldName to the method editName in parent
+    // emits localName and oldName to the method editName in parent
     emitName() {
       // ternary operator -> conditional ? if condition : else condition
-      return this.newName.length > 0
-        ? this.$emit("update:emit-name", this.newName, this.name)
+      return this.localName.length > 0
+        ? this.$emit("update:emit-name", this.localName, this.name)
         : (this.empty = true);
     },
     closeEditBox() {
