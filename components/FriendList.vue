@@ -18,6 +18,7 @@
         v-for="friend in friends"
         :key="friend"
         :name="friend"
+        :friends="friends"
         @update:emit-name="editName"
       />
     </ol>
@@ -102,15 +103,9 @@ export default {
     },
     editName(newName, oldName) {
       newName = newName.trim();
-      if (!formTests.isDuplicateF(this.friends, newName)) {
-        // index of oldName
-        const i = this.friends.findIndex(element => element === oldName);
-        this.friends.splice(i, 1, newName); //replace
-      }
-      // error message
-      else {
-        this.duplicateName = newName;
-      }
+      // index of oldName
+      const i = this.friends.findIndex(element => element === oldName);
+      this.friends.splice(i, 1, newName); //replace
     }
   }
 };

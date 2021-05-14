@@ -9,6 +9,7 @@
     <div v-if="edit">
       <!-- emits changed name to parent at "enter"-->
       <input
+        @focus="setOriginalName"
         class="edit-name"
         type="text"
         placeholder="edited name"
@@ -20,8 +21,8 @@
       <button @click="closeEditBox">x</button>
 
       <!-- error checking for edited name -->
-      <p class="error" v-if="empty">
-        Can't add an empty name!
+      <p class="error" v-if="errors.length">
+        {{ showErrorMsg }}
       </p>
     </div>
   </div>
@@ -35,11 +36,16 @@ li {
 </style>
 
 <script>
+import formTests from "../assets/errorChecks.js";
+
 export default {
   props: {
     name: {
       type: String,
       required: true
+    },
+    friends: {
+      type: Array
     }
   },
   data() {
@@ -49,7 +55,8 @@ export default {
       edit: false,
       localName: "",
       //error checking
-      empty: false
+      errors: [],
+      count: 0
     };
   },
 
@@ -63,6 +70,11 @@ export default {
       return {
         "edits-active": this.edit
       };
+    },
+    showErrorMsg() {
+      if (this.errors[0] === "duplicate") {
+        return this.localName + " has already been added!";
+      }
     }
   },
 
@@ -70,13 +82,36 @@ export default {
     // emits localName and oldName to the method editName in parent
     emitName() {
       // ternary operator -> conditional ? if condition : else condition
-      return this.localName.length > 0
+
+      /*return this.localName.length > 0
         ? this.$emit("update:emit-name", this.localName, this.name)
         : (this.empty = true);
+      */
+
+      console.log("emit name called");
+
+      if (this.localName === 0) {
+        this.errors.push("empty");
+      }
+      if (formTests.isDuplicateF(this.friends, this.localName)) {
+        // failed duplicate test
+        this.errors.push("duplicate");
+      }
+
+      if (this.errors.length === 0) {
+        this.$emit("update:emit-name", this.localName, this.name);
+      }
     },
     closeEditBox() {
       this.edit = false;
       this.empty = false;
+    },
+    // called every time user clicks into textbox
+    // if they click out and click back in, this method runs again
+    // possible TODO: make sure it's called only once
+    setOriginalName() {
+      console.log(`checking if this is called more than once: ${this.count++}`);
+      this.localName = this.name;
     }
   }
 };
