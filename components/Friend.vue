@@ -2,15 +2,13 @@
   <div class="list-item" :class="setBackground">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       <!--a computed getter for display name-->
-      {{ displayName }}
+      {{ name }}
       <a class="link" v-show="hover" @click="edit = !edit">edit</a>
     </li>
 
     <div v-if="edit">
-      <p v-if="test">can u see me?</p>
       <!-- emits changed name to parent at "enter"-->
       <input
-        @focus="test = true"
         class="edit-name"
         type="text"
         placeholder="edited name"
@@ -50,20 +48,11 @@ export default {
       hover: false,
       edit: false,
       localName: "",
-      displayName: this.name,
       //error checking
-      empty: false,
-      test: false
+      empty: false
     };
   },
 
-  watch: {
-    // whenever localName changes, this function will run
-    // from vue docs, "computed"
-    localName: function() {
-      this.displayName;
-    }
-  },
   computed: {
     /** need to use computed function + not simply assign
      * :class="active : edit" because the background is expected to change
