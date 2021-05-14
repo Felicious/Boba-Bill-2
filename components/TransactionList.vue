@@ -44,8 +44,7 @@ export default {
 
   data() {
     return {
-      transactionId: 2,
-      errors: []
+      transactionId: 2
     };
   },
 
