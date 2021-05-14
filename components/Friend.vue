@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item" :class="computeBackground">
+  <div class="list-item" :class="setBackground">
     <li @mouseover="hover = true" @mouseleave="hover = false">
       {{ name }}
       <a class="link" v-show="hover" @click="edit = !edit">edit</a>
@@ -47,7 +47,7 @@ export default {
      * when this.edit changes. Setting it like how i described above is static
      * computed is dynaamic
      */
-    computeBackground() {
+    setBackground() {
       return {
         "edits-active": this.edit
       };

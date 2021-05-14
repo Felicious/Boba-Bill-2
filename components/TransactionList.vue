@@ -45,7 +45,6 @@ export default {
   data() {
     return {
       transactionId: 2,
-      currentState: "view",
       errors: []
     };
   },
