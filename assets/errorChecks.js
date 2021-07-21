@@ -7,12 +7,6 @@ let formTests = {
    * returns a mutated error array.
    *  If no errors, the array will be empty: [].
    *
-   *  a non-empty error array will always be length === 4:
-   *  ex: 1 error in payers will be stored as
-   *    [ {}, {}, {}, {id: "payers", msg: "u errored"}]
-   *
-   * to check if obj is empty, use `Object.keys()`
-   *
    */
   formIsFilled(errors, formData) {
     console.log("starting error checking!");

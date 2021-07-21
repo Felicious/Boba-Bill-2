@@ -60,6 +60,9 @@ export default {
         this.transactionId++;
       } else {
         console.log("you're adding a duplicate!");
+        /**
+         * TODO: write error message for duplicate transaction in UI
+         */
       }
     },
     editTransaction(bill, index) {
