@@ -21,9 +21,10 @@
       <button @click="closeEditBox">x</button>
 
       <!-- error checking for edited name -->
-      <p class="error" v-if="errors.length">
-        {{ showErrorMsg }}
+      <p class="error" v-if="empty">
+        Can't add an empty name.
       </p>
+      <p class="error" v-if="duplicate">{{ localName }} already added!</p>
     </div>
   </div>
 </template>
@@ -54,9 +55,9 @@ export default {
       hover: false,
       edit: false,
       localName: "",
-      //error checking
-      errors: [],
-      count: 0
+      //error checking for edited name
+      empty: false,
+      duplicate: false
     };
   },
 
@@ -70,15 +71,15 @@ export default {
       return {
         "edits-active": this.edit
       };
-    },
-    showErrorMsg() {
-      if (this.errors[0] === "duplicate") {
-        return this.localName + " has already been added!";
-      }
     }
   },
 
   methods: {
+    //helper func
+    resetFlags() {
+      this.empty = false;
+      this.duplicate = false;
+    },
     // emits localName and oldName to the method editName in parent
     emitName() {
       // ternary operator -> conditional ? if condition : else condition
@@ -88,17 +89,21 @@ export default {
         : (this.empty = true);
       */
 
+      this.resetFlags();
+      let noErrors = true; // aforementioned flag
+
       console.log("emit name called");
 
-      if (this.localName === 0) {
-        this.errors.push("empty");
+      if (this.localName.length === 0) {
+        this.empty = true;
+        noErrors = false;
       }
       if (formTests.isDuplicateF(this.friends, this.localName)) {
         // failed duplicate test
-        this.errors.push("duplicate");
+        this.duplicate = true;
+        noErrors = false;
       }
-
-      if (this.errors.length === 0) {
+      if (noErrors) {
         this.$emit("update:emit-name", this.localName, this.name);
       }
     },
@@ -110,7 +115,6 @@ export default {
     // if they click out and click back in, this method runs again
     // possible TODO: make sure it's called only once
     setOriginalName() {
-      console.log(`checking if this is called more than once: ${this.count++}`);
       this.localName = this.name;
     }
   }
