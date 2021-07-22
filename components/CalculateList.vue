@@ -7,12 +7,20 @@
         calculate
       </span>
     </button>
+
+    <Bill v-for="friend in friendsOwed" :key="friend" :friend="friend" />
+
     {{ friendsOwed }}
   </div>
 </template>
 
 <script>
+import Bill from "./Bill.vue";
 export default {
+  name: "BillList",
+  components: {
+    Bill
+  },
   // variables accepted from parent
   props: {
     friends: Array,
@@ -22,6 +30,7 @@ export default {
     return {
       // local array whose index corresponds to friends
       // do not want to mutate prop o;
+      // an obj that stores friend data
       friendsOwed: [
         //name: "",
         //owed: 0
