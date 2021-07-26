@@ -431,6 +431,7 @@ and the friend icons on the left */
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 600ms;
+  display: block; /*make the button occupy its own line*/
 
   /*mobile considerations*/
   /* remove default tap effect */
