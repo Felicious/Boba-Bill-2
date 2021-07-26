@@ -10,7 +10,7 @@
     </div>
 
     <!-- display transactions, 3 in a row -->
-    <div v-if="transactions.length" class="display">
+    <div v-if="transactions.length" class="boxContainer">
       <Transaction
         v-for="(transaction, index) in transactions"
         :friends="friends"

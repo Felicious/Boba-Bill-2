@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--the buttons-->
     <button @click="calculateAll" class="boba-button">
       <span class="shadow"></span>
       <span class="button-edge"></span>
@@ -8,8 +9,9 @@
       </span>
     </button>
 
-    <Bill v-for="friend in friendsOwed" :key="friend" :friend="friend" />
-
+    <div class="billContainer">
+      <Bill v-for="friend in friendsOwed" :key="friend" :friend="friend" />
+    </div>
     {{ friendsOwed }}
   </div>
 </template>

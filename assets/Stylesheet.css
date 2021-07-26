@@ -125,7 +125,7 @@ li {
    ~~~~~~~~~~~~ */
 
 /* parent container for displaying transactions */
-.display {
+.boxContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
@@ -487,4 +487,17 @@ and the friend icons on the left */
     hsl(323deg 0% 32%) 92%,
     hsl(323deg 0% 16%) 100%
   );
+}
+
+.billContainer {
+  display: flex;
+  /*reverse to display most recently added user first*/
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.bill-item {
+  /* ascertain these values later */
+  flex: 1 1 auto;
 }

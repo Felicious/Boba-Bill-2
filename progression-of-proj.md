@@ -388,3 +388,13 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - refreshed myself on js basics like the callback functions `.every()`, `includes()`
 - add error checks for duplicate transactions (Issue #19)
 - have extremely chatty logs for this
+
+### 7/21/21 Wed
+
+- picked up this project again after a long hiatus! :D
+- aiming to get an MVP working by the end of the week (wow can i do that?)
+- start on displaying bill
+
+### 7/23/21 Fri
+
+- review flexbox again
