@@ -1,7 +1,18 @@
 <template>
-  <div class="bill-item">
-    {{ friend.name }}
-    {{ friend.owed }}
+  <!--a single bill -->
+  <div class="bill">
+    <div class="init">
+      <span class="name">
+        {{ friend.name }}
+      </span>
+      <span class="owed">
+        {{ friend.owed }}
+      </span>
+    </div>
+    <div class="expand">
+      <a>details</a>
+    </div>
+    <div v-if="expand"></div>
   </div>
 </template>
 

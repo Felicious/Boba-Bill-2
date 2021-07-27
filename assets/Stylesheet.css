@@ -492,13 +492,20 @@ and the friend icons on the left */
 
 .billContainer {
   display: flex;
-  /*reverse to display most recently added user first*/
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   justify-content: center;
   grid-gap: 1rem;
 }
 
-.bill-item {
+.bill {
   /* ascertain these values later */
   flex: 1 1 auto;
+}
+
+/* container*/
+.init {
+  display: flex;
+  justify-content: space-between;
+  /*     top right bot left*/
+  padding: 0.25rem 0.75rem 0 1rem;
 }
