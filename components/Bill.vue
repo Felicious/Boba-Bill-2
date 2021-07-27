@@ -11,9 +11,9 @@
     </div>
 
     <div style="display: flex; justify-content: right;">
-      <span v-if="friend.owed < 0">oh my u owe money</span>
-      <span v-else>someone owes u money </span>
-      <a class="button details" @click="loadInfo">details</a>
+      <p v-if="friend.owed > 0">oh my u owe money</p>
+      <p v-else>someone owes u money</p>
+      <a class="button" @click="loadInfo">details</a>
     </div>
     <div v-if="expand"></div>
   </div>
