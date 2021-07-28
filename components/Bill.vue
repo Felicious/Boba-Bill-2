@@ -13,7 +13,8 @@
     <div style="display: flex; justify-content: right;">
       <p v-if="friend.owed > 0">oh my u owe money</p>
       <p v-else>someone owes u money</p>
-      <a class="button" @click="loadInfo">details</a>
+      <!--
+      <a class="button" @click="loadInfo">details</a> -->
     </div>
     <div v-if="expand"></div>
   </div>
@@ -27,6 +28,11 @@ export default {
       required: true
     }
     // { name, owed }
+  },
+  data() {
+    return {
+      expand: false
+    };
   }
 };
 </script>

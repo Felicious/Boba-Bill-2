@@ -398,3 +398,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 ### 7/23/21 Fri
 
 - review flexbox again
+
+## 7/27/21 Tue
+
+- learned something new about resolving bugs: an issue I was baffled with (#55) was related to how the the bill displaying how much THE SECOND person owed (Bunbun \$5.5) was clearly updated in the array (friendsOwed), but the value wasn't updating in the display when passed to the Vue Component "Bill.vue". It was weird because it would update for the first instance of the component, "Derrick", but wouldn't update "Bunbun"'s owed amount no matter what I did. Turns out, the bug was indirectly related: I had declared a method `loadInfo` but forgot to define it before going to sleep, and since JS is a procedural language, this error caused the component to bug out only after the first instance "Derrick" already rendered and updated, so the second instance "Bunbun" just failed to update because the error was finally discovered in the last iteration.
+- Lesson of the last couple of days: resolve error messages that look unrelated to your problem too! They could be silently breaking your code
