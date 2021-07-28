@@ -22,7 +22,10 @@
 <script>
 export default {
   props: {
-    friend: Object
+    friend: {
+      type: Object,
+      required: true
+    }
     // { name, owed }
   }
 };
