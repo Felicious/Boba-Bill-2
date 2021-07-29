@@ -10,7 +10,12 @@
     </button>
 
     <div class="billContainer">
-      <Bill v-for="friend in friendsOwed" :key="friend.name" :friend="friend" />
+      <Bill
+        v-for="friend in friendsOwed"
+        :key="friend.name"
+        :friend="friend"
+        :transactions="transactions"
+      />
     </div>
     calcList
     {{ friendsOwed }}
