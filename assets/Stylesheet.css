@@ -490,7 +490,7 @@ and the friend icons on the left */
   );
 }
 
-.billContainer {
+.bill-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -508,4 +508,14 @@ and the friend icons on the left */
   justify-content: space-between;
   /*     top right bot left*/
   padding: 0.25rem 0.75rem 0 1rem;
+}
+
+.bill .drop-down-button {
+  display: flex;
+  justify-content: right;
+}
+
+.bill .transaction-details {
+  display: flex;
+  justify-content: space-between;
 }

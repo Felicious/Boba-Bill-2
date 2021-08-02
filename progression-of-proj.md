@@ -408,3 +408,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - reviewed memoizing with Derrick (:
 - working on displaying bill details
+
+### 8/1/21 Sun
+
+- finished writing all of the js logic for splitting the bill and displaying what each person owes! Just need to make the bill look pretty, and some other UX stuff now :D
+- really proud

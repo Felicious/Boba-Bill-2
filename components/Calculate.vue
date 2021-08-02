@@ -10,18 +10,34 @@
       </span>
     </div>
 
-    <div style="display: flex; justify-content: right;">
-      <p v-if="friend.owed > 0">oh my u owe money</p>
-      <p v-else>someone owes u money</p>
-
+    <div class="drop-down-button">
       <a class="button" @click="loadInfo">{{ expandIcon }}</a>
     </div>
-    <div v-if="expand"></div>
+    <div v-if="expand">
+      <!--TODO: implment alternating background colors (white and milk tea colored)
+                (odd= white, even=boba) -->
+      <div
+        v-for="item in memoize"
+        :key="item.shopName"
+        class="transaction-details"
+      >
+        <span>{{ item.shopName }}</span> <span>{{ item.owed }}</span>
+      </div>
+      Total: ${{ friend.owed }}
+
+      <!--TODO: separate calculation to figure out who owes who how much-->
+
+      <p v-if="friend.owed > 0">oh my, u owe money</p>
+      <p v-else-if="friend.owed == 0"></p>
+      <p v-else>someone owes u money</p>
+    </div>
+    <!--end of transaction details-->
   </div>
 </template>
 
 <script>
 export default {
+  name: "Calculate",
   props: {
     friend: {
       // { name, owed }
@@ -73,7 +89,7 @@ export default {
       // flag for showing transaction details or not
       expand: false,
       dropDownArrow: "[ v ]",
-      memoize: [] // will be array of ids
+      memoize: [] // will be array of {shopName, owed}
     };
   }
 };

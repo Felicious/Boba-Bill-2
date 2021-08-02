@@ -9,8 +9,8 @@
       </span>
     </button>
 
-    <div class="billContainer">
-      <Bill
+    <div class="bill-container">
+      <Calculate
         v-for="friend in friendsOwed"
         :key="friend.name"
         :friend="friend"
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import Bill from "./Bill.vue";
+import Calculate from "./Calculate.vue";
 export default {
-  name: "BillList",
+  name: "CalculateList",
   components: {
-    Bill
+    Calculate
   },
   // variables accepted from parent
   props: {
