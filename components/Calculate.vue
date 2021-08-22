@@ -47,12 +47,22 @@ export default {
     transactions: Array // of objs
     // {id, name, expense, ppl, payers}
   },
+  data() {
+    return {
+      // flag for showing transaction details or not
+      expand: false,
+      dropDownArrow: "[ v ]",
+      hasLoaded: false,
+      memoize: [] // will be array of {shopName, owed}
+    };
+  },
   methods: {
-    loadInfo() {
-      this.toggle();
-      // TODO: filter "transactions" array passed in as a prop
-      //       and display transactions that friend is in
-      // the expensive function:
+    /**
+     * searches for the transaction entries related to **friend**
+      
+      returns: add entries **memoize** array
+      */
+    loadFirst() {
       this.transactions.forEach(transaction => {
         console.log(`Looking thru transactions for ${this.friend.name}`);
         // if friend is in transaction.ppl
@@ -70,6 +80,18 @@ export default {
           }
         }
       });
+    },
+    loadInfo() {
+      this.toggle();
+      // TODO: filter "transactions" array passed in as a prop
+      //       and display transactions that friend is in
+      // the expensive function:
+
+      // check if info has been loaded before
+      if (!this.hasLoaded) {
+        this.loadFirst();
+        this.hasLoaded = true;
+      }
       console.log(this.memoize);
     },
     toggle() {
@@ -83,14 +105,6 @@ export default {
     expandIcon() {
       return this.dropDownArrow ? "[ < ]" : "[ v ]";
     }
-  },
-  data() {
-    return {
-      // flag for showing transaction details or not
-      expand: false,
-      dropDownArrow: "[ v ]",
-      memoize: [] // will be array of {shopName, owed}
-    };
   }
 };
 </script>

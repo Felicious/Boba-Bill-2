@@ -600,7 +600,7 @@ formTests.formIsFilled();
 1. Use a container to wrap elements in a row.
    - containers are the bread and butter of flexbox. My naming scheme for these wrappers are \_\_\_Container
    - Without containers, you can't align
-2. `align-items` to vertically align html elemnts. [See ex](https://css-tricks.com/almanac/properties/a/align-items/)
+2. `align-items` to vertically align html elements. [See ex](https://css-tricks.com/almanac/properties/a/align-items/)
 3. Use `justify-content` to determine space between each other. [See examples](https://css-tricks.com/almanac/properties/j/justify-content/)
    - Most notable example is like when u write a diary entry, maybe u have the title aligned left, and the date aligned right on the same line. You'd use `justify-content: space-between` on the container wrapping those two `<span>` elements to display them on opposite ends
 4. Use `column-gap` within a container to put space between elements

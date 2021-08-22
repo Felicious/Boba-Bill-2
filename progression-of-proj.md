@@ -413,3 +413,8 @@ I have a problem with not giving myself enough credit for the amount of work I d
 
 - finished writing all of the js logic for splitting the bill and displaying what each person owes! Just need to make the bill look pretty, and some other UX stuff now :D
 - really proud
+
+### 8/21/21 Sat
+
+- wow i really celebrated by getting lost in games and anime LOL
+- made code more read-able by relocating 20 lines of code into a function that summarizes what those lines do
