@@ -101,12 +101,16 @@ export default {
       this.dropDownArrow = !this.dropDownArrow;
       // TODO: toggle and set "expand" to true
       this.expand = !this.expand;
+    },
+    computeParity(index) {
+      return index % 2 === 1;
     }
   },
   computed: {
     expandIcon() {
       return this.dropDownArrow ? "[ < ]" : "[ v ]";
-    },
+    }
+    /*
     computeParity(index) {
       return {
         odd: () => {
@@ -114,7 +118,7 @@ export default {
           else return false;
         }
       };
-    }
+    }*/
   }
 };
 </script>

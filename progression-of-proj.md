@@ -419,3 +419,4 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - wow i really celebrated by getting lost in games and anime LOL
 - made code more read-able by relocating 20 lines of code into a function that summarizes what those lines do
 - add flag to stop data entries from loading repeatedly
+- Derrick helped me answer some questions about computed functions :D
