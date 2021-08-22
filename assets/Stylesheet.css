@@ -502,8 +502,8 @@ and the friend icons on the left */
   flex: 1 1 auto;
 }
 
-/* container*/
-.init {
+/* container displaying name + total only*/
+.bill .init {
   display: flex;
   justify-content: space-between;
   /*     top right bot left*/
@@ -518,4 +518,8 @@ and the friend icons on the left */
 .bill .transaction-details {
   display: flex;
   justify-content: space-between;
+}
+
+.bill .bobaBackground {
+  background-color: red;
 }

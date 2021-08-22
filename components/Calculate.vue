@@ -17,9 +17,10 @@
       <!--TODO: implment alternating background colors (white and milk tea colored)
                 (odd= white, even=boba) -->
       <div
-        v-for="item in memoize"
+        v-for="(item, index) in memoize"
         :key="item.shopName"
         class="transaction-details"
+        v-bind:class="{ bobaBackground: computeParity(index) }"
       >
         <span>{{ item.shopName }}</span> <span>{{ item.owed }}</span>
       </div>
@@ -53,6 +54,7 @@ export default {
       expand: false,
       dropDownArrow: "[ v ]",
       hasLoaded: false,
+      odd: true, // used to bind bg color of details
       memoize: [] // will be array of {shopName, owed}
     };
   },
@@ -104,6 +106,14 @@ export default {
   computed: {
     expandIcon() {
       return this.dropDownArrow ? "[ < ]" : "[ v ]";
+    },
+    computeParity(index) {
+      return {
+        odd: () => {
+          if (index % 2 === 1) return true;
+          else return false;
+        }
+      };
     }
   }
 };
