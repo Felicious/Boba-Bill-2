@@ -32,7 +32,10 @@
     </div>
 
     <div>
-      <a @click="computeDollarValue(1.112)">CLICK ME</a>
+      <a @click="toDollar(1.999)">Overflow</a>
+      <a @click="toDollar(12.345)">$12.35</a>
+      <a @click="toDollar(10.25)">dont change</a>
+      <a @click="toDollar(5.2)">add 0</a>
     </div>
     <!--end of transaction details-->
   </div>
@@ -147,7 +150,11 @@ export default {
         let round = parseFloat(addDecimal);
         console.log(round);
         console.log(Math.round(round));
-        const lastDigit = Math.round(round);
+        let lastDigit = Math.round(round);
+        // account for overflow
+        if (lastDigit === 10) {
+          lastDigit = 9;
+        }
         const build =
           numbers[0] + "." + numbers[1].substring(0, 1) + lastDigit.toString();
         console.log(build);
@@ -163,6 +170,61 @@ export default {
         console.log(original);
         return original;
       }
+    },
+    /**
+     * rounds @price to the nearest cent
+     *
+     * returns a string
+     */
+    toDollar(price) {
+      const cost = price.toString();
+      // set to empty string if decimal digits is undefined
+      let [wholeNum, decimalDigits = ""] = cost.split(".");
+      console.log(`${wholeNum} , ${decimalDigits}`);
+
+      if (decimalDigits.length === 2) {
+        console.log("dont do anything");
+        return wholeNum + "." + decimalDigits;
+      }
+
+      decimalDigits += "00"; // add 2 0s regardless
+
+      /**
+       * account for overflow, for example $9.999
+       * decided to just drop the penny and save me the trouble
+       */
+      let hundredsDigit = decimalDigits.substring(1, 1);
+      // overflow, like 9.999, im just going to  x:
+      if (hundredsDigit === "9") {
+        // return as is
+        console.log("we can drop a penny and save me the trouble");
+        console.log(`${wholeNum}.${decimalDigits.substring(0, 2)}`);
+        return wholeNum + "." + decimalDigits.substring(0, 2);
+      }
+
+      /**
+       * 12.345
+       *
+       * rounding algorithm:
+       * takes hundredths digit (4)
+       *
+       * makes a new number 4.5 and rounds this value
+       * to find the new hundredths digit
+       *
+       * hundredths digit cannot be 9
+       */
+      const roundThisNumber = parseFloat(
+        hundredsDigit + "." + decimalDigits.substring(2)
+      );
+      console.log(`rounding ${roundThisNumber}`);
+
+      hundredsDigit = Math.round(roundThisNumber);
+      console.log(`return new hundredths digit ${hundredsDigit}`);
+
+      console.log(
+        `${wholeNum}.${decimalDigits.substring(0, 1)}${hundredsDigit}}`
+      );
+      return wholeNum + "." + decimalDigits.substring(0, 1) + hundredsDigit;
     }
   },
   computed: {
