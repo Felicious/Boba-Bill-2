@@ -5,7 +5,7 @@
       <span class="name">
         {{ friend.name }}
       </span>
-      <span class="owed"> $ {{ friend.owed }} </span>
+      <span class="owed"> $ {{ roundToNearestCent }} </span>
     </div>
 
     <div class="drop-down-button">
@@ -14,28 +14,29 @@
     <div v-if="expand">
       <!--TODO: implment alternating background colors (white and milk tea colored)
                 (odd= white, even=boba) -->
+      <div class="transaction-details">
+        <span>Shop name</span> <span> Cost ($)</span>
+      </div>
       <div
         v-for="(item, index) in memoize"
         :key="item.shopName"
         class="transaction-details"
         v-bind:class="{ bobaBackground: isOdd(index) }"
       >
-        <span>{{ item.shopName }}</span> <span>{{ item.owed }}</span>
+        <!-- display in cents-->
+        <span>{{ item.shopName }}</span>
+        <span>{{ displayCent(item.owed.toString()) }}</span>
       </div>
-      Total: ${{ friend.owed }}
+      <br />
+      <div class="transaction-details">
+        <span> Total: </span> <span>${{ roundToNearestCent }} </span>
+      </div>
 
       <!--TODO: separate calculation to figure out who owes who how much-->
 
       <p v-if="friend.owed > 0">oh my, u owe money</p>
       <p v-else-if="friend.owed == 0"></p>
       <p v-else>someone owes u money</p>
-    </div>
-
-    <div>
-      <a @click="toDollar(1.999)">Overflow</a>
-      <a @click="toDollar(12.345)">$12.35</a>
-      <a @click="toDollar(10.25)">dont change</a>
-      <a @click="toDollar(5.2)">add 0</a>
     </div>
     <!--end of transaction details-->
   </div>
@@ -109,75 +110,28 @@ export default {
     isOdd(index) {
       return index % 2 === 1;
     },
-    /**coding practice:
-     * write a function that rounds **price** to the nearest cent
-     * possible price inputs:
-     * 100, 100.01, 1, 1.2, 1.23, 1.234, ...
-     * if the dollar value is over $100 and whole, ignore cents
+    /** Derrick helped me write this (: Then I referenced this while writing roundToNearestCent
+     *
+     * function displays and string @price in cents
      */
-    computeDollarValue(price) {
-      const original = price.toString();
-      console.log(original);
+    displayCent(price) {
+      let [first, second = ""] = price.split(".");
+      second += "00";
 
-      const numbers = original.split(".");
-      console.log(numbers);
-
-      if (numbers.length == 1) {
-        // $100+ case
-        if (numbers[0].length > 2) {
-          // just return dollar val w/o decimals
-          console.log(`more than $10: ${numbers[0]}`);
-          return parseFloat(numbers[0]);
-        }
-        // $1 - 99 case
-        else {
-          // add .00
-          let money = numbers[0] + ".00";
-          console.log(money);
-          return parseFloat(money);
-        }
-      }
-      const decimalDigits = numbers[1];
-      console.log(decimalDigits);
-
-      // there are decimals
-      if (decimalDigits.length > 2) {
-        // case .123+
-        // delete 1
-        const sigFig = decimalDigits.substring(1);
-        console.log(sigFig);
-        const addDecimal = sigFig.substring(0, 1) + "." + sigFig.substring(1);
-        let round = parseFloat(addDecimal);
-        console.log(round);
-        console.log(Math.round(round));
-        let lastDigit = Math.round(round);
-        // account for overflow
-        if (lastDigit === 10) {
-          lastDigit = 9;
-        }
-        const build =
-          numbers[0] + "." + numbers[1].substring(0, 1) + lastDigit.toString();
-        console.log(build);
-        // truncate or round
-      } else if (decimalDigits.length == 1) {
-        // case .1
-        let money = numbers[0] + "." + numbers[1] + "0";
-        console.log(money);
-        //return parseFloat(money);
-      } else {
-        // case .12
-        console.log("dont do anything");
-        console.log(original);
-        return original;
-      }
+      return first + "." + second.substring(0, 2);
+    }
+  },
+  computed: {
+    expandIcon() {
+      return this.dropDownArrow ? "[ < ]" : "[ v ]";
     },
     /**
-     * rounds @price to the nearest cent
+     * rounds cost, stored in @friend.owed to the nearest cent
      *
      * returns a string
      */
-    toDollar(price) {
-      const cost = price.toString();
+    roundToNearestCent() {
+      const cost = this.friend.owed.toString();
       // set to empty string if decimal digits is undefined
       let [wholeNum, decimalDigits = ""] = cost.split(".");
       console.log(`${wholeNum} , ${decimalDigits}`);
@@ -193,7 +147,8 @@ export default {
        * account for overflow, for example $9.999
        * decided to just drop the penny and save me the trouble
        */
-      let hundredsDigit = decimalDigits.substring(1, 1);
+      let hundredsDigit = decimalDigits.substring(1, 2);
+      console.log(`hundredths digit ${hundredsDigit}`);
       // overflow, like 9.999, im just going to  x:
       if (hundredsDigit === "9") {
         // return as is
@@ -226,28 +181,6 @@ export default {
       );
       return wholeNum + "." + decimalDigits.substring(0, 1) + hundredsDigit;
     }
-  },
-  computed: {
-    expandIcon() {
-      return this.dropDownArrow ? "[ < ]" : "[ v ]";
-    }
-    /**
-     * takes **friend.owed** and convert it to a dollar value
-     */
-    /**
-     * can be 1, 1.2, 1.23, 1.234:
-     * write a function that converts a number into a decimal
-     * with 2 digits
-     * example: 1.00
-     */
-    /*
-    computeDollarValue(){
-      const original = this.friend.owed.toString();
-      console.log(original);
-
-      const decimalDigits = original.split(".")[1];
-      console.log(decimalDigits);
-    }*/
   }
 };
 </script>
