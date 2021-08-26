@@ -4,6 +4,7 @@
     <br />
     <input
       type="number"
+      step="0.01"
       id="name"
       class="input"
       :value="value"

@@ -14,14 +14,14 @@
     <div v-if="expand">
       <!--TODO: implment alternating background colors (white and milk tea colored)
                 (odd= white, even=boba) -->
-      <div class="transaction-details">
+      <div class="transaction-details bobaBackground">
         <span>Shop name</span> <span> Cost ($)</span>
       </div>
       <div
         v-for="(item, index) in memoize"
         :key="item.shopName"
         class="transaction-details"
-        v-bind:class="{ bobaBackground: isOdd(index) }"
+        v-bind:class="{ bobabackground: isOdd(index) }"
       >
         <!-- display in cents-->
         <span>{{ item.shopName }}</span>
