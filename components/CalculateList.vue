@@ -9,6 +9,14 @@
       </span>
     </button>
 
+    <button @click="findOwed" class="boba-button">
+      <span class="shadow"></span>
+      <span class="button-edge"></span>
+      <span class="front">
+        pay friends
+      </span>
+    </button>
+
     <div class="bill-container">
       <Calculate
         v-for="friend in friendsOwed"
@@ -43,6 +51,8 @@ export default {
         //name: "",
         //owed: 0
       ],
+      // ordered list of friendsOwed items
+      orderedFriends: [],
       flagTransaction: []
     };
   },
@@ -124,7 +134,9 @@ export default {
         }
         // don't count again if flag is true
       });
-    }
+    },
+    /** find how much each person owes to another */
+    findOwed() {}
     // end of "methods()"
   }
 };

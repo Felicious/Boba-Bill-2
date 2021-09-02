@@ -439,6 +439,12 @@ and the friend icons on the left */
   user-select: none;
 }
 
+.boba-button:hover .front {
+  transition: filter 250ms;
+  color: #fbdec8;
+  filter: brightness(110%);
+}
+
 .boba-button .front {
   display: block;
   /* to stack with the shadow and edge */
@@ -448,7 +454,7 @@ and the friend icons on the left */
   border-radius: 50%;
   font-size: 1.25rem;
   /* backgrnd: to change later*/
-  background: darkgray;
+  background: rgb(133, 131, 131);
   color: white;
 
   /* position of front relative to the others*/
