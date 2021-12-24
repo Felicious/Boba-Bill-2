@@ -135,8 +135,14 @@ export default {
         // don't count again if flag is true
       });
     },
+    rearrange() {
+      // fill orderedFriends
+    },
     /** find how much each person owes to another */
-    findOwed() {}
+    findOwed() {
+      // TODO: cache, check if something has been calculated before
+      // fill/order the arr orderedFriends
+    }
     // end of "methods()"
   }
 };
