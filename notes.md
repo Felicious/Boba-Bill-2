@@ -14,6 +14,16 @@ run the outputed binary filename.o
 
 we use vue (UI framework)
 
+# Starting a new Node Project
+1. Generate a `package.json` to handle my 3rd party packages, where node and yarn understand package.json, where the list of dependencies and build scripts are documented.
+
+To [ask Vue](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) to generate and installs the list of dependencies for us, in the root project directory, and provides a sample project
+
+```
+vue create boba-bill
+```
+
+
 # Things I should prob use
 
 ## Props
