@@ -19,3 +19,15 @@ This project is separated into three main components
 - Friends: the users who the bills will be split between
 - Transactions: details on expenditures and identifying who paid and which users participated
 - Calculate: displays, by user, how much they owe and to whom
+
+# Deployment
+
+Using the `package.json`, where the list of dependencies and build steps are, and a `deploy.yml` file we copied from Derrick to document the build steps, we can go to the terminal and type
+
+```
+npm run serve
+```
+
+to ask node to build and deploy our project.
+
+Now, we can view the project on <githubpage.com>/Boba-Bill-2
