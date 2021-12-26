@@ -28,6 +28,6 @@ Using the `package.json`, where the list of dependencies and build steps are, an
 npm run serve
 ```
 
-to ask node to build and deploy our project.
+to ask node to build and deploy our project. The resulting pages that get published to the web are stored in the `dist` folder, which we added to our gitignore.
 
-Now, we can view the project on <githubpage.com>/Boba-Bill-2
+Now, we can view the project on <githubpa.com>.com>/Boba-Bill-2
