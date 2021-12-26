@@ -420,3 +420,7 @@ I have a problem with not giving myself enough credit for the amount of work I d
 - made code more read-able by relocating 20 lines of code into a function that summarizes what those lines do
 - add flag to stop data entries from loading repeatedly
 - Derrick helped me answer some questions about computed functions :D
+
+### 12/24/21 Fri
+
+- Derrick helped me deploy my project! Others can now view it on feliciakuan.com

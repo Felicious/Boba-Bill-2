@@ -29,7 +29,7 @@ Since we are using Vue to build our project, we want a couple of the default fil
 - `package.json`
 - `main.js`, that imports the Vue library and uses the Vue object to open and run our project, placed inside the "src" folder
 - config files like `babel.config.js` and
-- `vue.config.js` which sets the url of which the project will be deployed onto
+- `vue.config.js` which sets the base url for production builds
 
 We copied these files over and deleted everything else.
 
